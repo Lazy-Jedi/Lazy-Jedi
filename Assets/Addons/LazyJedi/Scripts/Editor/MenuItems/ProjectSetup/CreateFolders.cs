@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using Directory = UnityEngine.Windows.Directory;
 
-namespace Uee.ProjectSetup
+namespace LazyJedi.Editors.MenuItems
 {
     public static class CreateFolders
     {
         #region VARIABLES
 
-        private static string _basePath = "Assets";
-        
-        // Edit this list by adding your own folders that should be created.
-        private static List<string> _folders = new List<string>
+        // Edit this list to add your own folders that should be created.
+        private static readonly List<string> _folders = new List<string>
         {
             "_Projects/Animations",
             "_Projects/Artwork/Materials",
@@ -29,21 +26,24 @@ namespace Uee.ProjectSetup
             "_Projects/Scripts/Runtime",
             "_Projects/Scripts/Editor",
         };
-        
+
         #endregion
 
         #region METHODS
 
-        [MenuItem("File/Create Project Folders", priority = 150)]
+        [MenuItem("File/Create Project Folders #&F", priority = 150)]
         public static void CreateProjectFolders()
         {
+            string basePath = "Assets";
+            
             foreach (string folder in _folders)
             {
-                string path = Path.Combine(_basePath, folder);
+                string path = Path.Combine(basePath, folder);
                 if (Directory.Exists(path)) continue;
                 Directory.CreateDirectory(path);
                 Debug.Log($"Created Folder - {path}");
             }
+
             AssetDatabase.Refresh();
         }
 
