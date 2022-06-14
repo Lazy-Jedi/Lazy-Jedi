@@ -16,8 +16,22 @@ namespace LazyJedi.Editors.Archiver
 
         #region METHODS
 
+        [MenuItem("Assets/Create/Archive/Extract Here", false, 89)]
+        public static void ExtractHere()
+        {
+            string inPath = EditorSelection.GetSelectedFilePath();
+            string outPath = EditorSelection.GetSelectedFolderPath();
+            
+            using (ArchiveFile archiveFile = new ArchiveFile(Path.GetFullPath(inPath), _7ZipLibrary))
+            {
+                archiveFile.Extract(Path.GetFullPath(outPath));
+            }
+
+            AssetDatabase.Refresh();
+        }
+
         [MenuItem("Assets/Create/Archive/Extract to Folder", false, 89)]
-        public static void ExtractArchiveToFolder()
+        public static void ExtractToFolder()
         {
             CleanFilePaths(out string inPath, out string outPath);
             using (ArchiveFile archiveFile = new ArchiveFile(Path.GetFullPath(inPath), _7ZipLibrary))
@@ -28,14 +42,14 @@ namespace LazyJedi.Editors.Archiver
             AssetDatabase.Refresh();
         }
 
+
         private static void CleanFilePaths(out string inPath, out string outPath)
         {
             outPath = string.Empty;
             inPath = EditorSelection.GetSelectedFilePath();
             if (string.IsNullOrEmpty(inPath)) return;
 
-            outPath =
-                $"{Path.GetDirectoryName(inPath)}{Path.DirectorySeparatorChar}{Path.GetFileNameWithoutExtension(inPath)}";
+            outPath = $"{Path.GetDirectoryName(inPath)}{Path.DirectorySeparatorChar}{Path.GetFileNameWithoutExtension(inPath)}";
             if (!Directory.Exists(outPath))
             {
                 Directory.CreateDirectory(outPath);
