@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Uee.UI;
+using LazyJedi.Components;
 
 #ROOTNAMESPACEBEGIN#
     public class #SCRIPTNAME# : UIControllerBase

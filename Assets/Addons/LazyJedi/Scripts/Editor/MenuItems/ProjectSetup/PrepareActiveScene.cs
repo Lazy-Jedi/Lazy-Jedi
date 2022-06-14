@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using LazyJedi.Components;
 
-#ROOTNAMESPACEBEGIN#
-    public class #SCRIPTNAME# : EntityBase
+    public class PrepareActiveScene : MonoBehaviour
     {
         #region VARIABLES
         #endregion
@@ -15,4 +13,3 @@ using LazyJedi.Components;
         #region METHODS
         #endregion
     }
-#ROOTNAMESPACEEND#
