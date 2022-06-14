@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using SerializableDictionary;
+using UnityEngine;
+
+namespace $NAMESPACE
+{
+    [CreateAssetMenu(fileName = "$SO_DICTIONARY", menuName = "Dictionary/$SO_DICTIONARY", order = 81)]
+    public class $SO_DICTIONARY : SODictionary<$KEY, $VALUE>
+    {
+        #region VARIABLES
+
+        [Header("$S_DICTIONARY")]
+        public $S_DICTIONARY $S_DICTIONARY = new $S_DICTIONARY();
+
+        #endregion
+        
+        #region METHODS
+
+        public override void Add($KEY key, $VALUE value)
+        {
+            $S_DICTIONARY.Add(key, value);
+        }
+
+        public override $VALUE Get($KEY key)
+        {
+            return $S_DICTIONARY[key];
+        }
+
+        public override void UpdateValue($KEY key, $VALUE value)
+        {
+            $S_DICTIONARY[key] = value;
+        }
+
+        public override bool Remove($KEY key)
+        {
+            return $S_DICTIONARY.Remove(key);
+        }
+
+        public override void Clear()
+        {
+            $S_DICTIONARY.Clear();
+        }
+
+        public override bool ContainsKey($KEY key)
+        {
+            return $S_DICTIONARY.ContainsKey(key);
+        }
+
+        #endregion
+    }
+}

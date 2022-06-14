@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Uee.Entity;
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : EntityBase
+    {
+        #region VARIABLES
+        #endregion
+
+        #region UNITY METHODS
+        #endregion
+
+        #region METHODS
+        #endregion
+    }
+#ROOTNAMESPACEEND#

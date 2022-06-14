@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Uee.UI;
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : UIControllerBase
+    {
+        #region VARIABLES
+        #endregion
+
+        #region UNITY METHODS
+        #endregion
+
+        #region METHODS
+        #endregion
+    }
+#ROOTNAMESPACEEND#
