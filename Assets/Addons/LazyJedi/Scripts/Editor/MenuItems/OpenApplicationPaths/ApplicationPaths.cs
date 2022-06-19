@@ -8,13 +8,13 @@ namespace LazyJedi.Editors.MenuItems
     {
         #region METHODS
 
-        [MenuItem("System/Paths/Data Path", priority = 0)]
+        [MenuItem("Lazy-Jedi/Open/Data Path", priority = 10)]
         public static void OpenApplicationDataPath()
         {
             EditorUtility.RevealInFinder(Application.dataPath);
         }
 
-        [MenuItem("System/Paths/Persistant Path", priority = 1)]
+        [MenuItem("Lazy-Jedi/Open/Persistant Path", priority = 11)]
         public static void OpenApplicationPersistantPath()
         {
             EditorUtility.RevealInFinder(Application.persistentDataPath);

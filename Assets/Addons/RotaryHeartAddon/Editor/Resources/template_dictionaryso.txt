@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using SerializableDictionary.Base;
+using UnityEngine;
+
+namespace %NAMESPACE
+{
+    [CreateAssetMenu(fileName = "%CLASSNAME", menuName = "ScriptableObjects/%CLASSNAME", order = 81)]
+    public class %CLASSNAME : ScriptableObject
+    {
+        #region VARIABLES
+
+        [Header("%SDICTIONARY")]
+        public SDictionary<%KEY, %VALUE> %SDICTIONARY = new SDictionary<%KEY, %VALUE>();
+
+        #endregion
+        
+        #region PROPERTIES
+        
+        public IEnumerable<%KEY> Keys
+        {
+            get => %SDICTIONARY.Keys;
+        }
+    
+        public IEnumerable<%VALUE> Values
+        {
+            get => %SDICTIONARY.Values;
+        }
+        
+        #endregion
+        
+        #region METHODS
+
+        public void Add(%KEY key, %VALUE value)
+        {
+            %SDICTIONARY.Add(key, value);
+        }
+
+        public %VALUE Get(%KEY key)
+        {
+            return %SDICTIONARY[key];
+        }
+
+        public void UpdateValue(%KEY key, %VALUE value)
+        {
+            %SDICTIONARY[key] = value;
+        }
+        
+        public bool HasUpdatedValue(%KEY key, %VALUE value)
+        {
+            if (!%SDICTIONARY.ContainsKey(key)) return false;
+            %SDICTIONARY[key] = value;
+            return true;
+        }
+
+        public bool Remove(%KEY key)
+        {
+            return %SDICTIONARY.Remove(key);
+        }
+        
+        public void Clear()
+        {
+            %SDICTIONARY.Clear();
+        }
+
+        public bool ContainsKey(%KEY key)
+        {
+            return %SDICTIONARY.ContainsKey(key);
+        }
+        
+        public bool ContainsValue(%VALUE value)
+        {
+            return %SDICTIONARY.ContainsValue(value);
+        }
+        
+        #endregion
+    }
+}

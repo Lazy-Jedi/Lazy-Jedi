@@ -10,38 +10,41 @@ namespace LazyJedi.Editors.MenuItems
     {
         #region VARIABLES
 
-        // Edit this list to add your own folders that should be created.
-        private static readonly List<string> _folders = new List<string>
-        {
-            "_Projects/Animations",
-            "_Projects/Artwork/Materials",
-            "_Projects/Artwork/UI",
-            "_Projects/Artwork/Icons",
-            "_Projects/Artwork/Fonts",
-            "_Projects/Audio/SFX",
-            "_Projects/Audio/BGM",
-            "_Projects/Prefabs",
-            "_Projects/Scenes",
-            "_Projects/ScriptableObjects",
-            "_Projects/Scripts/Runtime",
-            "_Projects/Scripts/Editor",
-        };
+        private static string _basePath = "Assets";
 
         #endregion
+
+        public static List<string> Folders = new List<string>()
+        {
+            "_Projects/",
+            "_Projects/Artwork",
+            "_Projects/Scripts",
+            "_Projects/Prefabs",
+            "_Projects/Scripts/Runtime",
+            "_Projects/Scripts/Editor",
+            "_Projects/Audio",
+            "_Projects/Audio/SFX",
+            "_Projects/Audio/BGM",
+            "_Projects/ScriptableObjects",
+        };
 
         #region METHODS
 
         [MenuItem("File/Create Project Folders #&F", priority = 150)]
-        public static void CreateProjectFolders()
+        private static void CreateProjectFolders()
         {
-            string basePath = "Assets";
-            
-            foreach (string folder in _folders)
+            CreateProjectFolders(Folders);
+        }
+
+        public static void CreateProjectFolders(List<string> folders, bool log = true)
+        {
+            foreach (string folder in folders)
             {
-                string path = Path.Combine(basePath, folder);
+                string path = Path.Combine(_basePath, folder);
                 if (Directory.Exists(path)) continue;
+
                 Directory.CreateDirectory(path);
-                Debug.Log($"Created Folder - {path}");
+                if (log) Debug.Log($"Created Folder - {folder}");
             }
 
             AssetDatabase.Refresh();

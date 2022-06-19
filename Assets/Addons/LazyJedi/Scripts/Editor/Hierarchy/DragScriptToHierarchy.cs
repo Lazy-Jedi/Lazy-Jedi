@@ -1,3 +1,7 @@
+// Creator - Kearan
+// Date - 13 June 2022
+// Link - https://github.com/BLUDRAG
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;
