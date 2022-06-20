@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
-using TextAsset = UnityEngine.TextCore.Text.TextAsset;
 
 namespace RotaryHeartAddon.Internal
 {
@@ -21,14 +20,11 @@ namespace RotaryHeartAddon.Internal
 
         #region TEMPLATE PATHS
 
-        private static string _dictionarySoTemplatePath =
-            "Assets/Addons/RotaryHeartAddon/Editor/Resources/template_dictionaryso.txt";
+        private static string _dictionarySoTemplatePath = "template_dictionaryso";
 
-        private static string _monoDictionaryTemplatePath =
-            "Assets/Addons/RotaryHeartAddon/Editor/Resources/template_monobehaviour_dictionary.txt";
+        private static string _monoDictionaryTemplatePath = "template_monobehaviour_dictionary";
 
-        private static string _sDictionaryTemplatePath =
-            "Assets/Addons/RotaryHeartAddon/Editor/Resources/template_serialized_dictionary.txt";
+        private static string _sDictionaryTemplatePath = "template_serialized_dictionary";
 
         #endregion
 
@@ -48,8 +44,7 @@ namespace RotaryHeartAddon.Internal
 
         public static string CreateFromTemplate(Templates templates, string className, string sClassName, string key, string value, string @namespace = "")
         {
-            List<string> template = File.ReadLines(ToFilePath(templates)).ToList();
-
+            List<string> template = ToStringList(templates);
             string rootNamespace = @namespace;
             if (string.IsNullOrEmpty(rootNamespace)) rootNamespace = EditorSettings.projectGenerationRootNamespace;
 
@@ -90,7 +85,6 @@ namespace RotaryHeartAddon.Internal
                 {
                     template[i] = template[i].Replace(_valueTag, value);
                 }
-
             }
 
             if (hasNamespace) return string.Join("\n", template);
@@ -99,6 +93,7 @@ namespace RotaryHeartAddon.Internal
             template.RemoveAt(namespaceIndex + 1); // Remove { after namespace
             template.RemoveAt(namespaceIndex); // Remove namespace
 
+            Resources.UnloadUnusedAssets();
             return string.Join("\n", template);
         }
 
@@ -106,18 +101,18 @@ namespace RotaryHeartAddon.Internal
 
         #region HELPERS
 
-        private static string ToFilePath(Templates template)
+        private static List<string> ToStringList(Templates template)
         {
             switch (template)
             {
                 case Templates.SDictionary:
-                    return _sDictionaryTemplatePath;
+                    return Resources.Load<TextAsset>(_sDictionaryTemplatePath).text.Split('\n').ToList();
                 case Templates.MonoDictionary:
-                    return _monoDictionaryTemplatePath;
+                    return Resources.Load<TextAsset>(_monoDictionaryTemplatePath).text.Split('\n').ToList();
                 case Templates.SoDictionary:
-                    return _dictionarySoTemplatePath;
+                    return Resources.Load<TextAsset>(_dictionarySoTemplatePath).text.Split('\n').ToList();
                 default:
-                    throw new Exception($"Dictionary Template - {template} is not defined!");
+                    throw new Exception($"Template - {template} is not defined!");
             }
         }
 
