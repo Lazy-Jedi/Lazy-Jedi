@@ -17,10 +17,8 @@ namespace RotaryHeartAddon.Editors
         public static void OpenWindow()
         {
             Window = GetWindow<DictionaryCreatorWindow>("S-Dictionary Creator");
-            Window.minSize = new Vector2(768, 256);
+            Window.minSize = new Vector2(768, 384);
             Window.Show();
-
-            Window.InitializeStyles();
         }
 
         [MenuItem("Assets/Create/Serializable Dictionary", priority = 81)]
@@ -99,21 +97,18 @@ namespace RotaryHeartAddon.Editors
                     _sDictionaryTab = true;
                     _monoBehaviourTab = false;
                     _scriptableObjectTab = false;
-                    ClearFields();
                 }
                 else if (GUILayout.Button($"Create MonoBehaviour + S-Dictionary {(_monoBehaviourTab ? _tick : _cross)}", EditorStyles.miniButtonMid))
                 {
                     _sDictionaryTab = false;
                     _monoBehaviourTab = true;
                     _scriptableObjectTab = false;
-                    ClearFields();
                 }
                 else if (GUILayout.Button($"Create ScriptableObject + S-Dictionary {(_scriptableObjectTab ? _tick : _cross)}", EditorStyles.miniButtonRight))
                 {
                     _sDictionaryTab = false;
                     _monoBehaviourTab = false;
                     _scriptableObjectTab = true;
-                    ClearFields();
                 }
             }
         }
@@ -156,7 +151,8 @@ namespace RotaryHeartAddon.Editors
         private void CreateButtonDrawer()
         {
             EditorGUILayout.Space(8f);
-            EditorGUILayout.LabelField($"Output Path: {_selectedPath}");
+            EditorGUILayout.LabelField($"Output Path: {(string.IsNullOrEmpty(_selectedPath) ? "User Selected Path via Save File Dialog" : _selectedPath)}",
+                EditorStyles.helpBox);
             if (GUILayout.Button("Create"))
             {
                 if (_sDictionaryTab)
@@ -251,18 +247,11 @@ namespace RotaryHeartAddon.Editors
             if (string.IsNullOrEmpty(path))
             {
                 _notification = "Path to Save Script cannot be Empty String!";
+                return;
             }
 
             _notification = $"File {scriptName} has been Created!";
             File.WriteAllText(path, script);
-        }
-
-        private void ClearFields()
-        {
-            _className = string.Empty;
-            _sDictionaryName = string.Empty;
-            _key = string.Empty;
-            _value = string.Empty;
         }
 
         #endregion
@@ -278,7 +267,7 @@ namespace RotaryHeartAddon.Editors
                     alignment = TextAnchor.MiddleCenter,
                     fontStyle = FontStyle.Normal
                 };
-                _centerLabelStyle.normal.textColor = Color.white;
+                _centerLabelStyle.normal.textColor = EditorGUIUtility.isProSkin ? Color.white : Color.black;
             }
 
             if (_centerErrorTextStyle == null)
@@ -289,7 +278,7 @@ namespace RotaryHeartAddon.Editors
                     fontSize = 12,
                     fontStyle = FontStyle.Normal,
                 };
-                _centerErrorTextStyle.normal.textColor = new Color(0.93f, 0.87f, 1f);
+                _centerErrorTextStyle.normal.textColor = EditorGUIUtility.isProSkin ? new Color(0.93f, 0.87f, 1f) : Color.black;
             }
         }
 

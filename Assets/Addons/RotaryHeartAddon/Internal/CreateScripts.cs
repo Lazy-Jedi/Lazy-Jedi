@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
+using TextAsset = UnityEngine.TextCore.Text.TextAsset;
 
 namespace RotaryHeartAddon.Internal
 {
@@ -20,13 +22,13 @@ namespace RotaryHeartAddon.Internal
         #region TEMPLATE PATHS
 
         private static string _dictionarySoTemplatePath =
-            "Assets/Addons/SerializableDictionary/Editor/Resources/template_dictionaryso.txt";
+            "Assets/Addons/RotaryHeartAddon/Editor/Resources/template_dictionaryso.txt";
 
         private static string _monoDictionaryTemplatePath =
-            "Assets/Addons/SerializableDictionary/Editor/Resources/template_monobehaviour_dictionary.txt";
+            "Assets/Addons/RotaryHeartAddon/Editor/Resources/template_monobehaviour_dictionary.txt";
 
         private static string _sDictionaryTemplatePath =
-            "Assets/Addons/SerializableDictionary/Editor/Resources/template_serialized_dictionary.txt";
+            "Assets/Addons/RotaryHeartAddon/Editor/Resources/template_serialized_dictionary.txt";
 
         #endregion
 

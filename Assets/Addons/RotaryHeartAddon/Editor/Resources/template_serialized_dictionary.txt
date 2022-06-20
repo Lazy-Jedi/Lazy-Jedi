@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SerializableDictionary.Base;
+using RotaryHeartAddon.Base;
 using UnityEngine;
 
 namespace %NAMESPACE
