@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using System.Collections.Generic;
 using System.IO;
+using LazyJedi.Editors.Internal;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,29 +15,18 @@ namespace LazyJedi.Editors.MenuItems
 
         #endregion
 
-        public static List<string> Folders = new List<string>()
-        {
-            "_Projects/",
-            "_Projects/Artwork",
-            "_Projects/Scripts",
-            "_Projects/Prefabs",
-            "_Projects/Scripts/Runtime",
-            "_Projects/Scripts/Editor",
-            "_Projects/Audio",
-            "_Projects/Audio/SFX",
-            "_Projects/Audio/BGM",
-            "_Projects/ScriptableObjects",
-        };
-
         #region METHODS
 
         [MenuItem("File/Create Project Folders #&F", priority = 150)]
         private static void CreateProjectFolders()
         {
-            CreateProjectFolders(Folders);
+            ProjectSetup projectSetup = new ProjectSetup();
+            projectSetup.LoadSettings();
+
+            CreateProjectFolders(projectSetup.Folders);
         }
 
-        public static void CreateProjectFolders(List<string> folders, bool log = true)
+        public static void CreateProjectFolders(List<string> folders)
         {
             foreach (string folder in folders)
             {
@@ -44,7 +34,6 @@ namespace LazyJedi.Editors.MenuItems
                 if (Directory.Exists(path)) continue;
 
                 Directory.CreateDirectory(path);
-                if (log) Debug.Log($"Created Folder - {folder}");
             }
 
             AssetDatabase.Refresh();

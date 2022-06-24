@@ -10,27 +10,27 @@ public static class GameObjectExtension
     #region GAMEOBJECT EXTENSIONS METHODS
 
     /// <summary>
-    /// Get Transform Parent of this GameObject otherwise return This GameObject Transform if there is no Parent.
+    /// Get the Parents Transform of this GameObject, otherwise return this GameObjects Transform if there is no Parent.
     /// </summary>
     /// <param name="gameObject"></param>
     /// <returns></returns>
-    public static Transform Parent(this GameObject gameObject)
+    public static Transform GetParent(this GameObject gameObject)
     {
-        return gameObject.transform.parent ? gameObject.transform.parent : gameObject.transform;
+        return !gameObject.transform.parent ? gameObject.transform : gameObject.transform.parent;
     }
 
     /// <summary>
-    /// Get the GameObject Parent of this GameObject otherwise return This GameObject if there is no Parent GameObject.
+    /// Get the Parents GameObject, of this GameObject otherwise return this GameObject if there is no Parent.
     /// </summary>
     /// <param name="gameObject"></param>
     /// <returns></returns>
-    public static GameObject ParentGameObject(this GameObject gameObject)
+    public static GameObject GetParentGo(this GameObject gameObject)
     {
-        return gameObject.Parent() ? gameObject.Parent().gameObject : gameObject;
+        return gameObject.GetParent().gameObject;
     }
 
     /// <summary>
-    /// Set The Parent of this GameObject.
+    /// Set the Parent of this GameObject.
     /// </summary>
     /// <param name="gameObject"></param>
     /// <param name="parent"></param>
@@ -40,7 +40,7 @@ public static class GameObjectExtension
     }
 
     /// <summary>
-    /// Set The Parent of this GameObject.
+    /// Set the Parent of this GameObject.
     /// </summary>
     /// <param name="gameObject"></param>
     /// <param name="parent"></param>
@@ -74,6 +74,20 @@ public static class GameObjectExtension
     public static void Destroy(this GameObject gameObject)
     {
         Object.Destroy(gameObject);
+    }
+
+    /// <summary>
+    /// Clone this Object
+    /// </summary>
+    /// <param name="gameObject"></param>
+    /// <param name="position"></param>
+    /// <param name="identity"></param>
+    /// <param name="parent"></param>
+    /// <returns></returns>
+    public static GameObject Clone(this GameObject gameObject, Vector3 position = new Vector3(), Quaternion identity = new Quaternion(),
+        Transform parent = null)
+    {
+        return Object.Instantiate(gameObject, position, identity, parent);
     }
 
     #endregion

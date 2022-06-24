@@ -13,7 +13,7 @@ namespace RotaryHeartAddon.Editors
 
         public static DictionaryCreatorWindow Window;
 
-        [MenuItem("Lazy-Jedi/Create/Serializable Dictionary", priority = 20)]
+        [MenuItem("Lazy-Jedi/Create/Serializable Dictionary", priority = 300)]
         public static void OpenWindow()
         {
             Window = GetWindow<DictionaryCreatorWindow>("S-Dictionary Creator");
@@ -46,16 +46,17 @@ namespace RotaryHeartAddon.Editors
         private bool _monoBehaviourTab;
         private bool _scriptableObjectTab;
 
+        private bool _useRootNamespace = false;
         private string _namespace;
         private string _className;
         private string _sDictionaryName;
 
         private string _key;
-        private int _keyIndex;
+        private int _keyIndex = 1;
         private string _value;
-        private int _valueIndex;
+        private int _valueIndex = 1;
 
-        private bool _showNamespace = false;
+        private bool _useNamespace = false;
         private string _notification = string.Empty;
 
         private string _tick = "✓";
@@ -92,7 +93,7 @@ namespace RotaryHeartAddon.Editors
             EditorGUILayout.LabelField("Choose your Template", _centerLabelStyle);
             using (EditorGUILayout.HorizontalScope horizontalScope = new EditorGUILayout.HorizontalScope(EditorStyles.helpBox))
             {
-                if (GUILayout.Button($"Create Serialized Dictionary {(_sDictionaryTab ? _tick : _cross)}", EditorStyles.miniButtonLeft))
+                if (GUILayout.Button($"Create Serializable-Dictionary {(_sDictionaryTab ? _tick : _cross)}", EditorStyles.miniButtonLeft))
                 {
                     _sDictionaryTab = true;
                     _monoBehaviourTab = false;
@@ -116,9 +117,16 @@ namespace RotaryHeartAddon.Editors
         private void NamespaceDrawer()
         {
             EditorGUILayout.Space(16f);
-            _showNamespace = EditorGUILayout.ToggleLeft("Show Namespace", _showNamespace);
+            _useNamespace = EditorGUILayout.ToggleLeft("Use Namespace", _useNamespace);
 
-            if (!_showNamespace) return;
+            if (!_useNamespace) return;
+
+            EditorGUI.BeginChangeCheck();
+            _useRootNamespace = EditorGUILayout.ToggleLeft($"Use Root Namespace ({EditorSettings.projectGenerationRootNamespace}):", _useRootNamespace);
+            if (EditorGUI.EndChangeCheck())
+            {
+                _namespace = _useRootNamespace ? EditorSettings.projectGenerationRootNamespace : string.Empty;
+            }
 
             TextFieldDrawerHelper(
                 "Namespace",
@@ -163,7 +171,7 @@ namespace RotaryHeartAddon.Editors
                         "",
                         _key,
                         _value,
-                        _namespace
+                        _useNamespace ? _namespace : string.Empty
                     ), _sDictionaryName);
                 }
 
@@ -175,7 +183,7 @@ namespace RotaryHeartAddon.Editors
                         _sDictionaryName,
                         _key,
                         _value,
-                        _namespace
+                        _useNamespace ? _namespace : string.Empty
                     ), _className);
                 }
 
@@ -187,7 +195,7 @@ namespace RotaryHeartAddon.Editors
                         _sDictionaryName,
                         _key,
                         _value,
-                        _namespace
+                        _useNamespace ? _namespace : string.Empty
                     ), _className);
                 }
 

@@ -14,7 +14,7 @@ public static class ObjectExtension
     /// <returns></returns>
     public static bool IsNull(this object @object)
     {
-        return @object is null;
+        return @object == null;
     }
 
     /// <summary>
@@ -24,7 +24,7 @@ public static class ObjectExtension
     /// <returns></returns>
     public static bool IsNotNull(this object @object)
     {
-        return !(@object is null);
+        return @object != null;
     }
 
     /// <summary>
@@ -44,6 +44,6 @@ public static class ObjectExtension
     /// <returns></returns>
     public static bool IsNotNull(this Object @object)
     {
-        return !@object;
+        return !@object.IsNull();
     }
 }

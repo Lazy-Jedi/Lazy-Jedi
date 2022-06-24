@@ -25,9 +25,9 @@ namespace LazyJedi.Components
         /// <summary>
         /// Destroy Object
         /// </summary>
-        public virtual void DestroyInstance()
+        public virtual void DestroyGO()
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace LazyJedi.Components
 
         #endregion
 
-        #region EVENT METHODS
+        #region DO METHODS
 
         /// <summary>
         /// Do anything required to be called during Awake here.

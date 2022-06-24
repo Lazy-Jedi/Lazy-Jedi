@@ -45,10 +45,8 @@ namespace RotaryHeartAddon.Internal
         public static string CreateFromTemplate(Templates templates, string className, string sClassName, string key, string value, string @namespace = "")
         {
             List<string> template = ToStringList(templates);
-            string rootNamespace = @namespace;
-            if (string.IsNullOrEmpty(rootNamespace)) rootNamespace = EditorSettings.projectGenerationRootNamespace;
 
-            bool hasNamespace = !string.IsNullOrEmpty(rootNamespace);
+            bool hasNamespace = !string.IsNullOrEmpty(@namespace);
 
             int length = template.Count;
             int namespaceIndex = 0;
@@ -62,7 +60,7 @@ namespace RotaryHeartAddon.Internal
 
                 if (hasNamespace && template[i].Contains(_namespaceTag))
                 {
-                    template[i] = template[i].Replace(_namespaceTag, rootNamespace);
+                    template[i] = template[i].Replace(_namespaceTag, @namespace);
                     continue;
                 }
 

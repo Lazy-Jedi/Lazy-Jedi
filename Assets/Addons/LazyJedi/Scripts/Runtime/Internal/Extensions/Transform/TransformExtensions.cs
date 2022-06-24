@@ -13,9 +13,7 @@ public static class TransformExtensions
     {
         Vector3 position = transform.position;
 
-        return new Vector3Int(Mathf.RoundToInt(position.x),
-            Mathf.RoundToInt(position.y),
-            Mathf.RoundToInt(position.z));
+        return new Vector3Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y), Mathf.RoundToInt(position.z));
     }
 
     /// <summary>
@@ -37,7 +35,8 @@ public static class TransformExtensions
     /// <param name="layer"></param>
     public static void SetColliderInteractionLayers(this Transform transform, string layer)
     {
-        foreach (Collider child in transform.GetComponentsInChildren<Collider>())
+        Collider[] colliders = transform.GetComponentsInChildren<Collider>();
+        foreach (Collider child in colliders)
             child.gameObject.layer = LayerMask.NameToLayer(layer);
     }
 
@@ -54,8 +53,24 @@ public static class TransformExtensions
                     Object.Destroy(child.gameObject);
     }
 
-    public static void SetActive(this Transform transform, bool value)
+    public static void Activate(this Transform transform)
     {
-        transform.gameObject.SetActive(value);
+        transform.gameObject.SetActive(true);
+    }
+
+    public static void Deactivate(this Transform transform)
+    {
+        transform.gameObject.SetActive(false);
+    }
+
+    public static void Destroy(this Transform transform)
+    {
+        Object.Destroy(transform.gameObject);
+    }
+
+    public static Transform Clone(this Transform transform, Vector3 position = new Vector3(), Quaternion identity = new Quaternion(),
+        Transform parent = null)
+    {
+        return Object.Instantiate(transform.gameObject, position, identity, parent).transform;
     }
 }
