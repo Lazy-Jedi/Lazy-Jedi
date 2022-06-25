@@ -39,6 +39,8 @@ namespace LazyJedi.Editors.MenuItems
 
         private Vector2 _scrollPosition = Vector2.zero;
 
+        private GUIContent _resoucesGUIContent = new GUIContent("Resources Folder:", "Select your Local Resources Folder.");
+
         #endregion
 
         #region VARIABLES
@@ -47,6 +49,8 @@ namespace LazyJedi.Editors.MenuItems
 
         private string _companyName;
         private string _productName;
+
+        private string _resourcesFolder;
 
         private Texture2D _productIcon;
 
@@ -73,6 +77,7 @@ namespace LazyJedi.Editors.MenuItems
                 ProductIconDrawer();
                 ProductCursor();
                 ProductInfoDrawer();
+                ResourcesFolderDrawer();
                 FolderDrawer();
                 if (EditorGUI.EndChangeCheck())
                 {
@@ -116,6 +121,29 @@ namespace LazyJedi.Editors.MenuItems
         {
             _companyName = EditorGUILayout.TextField("Company Name:", _companyName);
             _productName = EditorGUILayout.TextField("Product Name:", _productName);
+        }
+
+        private void ResourcesFolderDrawer()
+        {
+            using (EditorGUILayout.HorizontalScope horizontalScope = new EditorGUILayout.HorizontalScope())
+            {
+                EditorGUI.BeginChangeCheck();
+                _resourcesFolder = EditorGUILayout.TextField(_resoucesGUIContent, _resourcesFolder);
+
+                if (GUILayout.Button("Browse", GUILayout.Width(64f)))
+                {
+                    _resourcesFolder = EditorUtility.OpenFolderPanel("Resources Folder", Application.dataPath, "");
+                    if (string.IsNullOrEmpty(_resourcesFolder))
+                    {
+                        Debug.Log("No Folder Selected.");
+                    }
+                }
+
+                if (EditorGUI.EndChangeCheck())
+                {
+                    _changeOccured = true;
+                }
+            }
         }
 
         private void FolderDrawer()
@@ -233,6 +261,7 @@ namespace LazyJedi.Editors.MenuItems
             if (!string.IsNullOrEmpty(_projectSetup.CompanyName)) _companyName = _projectSetup.CompanyName;
             _folders = _projectSetup.Folders;
             _count = _folders.Count;
+            _resourcesFolder = _projectSetup.ResourcesFolder;
         }
 
         private void SaveData()
@@ -242,6 +271,7 @@ namespace LazyJedi.Editors.MenuItems
             Debug.Log("Save Data");
             _projectSetup.CompanyName = _companyName;
             _projectSetup.Folders = _folders;
+            _projectSetup.ResourcesFolder = _resourcesFolder;
             _projectSetup.SaveSettings();
         }
 

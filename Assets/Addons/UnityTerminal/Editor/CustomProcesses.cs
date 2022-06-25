@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
-
 using System.Threading.Tasks;
+using LazyJedi.Editors.Internal;
 using UnityEditor;
 
 namespace UnityTerminal
@@ -15,12 +15,17 @@ namespace UnityTerminal
     /// </summary>
     public static class CustomProcesses
     {
-        #region VARIABLES
+        #region PROPERTIES
 
-        /// <summary>
-        /// Change to your Resources Folder for a Quick Easy Access.
-        /// </summary>
-        private const string RESOURCES_FOLDER = @"E:\Pictures\Resources";
+        private static string ResourcesFolder
+        {
+            get
+            {
+                ProjectSetup projectSetup = new ProjectSetup();
+                projectSetup.LoadSettings();
+                return projectSetup.ResourcesFolder.Replace("/", "\\");
+            }
+        }
 
         #endregion
 
@@ -43,9 +48,9 @@ namespace UnityTerminal
         #region PERSONAL
 
         [MenuItem("Lazy-Jedi/Open/Resources Folder %#O", priority = 200)]
-        public static async void OpenPersonalResourcesFolder()
+        public static void OpenPersonalResourcesFolder()
         {
-            await Task.Run(() => ProcessUtilities.StartAdvProcess("explorer.exe", RESOURCES_FOLDER));
+            ProcessUtilities.StartAdvProcess("explorer.exe", ResourcesFolder);
         }
 
         #endregion

@@ -1,7 +1,9 @@
 {
     "name": "UnityTerminal",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:91d4f638a9ba2a54fa915d70b8ddaf1d"
+    ],
     "includePlatforms": [
         "Editor"
     ],

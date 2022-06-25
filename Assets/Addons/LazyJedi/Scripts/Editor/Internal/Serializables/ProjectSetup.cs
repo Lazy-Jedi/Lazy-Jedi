@@ -13,6 +13,9 @@ namespace LazyJedi.Editors.Internal
         [Header("Project Properties")]
         public string CompanyName = string.Empty;
 
+        [Header("Resources Folder")]
+        public string ResourcesFolder = string.Empty;
+
         [Header("Folders")]
         public List<string> Folders = new List<string>()
         {
