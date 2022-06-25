@@ -423,7 +423,7 @@ To use the Archive tools, you just need to right-click on an Archive, Choose Arc
 # Credits
 
 ## Creators
-1. Mentor and Nakama - [BluMalice](https://github.com/BLUDRAG)
+1. Nakama & Mentor [BluMalice](https://github.com/BLUDRAG)
 
 ## Assets
 
