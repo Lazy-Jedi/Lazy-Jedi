@@ -1,4 +1,7 @@
-// Created by Kearan Petersen : https://www.blumalice.wordpress.com | https://www.linkedin.com/in/kearan-petersen/
+/*
+ * Created By: BluMalice
+ * GitHub - https://github.com/Lazy-Jedi/Lazy-Jedi
+ */
 
 using UnityEngine;
 

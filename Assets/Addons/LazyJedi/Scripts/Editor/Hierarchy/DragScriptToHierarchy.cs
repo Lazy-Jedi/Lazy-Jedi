@@ -1,6 +1,7 @@
-// Creator - Kearan
-// Date - 13 June 2022
-// Link - https://github.com/BLUDRAG
+/*
+ * Created By: BluMalice
+ * GitHub - https://github.com/Lazy-Jedi/Lazy-Jedi
+ */
 
 using System;
 using System.Collections.Generic;

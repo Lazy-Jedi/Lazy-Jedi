@@ -143,6 +143,10 @@ public static class CustomProcesses
 }
 ```
 
+## Hierarchy
+### Drag and Drop Script
+### Group Objects
+
 # Runtime
 
 ## Extensions
@@ -150,7 +154,7 @@ public static class CustomProcesses
 For Practical examples please look at the Extension Examples in the Examples folder.
 The examples will help you understand how to use the Various Extension methods that are available.
 
-* GameObject -
+* GameObject
     * Activate(),
     * Deactivate(),
     * Destroy(),

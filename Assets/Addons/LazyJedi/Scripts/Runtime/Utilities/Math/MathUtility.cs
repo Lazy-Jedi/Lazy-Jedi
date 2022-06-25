@@ -1,6 +1,6 @@
 ﻿/*
- * Created By: Ubaidullah Effendi-Emjedi
- * LinkedIn : https://www.linkedin.com/in/ubaidullah-effendi-emjedi-202494183/
+ * Created By: BluMalice
+ * GitHub - https://github.com/Lazy-Jedi/Lazy-Jedi
  */
 
 namespace LazyJedi.Utility

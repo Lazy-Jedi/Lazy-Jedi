@@ -1,8 +1,7 @@
 /*
- * Created By: Ubaidullah Effendi-Emjedi
- * LinkedIn : https://www.linkedin.com/in/ubaidullah-effendi-emjedi-202494183/
+ * Created By: Uee
+ * GitHub - https://github.com/Lazy-Jedi/Lazy-Jedi
  */
-
 using System;
 using Random = System.Random;
 
