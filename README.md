@@ -1,8 +1,29 @@
 # Lazy Jedi
 The Lazy Jedi is a lite Unity Library of really cool Editor Tools and Runtime scripts that will spice up any project really fast.
 
-# Editor Tools
+# Editor
 ## Project Setup
+The Project Setup Window helps you to quickly setup any Unity Project with a few simple clicks.
+
+To open the Project Settings Window, you can Press the following Shortcut "Shift+Alt+P" or
+navigate the MenuBar<br>Lazy-Jedi/Setup/Project Setup<br>
+![](~Documentation/Images/open-project-settings.png)
+
+Following settings can be edited in the Project Setup Window:
+* Product Icon
+* Cursor Image
+* Cursor Hotspot (only visible if you have a cursor image)
+* Company Name
+* Product Name
+* Project Folders (Editable List and the Folders are only created if you click the "**Create Folders**" button)
+
+The Company name and the Folders List is serialized to a .json file on your Machine.<br>
+You can find that file at Application.persistentPath + /Uee/LazyJedi
+
+The tool does come with an "Auto Save" feature that will automatically save your settings everytime you make a change to the Folders List or Company name.
+However, if you are not using Auto Save, please use the **"Save Settings"** Button.
+![](~Documentation/Images/project-setup.png)
+
 ## Open
 ### Application Paths
 ### Resources Folder
