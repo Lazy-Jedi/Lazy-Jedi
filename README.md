@@ -16,11 +16,15 @@ Following settings can be edited in the Project Setup Window:
 
 * Product Icon
 * Cursor Image
-* Cursor Hotspot (only visible if you have a cursor image)
+* Cursor Hotspot 
+  * Only visible if you have a cursor image
 * Company Name
 * Product Name
-* Resources Folder (Your Local Resources Folder on your Computer)
-* Project Folders (Editable List and the Folders are only created if you click the "**Create Folders**" button)
+* Resources Folder 
+  * Your Local Resources Folder on your Computer,
+  * You can leave it blank if you do not want to add it
+* Project Folders
+  * Editable List and the Folders are only created if you click the "**Create Folders**" button
 
 The Company name, Resources Folder and the Folders List is serialized to a .json file on your Machine.<br>
 You can find that file at Application.persistentPath + /Uee/LazyJedi
@@ -53,6 +57,25 @@ The "Open/Application Paths" allows you to easily open the Directories for these
 ## Create
 
 ### Serializable Dictionary Creator
+My Serializable Dictionary Creator, you can easily create different Serializable Dictionary Implementations for
+MonoBehaviours, Scriptable Objects and Serialized Dictionary Classes easily.
+
+To use the Creator, navigate to Lazy-Jedi/Create/Serializable Dictionary
+
+![](~Documentation/Images/create-serializable-dictionary.png)
+
+With the Creator you can easily Create Serialized Dictionary, MonoBehaviours with S-Dictionary or Scriptable Objects with<br>
+S-Dictionary Classes without much effort.
+
+![](~Documentation/Images/create-serializable-dictionary-window.png)
+
+To create any one of the above classes, you need to provide the following information:
+* S-Dictionary Class Name
+* Class Name
+* Key Type
+  * Use Custom if your Type is not in the Drop Down
+* Value Type
+  * Use Custom if your Type is not in the Drop Down
 
 ## Unity Terminal
 
@@ -183,8 +206,28 @@ WordsList.Shuffle();
 # Packages
 
 ## Rotary Heart - Serializable Dictionary Lite
+Rotary Heart - Serializable Dictionary Lite is a Unity Package that adds Serializable Dictionaries to Unity. 
+The package comes with a Readme that explains how to setup a serializable dictionary in Unity.
+
+Below I demonstrate the easiest way to use the Serializable Dictionary.
+```csharp
+[Serializable]
+public class SimpleDictionary : SerializableDictionaryBase<int, string>
+{
+    // This is your Serialized Dictionary that will show in the Inspector
+}
+
+public class UseSerializedDictionary : MonoBehaviour
+{
+    [Header("Dictionary")]
+    public SimpleDictionary SimpleDictionary = new SimpleDictionary();
+}
+```
 
 ## MackySoft - Serializable References
+```csharp
+
+```
 
 # Plugins
 
