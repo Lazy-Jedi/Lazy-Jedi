@@ -16,15 +16,15 @@ Following settings can be edited in the Project Setup Window:
 
 * Product Icon
 * Cursor Image
-* Cursor Hotspot 
-  * Only visible if you have a cursor image
+* Cursor Hotspot
+    * Only visible if you have a cursor image
 * Company Name
 * Product Name
-* Resources Folder 
-  * Your Local Resources Folder on your Computer,
-  * You can leave it blank if you do not want to add it
+* Resources Folder
+    * Your Local Resources Folder on your Computer,
+    * You can leave it blank if you do not want to add it
 * Project Folders
-  * Editable List and the Folders are only created if you click the "**Create Folders**" button
+    * Editable List and the Folders are only created if you click the "**Create Folders**" button
 
 The Company name, Resources Folder and the Folders List is serialized to a .json file on your Machine.<br>
 You can find that file at Application.persistentPath + /Uee/LazyJedi
@@ -57,6 +57,7 @@ The "Open/Application Paths" allows you to easily open the Directories for these
 ## Create
 
 ### Serializable Dictionary Creator
+
 My Serializable Dictionary Creator, you can easily create different Serializable Dictionary Implementations for
 MonoBehaviours, Scriptable Objects and Serialized Dictionary Classes easily.
 
@@ -70,27 +71,91 @@ S-Dictionary Classes without much effort.
 ![](~Documentation/Images/create-serializable-dictionary-window.png)
 
 To create any one of the above classes, you need to provide the following information:
+
 * S-Dictionary Class Name
 * Class Name
 * Key Type
-  * Use Custom if your Type is not in the Drop Down
+    * Use Custom if your Type is not in the Drop Down
 * Value Type
-  * Use Custom if your Type is not in the Drop Down
+    * Use Custom if your Type is not in the Drop Down
 
 ## Unity Terminal
+The Unity Terminal Addon allows you to code process commands that can be executed within Unity via the .Net System.Diagnostics library.
+
+This is useful if you want to execute external processes within the Unity Environment. 
+
+One good example would be to start an Android Emulator that can be used to Install and Test your Android builds made using Unity.
+
+### Process Utilities
+The Process Utilities has static Methods that shorthand executing Processes via .Net Process method.
+* StartProcess(string filename, bool runAsAdmin = false)
+* StartAdvProcess(string filename, string argument, bool hideWindow = false, bool runAsAdmin = false)
+
+Please note that you do not need to run Processes on another thread, the only reason why I am using async is to avoid conflicts with the main Unity Thread.
+
+```csharp
+[MenuItem("Window/Python/Python Shell")]
+public static async void OpenPythonShell()
+{
+    await Task.Run(() => ProcessUtilities.StartProcess("python", true));
+}
+
+[MenuItem("Window/Python/IDLE")]
+public static async void OpenPythonIdle()
+{
+    await Task.Run(() => ProcessUtilities.StartAdvProcess("python", @"-m idlelib", true));
+}
+
+[MenuItem("Lazy-Jedi/Open/Resources Folder %#O", priority = 200)]
+public static void OpenPersonalResourcesFolder()
+{
+    ProcessUtilities.StartAdvProcess("explorer.exe", ResourcesFolder);
+}
+```
 
 ### Command Prompt and PowerShell
+Opens the Command Prompt or PowerShell in Unity as either an Admin or Non Admin.
 
+Please Note<br>
+The predefined Unity Terminal commands for opening the Command Prompt or PowerShell only work on the Windows OS.<br>
+I unfortunately do no have a Linux based OS to include the equivalent commands. However, if I do get the commands I will include them.
+
+![](~Documentation/Images/unity-terminal.png)
 ### Custom Processes
+Custom Processes is a Script where you can create your own custom processes that can be executed within Unity.
+
+One of the Predefined Custom Processes is to Open your Local Resources folder on your Computer. This location is set in the Project Setup Window.
+
+```csharp
+public static class CustomProcesses
+{
+ #region PERSONAL
+
+    [MenuItem("Lazy-Jedi/Open/Resources Folder %#O", priority = 200)]
+    public static void OpenPersonalResourcesFolder()
+    {
+        ProcessUtilities.StartAdvProcess("explorer.exe", ResourcesFolder);
+    }
+
+  #endregion
+}
+```
 
 # Runtime
 
 ## Extensions
 
-For Practical examples please look at the Extension Examples in the Examples folder. 
+For Practical examples please look at the Extension Examples in the Examples folder.
 The examples will help you understand how to use the Various Extension methods that are available.
 
-* GameObject - Activate, Deactivate, Destroy, Clone, GetParent, Parent, etc
+* GameObject -
+    * Activate(),
+    * Deactivate(),
+    * Destroy(),
+    * Clone(),
+    * GetParent(),
+    * SetParent(Transform parent),
+    * etc
 
 ```csharp
 // GameObject Extensions
@@ -116,7 +181,13 @@ print($"Your Objects Clone - {clone.name}");
 YourObject.Destroy();
 ```
 
-* Transform - Activate, Deactivate, Clone, Destroy, DesroyAllChildren, SetColliderInteractionLayers
+* Transform
+    * Activate(),
+    * Deactivate(),
+    * Clone(),
+    * Destroy(),
+    * DesroyAllChildren(),
+    * SetColliderInteractionLayers(string layerMaskName)
 
 ```csharp
 // Transform Extensions
@@ -140,13 +211,20 @@ print("Delete Original Parent With Children");
 
 ```
 
-* LayerMask - InLayerMask
+* LayerMask
+    * InLayerMask(LayerMask layerMask)
+
 ```csharp
 // Check if Layer Mask A is in Layer Mask B
 print($"Is Layer Mask A, in Layer Mask B - {LayerMaskB.InLayerMask(LayerMaskA)}");
 ```
 
-* String - ToBase64, FromBase64, ToBytes, FromBytes
+* String
+    * ToBase64(),
+    * FromBase64(),
+    * ToBytes(),
+    * FromBytes()
+
 ```csharp
 // String Conversions to Base64 and back and to Bytes and back
 string word = "Hello, World!";
@@ -174,7 +252,9 @@ if (word.IsNotNull())
 }
 ```
 
-* Array and List - Shuffle
+* Array and List
+    * Shuffle()
+
 ```csharp
 public List<string> WordsList = new List<string>()
 {
@@ -199,17 +279,37 @@ WordsList.Shuffle();
 
 ## Utilities
 
-* MathUtility - GetValueFromPercentage(), GetPercentageFromValue()
+* MathUtility
+    * GetValueFromPercentage(float percentage, float min, float max)
+    * GetPercentageFromValue(float value, float min, float max)
 
-## Serializable Dictionary
+```csharp
+public class ProgressBar : MonoBehaviour
+{
+    public float Min;
+    public float Max;
+    
+    public void UpdateProgress(float value)
+    {
+        Fill.amount = MathUtility.GetPercentageFromValue(value, Min, Max);
+    }
+    
+    public float GetCurrentProgress()
+    {
+        return MathUtility.GetValueFromPercentage(Fill.amount, Min, Max);
+    }
+}
+```
 
 # Packages
 
 ## Rotary Heart - Serializable Dictionary Lite
-Rotary Heart - Serializable Dictionary Lite is a Unity Package that adds Serializable Dictionaries to Unity. 
+
+Rotary Heart - Serializable Dictionary Lite is a Unity Package that adds Serializable Dictionaries to Unity.
 The package comes with a Readme that explains how to setup a serializable dictionary in Unity.
 
 Below I demonstrate the easiest way to use the Serializable Dictionary.
+
 ```csharp
 [Serializable]
 public class SimpleDictionary : SerializableDictionaryBase<int, string>
@@ -225,8 +325,78 @@ public class UseSerializedDictionary : MonoBehaviour
 ```
 
 ## MackySoft - Serializable References
-```csharp
 
+The "SubclassSelector" attribute allows you to easily set subclasses of those abstract classes in the Editor that are serialized by SerializeReference
+attribute.
+
+Please look at the Serialized Reference Example in the Examples folder to understand how to use the "[SubclassSelector]" attribute correctly.
+
+```csharp
+public interface ICommand
+{
+    void Execute();
+}
+
+[Serializable]
+public class DebugCommand : ICommand
+{
+    public string Message = string.Empty;
+    
+    public void Execute()
+    {
+        Debug.Log(Message);
+    }
+}
+
+
+[Serializable]
+public class CreatorCommand : ICommand
+{
+    public Object Prefab;
+
+    public void Execute()
+    {
+        Object.Instantiate(Prefab, new Vector3(Random.value * 5f, Random.value * 5f, 0f), Quaternion.identity);
+    }
+}
+
+[AddTypeMenu("Examples/Execute Command")]
+[Serializable]
+public class AddTypeMenuCommand : ICommand
+{
+    public string Message;
+
+    public void Execute()
+    {
+        Debug.Log(Message);
+    }
+}
+
+public class SerializedReferenceExamples : MonoBehaviour
+{
+    #region VARIABLES
+
+    [Header("Command")]
+    [SerializeReference, SubclassSelector]
+    public ICommand Command;
+
+    [Header("Commands")]
+    [SerializeReference, SubclassSelector]
+    public List<ICommand> Commands = new List<ICommand>();
+
+    #endregion
+
+    #region UNITY METHODS
+
+    private void Start()
+    {
+        Command?.Execute();
+
+        foreach (ICommand command in Commands)
+        {
+            command?.Execute();
+        }
+    }
 ```
 
 # Plugins

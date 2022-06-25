@@ -6,7 +6,7 @@ namespace LazyJedi.Examples
     // The SerializeReference attribute, added in Unity 2019.3, makes it possible to serialize references to interfaces and abstract
     // classes.
     // The SubclassSelector attribute allows you to easily set subclasses of those abstract classes in the Editor that are serialized by SerializeReference attribute.
-    public class InterfaceReferenceExamples : MonoBehaviour
+    public class SerializedReferenceExamples : MonoBehaviour
     {
         #region VARIABLES
 
