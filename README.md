@@ -145,6 +145,8 @@ public static class CustomProcesses
 
 ## Hierarchy
 ### Drag and Drop Script
+Created By BluMalice
+
 ### Group Objects
 
 # Runtime
@@ -285,7 +287,7 @@ WordsList.Shuffle();
 
 ## Utilities
 
-* MathUtility
+* MathUtility - Created by BluMalice
     * GetValueFromPercentage(float percentage, float min, float max)
     * GetPercentageFromValue(float value, float min, float max)
 
