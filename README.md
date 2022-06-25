@@ -64,7 +64,8 @@ The "Open/Application Paths" allows you to easily open the Directories for these
 
 ## Extensions
 
-Please look at the Extension Examples in the Examples folder. The examples will help you understand how to use the Various Extension methods available.
+For Practical examples please look at the Extension Examples in the Examples folder. 
+The examples will help you understand how to use the Various Extension methods that are available.
 
 * GameObject - Activate, Deactivate, Destroy, Clone, GetParent, Parent, etc
 
