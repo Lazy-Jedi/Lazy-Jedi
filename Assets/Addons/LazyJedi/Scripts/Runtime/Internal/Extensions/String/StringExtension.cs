@@ -1,9 +1,4 @@
-﻿/*
- * Created By: Uee
- * GitHub - https://github.com/Lazy-Jedi/Lazy-Jedi
- */
-
-using System;
+﻿using System;
 using System.Text;
 
 public static class StringExtension

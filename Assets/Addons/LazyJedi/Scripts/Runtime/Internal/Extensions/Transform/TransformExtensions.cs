@@ -1,8 +1,3 @@
-/*
- * Created By: BluMalice
- * GitHub - https://github.com/Lazy-Jedi/Lazy-Jedi
- */
-
 using UnityEngine;
 
 public static class TransformExtensions

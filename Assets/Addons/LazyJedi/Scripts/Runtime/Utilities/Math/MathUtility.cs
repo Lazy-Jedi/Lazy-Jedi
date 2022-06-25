@@ -1,9 +1,4 @@
-﻿/*
- * Created By: BluMalice
- * GitHub - https://github.com/Lazy-Jedi/Lazy-Jedi
- */
-
-namespace LazyJedi.Utility
+﻿namespace LazyJedi.Utility
 {
     public static class MathUtility
     {

@@ -420,6 +420,9 @@ To use the Archive tools, you just need to right-click on an Archive, Choose Arc
 
 # Credits
 
+## Creators
+1. Mentor and Nakama - [BluMalice](https://github.com/BLUDRAG)
+
 ## Assets
 
 1. Kenney - [Fonts](https://www.kenney.nl/assets)

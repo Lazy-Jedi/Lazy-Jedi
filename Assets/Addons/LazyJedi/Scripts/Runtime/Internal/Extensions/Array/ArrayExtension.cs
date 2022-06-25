@@ -1,7 +1,3 @@
-/*
- * Created By: Uee
- * GitHub - https://github.com/Lazy-Jedi/Lazy-Jedi
- */
 using System;
 using Random = System.Random;
 

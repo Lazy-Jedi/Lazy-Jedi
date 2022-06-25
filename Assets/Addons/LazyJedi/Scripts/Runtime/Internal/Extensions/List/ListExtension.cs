@@ -1,9 +1,4 @@
-﻿/*
- * Created By: Uee
- * GitHub - https://github.com/Lazy-Jedi/Lazy-Jedi
- */
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Random = System.Random;
 
 /// <summary>

@@ -1,9 +1,4 @@
-﻿/*
- * Created By: Uee
- * GitHub - https://github.com/Lazy-Jedi/Lazy-Jedi
- */
-
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class LayerMaskExtension
 {
