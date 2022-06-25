@@ -69,6 +69,9 @@ namespace LazyJedi.Editors.MenuItems
                 EditorGUILayout.LabelField("Packages", _headerLabelStyle);
                 DrawLink("Rotary Heart - Serializable Dictionary Lite", _rotaryHeart);
                 DrawLink("Mackysoft - Serializable Reference", _mackySoft);
+
+                EditorGUILayout.Space(16f);
+                EditorGUILayout.LabelField("Plugins", _headerLabelStyle);
                 DrawLink("Adoconnection - Seven Zip Extractor", _sevenZipExtractor);
 
                 EditorGUILayout.Space(16f);
