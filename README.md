@@ -64,6 +64,119 @@ The "Open/Application Paths" allows you to easily open the Directories for these
 
 ## Extensions
 
+Please look at the Extension Examples in the Examples folder. The examples will help you understand how to use the Various Extension methods available.
+
+* GameObject - Activate, Deactivate, Destroy, Clone, GetParent, Parent, etc
+
+```csharp
+// GameObject Extensions
+YourObject.Deactivate();
+YourObject.Activate();
+
+// Set Parent
+YourObject.SetParent(YourParent);
+
+// Get Parent
+Transform parent = YourObject.GetParent();
+print($"Your Objects Parent - {parent.name}");
+
+// Get Parent GameObject
+GameObject goParent = YourObject.GetParentGo();
+print($"Your Objects Parent GameObject - {goParent.name}");
+
+// Clone GameObject
+GameObject clone = YourObject.Clone();
+print($"Your Objects Clone - {clone.name}");
+
+// Destroy GameObject
+YourObject.Destroy();
+```
+
+* Transform - Activate, Deactivate, Clone, Destroy, DesroyAllChildren, SetColliderInteractionLayers
+
+```csharp
+// Transform Extensions
+// Deactivate
+YourParent.Deactivate();
+
+// Activate
+YourParent.Activate();
+
+// Clone Parent
+Transform clonedParentWithChildren = ParentWithChildren.Clone();
+print("Cloned Parent With Children");
+
+// Change Layer Masks of Children that have Colliders
+clonedParentWithChildren.SetColliderInteractionLayers(LayerMask.LayerToName(LayerMaskA));
+print("Set Collider Interaction Layer");
+
+// Destroy All Children
+ParentWithChildren.DestroyAllChildren();
+print("Delete Original Parent With Children");
+
+```
+
+* LayerMask - InLayerMask
+```csharp
+// Check if Layer Mask A is in Layer Mask B
+print($"Is Layer Mask A, in Layer Mask B - {LayerMaskB.InLayerMask(LayerMaskA)}");
+```
+
+* String - ToBase64, FromBase64, ToBytes, FromBytes
+```csharp
+// String Conversions to Base64 and back and to Bytes and back
+string word = "Hello, World!";
+
+string word64 = word.ToBase64();
+string from64 = word64.FromBase64();
+
+byte[] wordBytes = word.ToBytes();
+string fromBytes = wordBytes.FromBytes();
+
+print($"Base64 - {word64}");
+print($"From Base 64 - {from64}");
+
+print($"Word Bytes Length - {wordBytes.Length}");
+print($"From Bytes - {fromBytes}");
+
+if (word.IsNull())
+{
+    print("Word is Null");
+}
+
+if (word.IsNotNull())
+{
+    print("Word is Not Null");
+}
+```
+
+* Array and List - Shuffle
+```csharp
+public List<string> WordsList = new List<string>()
+{
+    "Hello",
+    "World!",
+    "Simple",
+    "Shuffle"
+};
+
+public string[] WordsArray = new[]
+{
+    "Hello",
+    "World!",
+    "Simple",
+    "Shuffle"
+};
+
+// Shuffle Elements in an Array or List
+WordsArray.Shuffle();
+WordsList.Shuffle();
+```
+
+## Utilities
+
+* MathUtility - GetValueFromPercentage(), GetPercentageFromValue()
+
 ## Serializable Dictionary
 
 # Packages
