@@ -10,6 +10,7 @@ The Project Setup Window helps you to quickly setup any Unity Project with a few
 
 To open the Project Settings Window, you can Press the following Shortcut "Shift+Alt+P" or
 navigate the MenuBar<br>Lazy-Jedi/Setup/Project Setup<br>
+
 ![](~Documentation/Images/open-project-settings.png)
 
 Following settings can be edited in the Project Setup Window:
@@ -31,6 +32,7 @@ You can find that file at Application.persistentPath + /Uee/LazyJedi
 
 The tool does come with an "Auto Save" feature that will automatically save your settings everytime you make a change to the Folders List or Company name.
 However, if you are not using Auto Save, please use the **"Save Settings"** Button.
+
 ![](~Documentation/Images/project-setup.png)
 
 ## Open
