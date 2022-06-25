@@ -25,6 +25,7 @@ The Lazy Jedi is a lite Unity Library of really cool Editor Tools and Runtime sc
 Adoconnection's Seven Zip Extractor is used to Extract Archives within Unity. It support multiple archive formats such as .zip, .rar, .7z and many others.
 
 To use the Archive tools, you just need to right-click on an Archive, Choose the Archive Selection and then choose to Extract the Archive however you wish.
+![](~Documentation/Images/archive-usecases.png)
 
 # Credits
 ## Assets
