@@ -1,4 +1,8 @@
-﻿namespace LazyJedi.Utility
+﻿/*
+ * Created By: BluMalice
+ */
+
+namespace LazyJedi.Utility
 {
     public static class MathUtility
     {

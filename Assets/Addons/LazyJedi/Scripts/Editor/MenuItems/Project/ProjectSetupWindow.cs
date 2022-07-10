@@ -284,7 +284,8 @@ namespace LazyJedi.Editors.MenuItems
             _cursor = PlayerSettings.defaultCursor;
             if (PlayerSettings.cursorHotspot != Vector2.zero) _cursorHotspot = PlayerSettings.cursorHotspot;
 
-            _productIcon = PlayerSettings.GetIconsForTargetGroup(BuildTargetGroup.Unknown)[0];
+            Texture2D[] icons = PlayerSettings.GetIconsForTargetGroup(BuildTargetGroup.Unknown);
+            if (icons?.Length > 0) _productIcon = icons[0];
         }
 
         private void UpdateProjectSettings()

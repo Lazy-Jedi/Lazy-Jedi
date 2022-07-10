@@ -1,7 +1,4 @@
 #if UNITY_EDITOR
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using LazyJedi.Editors.Internal;
 using UnityEngine;
 using UnityEditor;
@@ -26,6 +23,8 @@ namespace LazyJedi.Editors.MenuItems
         #region CREDITS VARIABLES
 
         private string _lazyJedi = "https://github.com/Lazy-Jedi/lazy-jedi";
+
+        private string _blumalice = "https://github.com/BLUDRAG";
 
         private string _rotaryHeart = "https://assetstore.unity.com/publishers/28547";
         private string _mackySoft = "https://github.com/mackysoft/Unity-SerializeReferenceExtensions";
@@ -59,7 +58,11 @@ namespace LazyJedi.Editors.MenuItems
             {
                 EditorGUILayout.Space(4f);
                 EditorGUILayout.LabelField("Lazy Jedi", _headerLabelStyle);
-                DrawLink("Lazy Jedi", _lazyJedi);
+                DrawLink("Lazy-Jedi", _lazyJedi);
+                
+                EditorGUILayout.Space(16f);
+                EditorGUILayout.LabelField("Nakama", _headerLabelStyle);
+                DrawLink("Kearan", _blumalice);
 
                 EditorGUILayout.Space(16f);
                 EditorGUILayout.LabelField("Assets", _headerLabelStyle);
