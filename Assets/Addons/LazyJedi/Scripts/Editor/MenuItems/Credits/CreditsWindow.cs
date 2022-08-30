@@ -106,7 +106,7 @@ namespace LazyJedi.Editors.MenuItems
         {
             if (!_kennyMiniSquare)
             {
-                _kennyMiniSquare = Resources.Load<Font>("Artwork/kenney-fonts/KenneyMiniSquare");
+                _kennyMiniSquare = Resources.Load<Font>("Fonts/kenney-fonts/MiniSquare");
             }
 
             _centeredLabelStyle ??= JediStyles.CustomCenteredLabel(Color.white, Color.black, 48, font: _kennyMiniSquare);

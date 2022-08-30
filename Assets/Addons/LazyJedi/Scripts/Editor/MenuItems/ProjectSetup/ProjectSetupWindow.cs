@@ -237,8 +237,8 @@ namespace LazyJedi.Editors.MenuItems
 
         private void Initialization()
         {
-            if (!_lightImage) _lightImage = Resources.Load<Texture2D>("Artwork/Icons/light-saber-light");
-            if (!_darkImage) _darkImage = Resources.Load<Texture2D>("Artwork/Icons/light-saber-dark");
+            if (!_lightImage) _lightImage = Resources.Load<Texture2D>("Icons/light-saber-light");
+            if (!_darkImage) _darkImage = Resources.Load<Texture2D>("Icons/light-saber-dark");
 
             if (_logoRect == Rect.zero)
             {

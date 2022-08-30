@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using LazyJedi.Editors.Internal;
 using UnityEditor;
-using UnityEngine;
 
 namespace LazyJedi.Editors.MenuItems
 {
