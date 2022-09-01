@@ -1,4 +1,3 @@
-#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -19,13 +18,13 @@ namespace RotaryHeart.Lib.SerializableDictionary
         //Default values
         private static bool showPages;
         private static bool showSize;
-        private static int  pageCount;
+        private static int pageCount;
 
 #if UNITY_2018_3_OR_NEWER
         private class MyPrefSettingsProvider : SettingsProvider
         {
             public MyPrefSettingsProvider(string path, SettingsScope scopes = SettingsScope.Project)
-                : base(path, scopes)
+            : base(path, scopes)
             { }
 
             public override void OnGUI(string searchContext)
@@ -84,4 +83,3 @@ namespace RotaryHeart.Lib.SerializableDictionary
         }
     }
 }
-#endif

@@ -14,6 +14,8 @@ namespace RotaryHeart.Lib.SerializableDictionary
         [SerializeField]
         private GameObject _gameObject;
         [SerializeField]
+        public Transform _transform;
+        [SerializeField]
         private Texture2D _texture2D;
         [SerializeField]
         private Sprite _sprite;
@@ -28,6 +30,15 @@ namespace RotaryHeart.Lib.SerializableDictionary
         [SerializeField]
         private TextAsset _textAsset;
         
+        [SerializeField]
+        private Vector3 _vector3;
+        [SerializeField]
+        private Vector2 _vector2;
+        [SerializeField]
+        private Vector3Int _vector3Int;
+        [SerializeField]
+        private Vector2Int _vector2Int;
+
         [SerializeField]
         private Collider _collider;
         [SerializeField]

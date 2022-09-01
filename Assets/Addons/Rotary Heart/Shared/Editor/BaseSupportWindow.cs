@@ -1,5 +1,4 @@
-﻿#if UNITY_EDITOR
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 
 namespace RotaryHeart.Lib
@@ -37,7 +36,7 @@ namespace RotaryHeart.Lib
             get { return null; }
         }
 
-        protected static void ShowWindow<T>() where T : BaseSupportWindow
+        protected static void ShowWindow <T> () where T : BaseSupportWindow
         {
             T myWindow = CreateInstance<T>();
             myWindow.ShowUtility();
@@ -47,22 +46,21 @@ namespace RotaryHeart.Lib
 
         void LoadStyles()
         {
-            string color = "#AAAAAA";
-
-            if (!EditorGUIUtility.isProSkin)
+            if (EditorGUIUtility.isProSkin)
             {
-                color = "#353535";
+                m_assetName = IconContent("<size=20><b><color=#AAAAAA> " + AssetName + "</color></b></size>", "", "");
+                m_support = IconContent("<size=12><b> Support</b></size>\n <size=9>Get help and talk \n with others.</size>", "d__Help@2x", "");
+                m_contact = IconContent("<size=12><b> Contact</b></size>\n <size=9>Reach out and \n get help.</size>", "d_console.infoicon", "");
+                m_review = IconContent("<size=11><color=white> <b>Please consider leaving a review.</b></color></size>", "Favorite Icon", "");
             }
-
-            m_assetName = IconContent("<size=20><b><color=" + color + "> " + AssetName + "</color></b></size>", "", "");
-            m_support =
-                IconContent("<size=12><b> Support</b></size>\n <size=9>Get help and talk \n with others.</size>",
-                            "_Help", "");
-            m_contact = IconContent("<size=12><b> Contact</b></size>\n <size=9>Reach out and \n get help.</size>",
-                                    "console.infoicon", "");
-            m_review = IconContent("<size=11><color=white> Please consider leaving a review.</color></size>",
-                                   "Favorite Icon", "");
-
+            else
+            {
+                m_assetName = IconContent("<size=20><b><color=#353535> " + AssetName + "</color></b></size>", "", "");
+                m_support = IconContent("<size=12><b> Support</b></size>\n <size=9>Get help and talk \n with others.</size>", "_Help@2x", "");
+                m_contact = IconContent("<size=12><b> Contact</b></size>\n <size=9>Reach out and \n get help.</size>", "console.infoicon", "");
+                m_review = IconContent("<size=11><color=white> <b>Please consider leaving a review.</b></color></size>", "Favorite Icon", "");
+            }
+            
             m_labelStyle = new GUIStyle(EditorStyles.label);
             m_labelStyle.richText = true;
 
@@ -71,10 +69,11 @@ namespace RotaryHeart.Lib
                 alignment = TextAnchor.MiddleLeft,
                 richText = true
             };
-            m_toolBarStyle = new GUIStyle("LargeButtonMid")
+            m_toolBarStyle = new GUIStyle("Button")
             {
                 alignment = TextAnchor.MiddleLeft,
-                richText = true
+                richText = true,
+                fixedHeight = 50
             };
             m_greyText = new GUIStyle(EditorStyles.centeredGreyMiniLabel)
             {
@@ -103,7 +102,11 @@ namespace RotaryHeart.Lib
             toolbarOptions[0] = m_support;
             toolbarOptions[1] = m_contact;
 
-            m_toolBarIndex = GUILayout.Toolbar(m_toolBarIndex, toolbarOptions, m_toolBarStyle, GUILayout.Height(50));
+            Rect rect = GUILayoutUtility.GetRect(new GUIContent(), m_toolBarStyle, GUILayout.Height(50));
+            m_toolBarIndex = GUI.Toolbar(new Rect(rect.x, rect.y, rect.width, 50), m_toolBarIndex, new string[2], m_toolBarStyle);
+
+            GUI.Toolbar(new Rect(rect.x, rect.y, rect.width, 50), m_toolBarIndex, toolbarOptions, m_labelStyle);
+            // m_toolBarIndex = GUILayout.Toolbar(m_toolBarIndex, toolbarOptions, m_toolBarStyle, GUILayout.Height(50));
 
             EditorGUILayout.Space();
 
@@ -118,7 +121,7 @@ namespace RotaryHeart.Lib
                     EditorGUILayout.Space();
 
                     EditorGUILayout.LabelField("Detailed code documentation.", m_greyText);
-
+                    
                     if (GUILayout.Button("Wiki"))
                         Application.OpenURL("https://www.rotaryheart.com/Wiki.html");
 
@@ -126,7 +129,7 @@ namespace RotaryHeart.Lib
 
                 case 1:
                     EditorGUILayout.LabelField("Get in touch.", m_greyText);
-
+                    
                     if (GUILayout.Button("Email"))
                         Application.OpenURL("mailto:ma.rotaryheart@gmail.com?");
 
@@ -139,11 +142,11 @@ namespace RotaryHeart.Lib
             }
 
             GUILayout.FlexibleSpace();
-
+            
             EditorGUILayout.LabelField(new GUIContent("Version " + Version), m_versionLabel);
-
+            
             EditorGUILayout.Space();
-
+            
             if (GUILayout.Button(m_review, m_reviewBanner, GUILayout.Height(30)))
                 Application.OpenURL(StoreLink);
         }
@@ -165,6 +168,6 @@ namespace RotaryHeart.Lib
             content.tooltip = tooltip;
             return content;
         }
+
     }
 }
-#endif

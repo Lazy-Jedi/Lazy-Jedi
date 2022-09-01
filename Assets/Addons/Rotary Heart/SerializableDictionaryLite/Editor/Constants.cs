@@ -1,4 +1,3 @@
-#if UNITY_EDITOR
 using UnityEditor;
 
 namespace RotaryHeart.Lib.SerializableDictionary
@@ -6,11 +5,11 @@ namespace RotaryHeart.Lib.SerializableDictionary
     public sealed class Constants
     {
         private const bool DEF_SHOW_PAGES = false;
-        private const bool DEF_SHOW_SIZE  = true;
-        private const int  DEF_PAGE_COUNT = 15;
+        private const bool DEF_SHOW_SIZE = true;
+        private const int DEF_PAGE_COUNT = 15;
 
         private const string ID_SHOW_PAGES = "RHSD_ShowPages";
-        private const string ID_SHOW_SIZE  = "RHSD_ShowSize";
+        private const string ID_SHOW_SIZE = "RHSD_ShowSize";
         private const string ID_PAGE_COUNT = "RHSD_PageCount";
 
         public static bool ShowPages
@@ -55,4 +54,3 @@ namespace RotaryHeart.Lib.SerializableDictionary
         }
     }
 }
-#endif

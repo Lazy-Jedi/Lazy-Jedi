@@ -1,12 +1,8 @@
-#if UNITY_EDITOR
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Object = UnityEngine.Object;
 
 namespace RotaryHeart.Lib.SerializableDictionary
 {
@@ -20,29 +16,29 @@ namespace RotaryHeart.Lib.SerializableDictionary
         SerializedProperty KeysProp;
         SerializedProperty ValuesProp;
 
-        readonly GUIContent idContent    = new GUIContent("Id");
+        readonly GUIContent idContent = new GUIContent("Id");
         readonly GUIContent valueContent = new GUIContent("Value");
-        readonly GUIStyle   tooTipStyle  = new GUIStyle("Tooltip");
+        readonly GUIStyle tooTipStyle = new GUIStyle("Tooltip");
 
         ReorderableList list;
 
         string title;
 
-        Type[] typesNative =
+        System.Type[] typesNative =
         {
-            typeof(bool),
-            typeof(byte),
-            typeof(float),
-            typeof(int),
-            typeof(string),
-            typeof(Vector2),
-            typeof(Vector3),
-            typeof(Vector4),
-            typeof(Quaternion),
-            typeof(Matrix4x4),
-            typeof(Color),
-            typeof(Rect),
-            typeof(LayerMask)
+                typeof(bool),
+                typeof(byte),
+                typeof(float),
+                typeof(int),
+                typeof(string),
+                typeof(Vector2),
+                typeof(Vector3),
+                typeof(Vector4),
+                typeof(Quaternion),
+                typeof(Matrix4x4),
+                typeof(Color),
+                typeof(Rect),
+                typeof(LayerMask)
         };
         #endregion
 
@@ -130,7 +126,7 @@ namespace RotaryHeart.Lib.SerializableDictionary
                 if (element.Contains("["))
                 {
                     var elementName = element.Substring(0, element.IndexOf("["));
-                    var index = Convert.ToInt32(element.Substring(element.IndexOf("[")).Replace("[", "").Replace("]", ""));
+                    var index = System.Convert.ToInt32(element.Substring(element.IndexOf("[")).Replace("[", "").Replace("]", ""));
                     obj = GetValue_Imp(obj, elementName, index);
                 }
                 else
@@ -151,7 +147,7 @@ namespace RotaryHeart.Lib.SerializableDictionary
                 if (element.Contains("["))
                 {
                     var elementName = element.Substring(0, element.IndexOf("["));
-                    var index = Convert.ToInt32(element.Substring(element.IndexOf("[")).Replace("[", "").Replace("]", ""));
+                    var index = System.Convert.ToInt32(element.Substring(element.IndexOf("[")).Replace("[", "").Replace("]", ""));
                     obj = GetValue_Imp(obj, elementName, index);
                 }
                 else
@@ -160,7 +156,7 @@ namespace RotaryHeart.Lib.SerializableDictionary
                 }
             }
 
-            if (ReferenceEquals(obj, null)) return;
+            if (Object.ReferenceEquals(obj, null)) return;
 
             try
             {
@@ -173,9 +169,9 @@ namespace RotaryHeart.Lib.SerializableDictionary
                 if (element.Contains("["))
                 {
                     var elementName = element.Substring(0, element.IndexOf("["));
-                    var index = Convert.ToInt32(element.Substring(element.IndexOf("[")).Replace("[", "").Replace("]", ""));
+                    var index = System.Convert.ToInt32(element.Substring(element.IndexOf("[")).Replace("[", "").Replace("]", ""));
                     var field = tp.GetField(elementName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                    var arr = field.GetValue(obj) as IList;
+                    var arr = field.GetValue(obj) as System.Collections.IList;
                     arr[index] = value;
                 }
                 else
@@ -217,7 +213,7 @@ namespace RotaryHeart.Lib.SerializableDictionary
 
         private object GetValue_Imp(object source, string name, int index)
         {
-            var enumerable = GetValue_Imp(source, name) as IEnumerable;
+            var enumerable = GetValue_Imp(source, name) as System.Collections.IEnumerable;
             if (enumerable == null) return null;
             var enm = enumerable.GetEnumerator();
             //while (index-- >= 0)
@@ -234,7 +230,7 @@ namespace RotaryHeart.Lib.SerializableDictionary
         private bool IsUnitySerialized(FieldInfo fieldInfo)
         {
             object[] customAttributes = fieldInfo.GetCustomAttributes(true);
-            if (customAttributes.Any(x => x is NonSerializedAttribute))
+            if (customAttributes.Any(x => x is System.NonSerializedAttribute))
             {
                 return false;
             }
@@ -245,7 +241,7 @@ namespace RotaryHeart.Lib.SerializableDictionary
             return IsUnitySerialized(fieldInfo.FieldType);
         }
 
-        private bool IsUnitySerialized(Type type)
+        private bool IsUnitySerialized(System.Type type)
         {
             if (type.IsGenericType)
             {
@@ -658,7 +654,7 @@ namespace RotaryHeart.Lib.SerializableDictionary
             KeysValues.arraySize = ValuesProp.arraySize = ++KeysProp.arraySize;
 
             SetPropertyDefault(KeysValues.GetArrayElementAtIndex(KeysValues.arraySize - 1), KeysValues);
-            SetPropertyDefault(KeysProp.GetArrayElementAtIndex(KeysProp.arraySize     - 1), KeysProp);
+            SetPropertyDefault(KeysProp.GetArrayElementAtIndex(KeysProp.arraySize - 1), KeysProp);
             
             KeysValues.serializedObject.ApplyModifiedProperties();
             ValuesProp.serializedObject.ApplyModifiedProperties();
@@ -894,7 +890,7 @@ namespace RotaryHeart.Lib.SerializableDictionary
         {
             SetValue(keyProp, obj);
 
-            IDAttribute attribute = Attribute.GetCustomAttribute(fieldInfo, typeof(IDAttribute)) as IDAttribute;
+            IDAttribute attribute = System.Attribute.GetCustomAttribute(fieldInfo, typeof(IDAttribute)) as IDAttribute;
 
             if (attribute == null)
             {
@@ -933,7 +929,7 @@ namespace RotaryHeart.Lib.SerializableDictionary
         private void SetPropertyDefault(SerializedProperty prop, SerializedProperty parentProperty)
         {
             if (prop == null)
-                throw new ArgumentNullException("prop");
+                throw new System.ArgumentNullException("prop");
 
             switch (prop.propertyType)
             {
@@ -1029,5 +1025,3 @@ namespace RotaryHeart.Lib.SerializableDictionary
         }
     }
 }
-
-#endif
