@@ -29,26 +29,13 @@ namespace LazyJedi.Components
         {
             Destroy(gameObject);
         }
-
+        
         /// <summary>
         /// Create a Clone of this Object
         /// </summary>
         public virtual Object Clone()
         {
             return Instantiate(this);
-        }
-
-        #endregion
-
-        #region ENTITY METHODS
-
-
-        public virtual void TakeDamage(float damage)
-        {
-        }
-
-        public virtual void TakeDamageOverTime(float damage, float time, int n)
-        {
         }
 
         #endregion

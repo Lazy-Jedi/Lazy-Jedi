@@ -36,10 +36,8 @@ namespace LazyJedi.Editors.MenuItems
         private bool _changeOccured = false;
 
         private GUIStyle _centeredLabel;
-
         private Vector2 _scrollPosition = Vector2.zero;
-
-        private GUIContent _resoucesGUIContent = new GUIContent("Resources Folder:", "Select your Local Resources Folder.");
+        private readonly GUIContent _resourcesGUIContent = new GUIContent("Resources Folder:", "Select your Local Resources Folder.");
 
         #endregion
 
@@ -94,6 +92,7 @@ namespace LazyJedi.Editors.MenuItems
 
         private void BackgroundLogoDrawer()
         {
+            _logoRect.x = (position.width / 2f) - (_logoRect.width / 2f);
             GUI.DrawTexture(_logoRect, EditorGUIUtility.isProSkin ? _lightImage : _darkImage, ScaleMode.ScaleToFit);
         }
 
@@ -128,7 +127,7 @@ namespace LazyJedi.Editors.MenuItems
             using (EditorGUILayout.HorizontalScope horizontalScope = new EditorGUILayout.HorizontalScope())
             {
                 EditorGUI.BeginChangeCheck();
-                _resourcesFolder = EditorGUILayout.TextField(_resoucesGUIContent, _resourcesFolder);
+                _resourcesFolder = EditorGUILayout.TextField(_resourcesGUIContent, _resourcesFolder);
 
                 if (GUILayout.Button("Browse", GUILayout.Width(64f)))
                 {
