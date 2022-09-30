@@ -6,7 +6,7 @@ using LazyJedi.Components;
 #ROOTNAMESPACEBEGIN#
     public class #SCRIPTNAME# : UIControllerBase
     {
-        #region VARIABLES
+        #region FIELDS
         #endregion
 
         #region UNITY METHODS

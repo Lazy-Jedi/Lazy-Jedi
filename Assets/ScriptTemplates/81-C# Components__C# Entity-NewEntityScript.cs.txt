@@ -6,7 +6,7 @@ using LazyJedi.Components;
 #ROOTNAMESPACEBEGIN#
     public class #SCRIPTNAME# : EntityBase
     {
-        #region VARIABLES
+        #region FIELDS
         #endregion
 
         #region UNITY METHODS
