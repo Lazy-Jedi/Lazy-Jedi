@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public static class GameObjectExtension
 {
@@ -62,6 +64,18 @@ public static class GameObjectExtension
         gameObject.SetActive(false);
     }
 
+    public static IEnumerator Deactivate(this GameObject gameObject, float seconds)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime <= seconds)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        gameObject.Deactivate();
+    }
+
     /// <summary>
     /// Destroy this Instance
     /// </summary>
@@ -69,6 +83,11 @@ public static class GameObjectExtension
     public static void Destroy(this GameObject gameObject)
     {
         Object.Destroy(gameObject);
+    }
+
+    public static void Destroy(this GameObject gameObject, float seconds)
+    {
+        Object.Destroy(gameObject, seconds);
     }
 
     /// <summary>
@@ -79,7 +98,8 @@ public static class GameObjectExtension
     /// <param name="identity"></param>
     /// <param name="parent"></param>
     /// <returns></returns>
-    public static GameObject Clone(this GameObject gameObject, Vector3 position = new Vector3(), Quaternion identity = new Quaternion(),
+    public static GameObject Clone(this GameObject gameObject, Vector3 position = new Vector3(),
+        Quaternion identity = new Quaternion(),
         Transform parent = null)
     {
         return Object.Instantiate(gameObject, position, identity, parent);
