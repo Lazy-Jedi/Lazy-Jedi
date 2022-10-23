@@ -60,6 +60,9 @@ The "Open/Application Paths" allows you to easily open the Directories for these
 
 ### Serializable Dictionary Creator
 
+Please note that the Serialize Dictionary Package is now a separate addon. However, it will be shipped with 
+future Lazy Jedi packages from now on.
+
 My Serializable Dictionary Creator, you can easily create different Serializable Dictionary Implementations for
 MonoBehaviours, Scriptable Objects and Serialized Dictionary Classes easily.
 
@@ -142,12 +145,6 @@ public static class CustomProcesses
   #endregion
 }
 ```
-
-## Hierarchy
-### Drag and Drop Script
-Created By BluMalice
-
-### Group Objects
 
 # Runtime
 
@@ -407,23 +404,15 @@ public class SerializedReferenceExamples : MonoBehaviour
     }
 ```
 
-# Plugins
-
-## Adoconnection - Seven Zip Extractor
-
-Adoconnection's Seven Zip Extractor is used to Extract Archives within Unity. It support multiple archive formats such as .zip, .rar, .7z and many others.
-
-To use the Archive tools, you just need to right-click on an Archive, Choose Archive Selection and then choose to Extract the Archive however you wish.
-
-* Extract Files - Extract to a folder of your choosing
-* Extract Here - Extract in the Current Directory
-* Extract to Folder - Extract to a Folder in the Current Directory (the folder will have the same name as the archive)
-  ![](~Documentation/Images/archive-usecases.png)
+# Lazy Jedi Addons
++ [Lazy Seven Zip](https://github.com/Lazy-Jedi/lazy-seven-zip)
++ [Lazy Palette Swapper](https://github.com/Lazy-Jedi/lazy-palette-swapper)
++ [Lazy Sprite Extractor](https://github.com/Lazy-Jedi/lazy-sprite-extractor)
 
 # Credits
 
 ## Creators
-1. Nakama & Mentor [BluMalice](https://github.com/BLUDRAG)
+1. Mentor - [BluMalice](https://github.com/BLUDRAG)
 
 ## Assets
 
@@ -436,7 +425,8 @@ To use the Archive tools, you just need to right-click on an Archive, Choose Arc
 
 ## Plugins
 
-1. Adoconnection - [Seven Zip Extractor](https://github.com/adoconnection/SevenZipExtractor)
+1. SevenZipSharp - [SquidBox](https://github.com/squid-box/SevenZipSharp)
+2. 7Zip - [7Zip](https://www.7-zip.org/)
 
 ## Icons
 
