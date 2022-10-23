@@ -16,6 +16,9 @@ namespace LazyJedi.Editors.Internal
         [Header("Resources Folder")]
         public string ResourcesFolder = string.Empty;
 
+        [Header("Custom Folders")]
+        public string TemporaryFolder = string.Empty;
+
         [Header("Folders")]
         public List<string> Folders = new List<string>()
         {
@@ -41,13 +44,13 @@ namespace LazyJedi.Editors.Internal
         {
             get
             {
-                string projectPath = Application.persistentDataPath;
+                string projectPath  = Application.persistentDataPath;
                 string settingsPath = Directory.GetParent(Directory.GetParent(projectPath).FullName).FullName;
                 settingsPath = Path.Combine(settingsPath, CREATOR_ALIAS, PRODUCT_NAME);
                 if (Directory.Exists(settingsPath)) return settingsPath;
 
                 Directory.CreateDirectory(settingsPath);
-                Debug.Log($"Settings Path - {settingsPath} has been created!");
+                Debug.unityLogger.Log($"Settings Path - {settingsPath} has been created!");
 
                 return settingsPath;
             }

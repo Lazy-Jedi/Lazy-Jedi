@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using LazyJedi.Editors.Internal;
+using LazyJedi.Globals;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -22,11 +24,22 @@ namespace LazyJedi.Editors.ScriptableObjects
         private GUIContent _loadBtnContent;
         private GUIContent _loadFromBtnContent;
 
+        private GUIStyle _temporaryLabelStyle;
+        private Font _headerFont;
+
         #endregion
 
         #region PROPERTIES
 
-        private string StandardPath => Path.Combine(Application.dataPath, "Temporary", "json");
+        private string StandardPath
+        {
+            get
+            {
+                ProjectSetup projectSetup = new ProjectSetup();
+                projectSetup.LoadSettings();
+                return Path.Combine(projectSetup.TemporaryFolder, "json");
+            }
+        }
 
         #endregion
 
@@ -40,44 +53,68 @@ namespace LazyJedi.Editors.ScriptableObjects
             _saveToBtnContent   = new GUIContent("Save To...", $"Serialize {_target?.name ?? ""} to a folder of your choice.");
             _loadBtnContent     = new GUIContent("Load", $"Deserialize {_target?.name ?? ""} from Temporary/json folder.");
             _loadFromBtnContent = new GUIContent("Load From...", $"Deserialize {_target?.name ?? ""} from a file of your choice.");
+
+            Initialize();
         }
 
         public override void OnInspectorGUI()
         {
-            using (EditorGUILayout.HorizontalScope horizontalScope = new EditorGUILayout.HorizontalScope())
-            {
-                if (GUILayout.Button("Assign Self"))
-                {
-                    AssignSelf();
-                }
-            }
-
-            _showOverwriteWarning = EditorGUILayout.ToggleLeft("Enable Overwrite Warning", _showOverwriteWarning);
-
-            using (EditorGUILayout.HorizontalScope horizontalScope = new EditorGUILayout.HorizontalScope())
-            {
-                if (GUILayout.Button(_saveBtnContent))
-                {
-                    Serialize();
-                }
-
-                if (GUILayout.Button(_saveToBtnContent))
-                {
-                    SerializeToFile();
-                }
-
-                if (GUILayout.Button(_loadBtnContent))
-                {
-                    Deserialize();
-                }
-
-                if (GUILayout.Button(_loadFromBtnContent))
-                {
-                    DeserializeFromFile();
-                }
-            }
-
+            AssignSelButtonDrawer();
+            PersistenceButtonsDrawer();
             DrawDefaultInspector();
+        }
+
+        private void OnDestroy()
+        {
+            Resources.UnloadAsset(_headerFont);
+        }
+
+        #endregion
+
+        #region DRAWER METHODS
+
+        private void AssignSelButtonDrawer()
+        {
+            if (GUILayout.Button("Assign Self"))
+            {
+                AssignSelf();
+            }
+
+            EditorGUILayout.Space(8f);
+        }
+
+        private void PersistenceButtonsDrawer()
+        {
+            using (EditorGUILayout.VerticalScope VerticalScope = new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
+            {
+                EditorGUILayout.LabelField("Temporary Persistence", _temporaryLabelStyle);
+                _showOverwriteWarning = EditorGUILayout.ToggleLeft("Enable Overwrite Warning", _showOverwriteWarning);
+
+                using (EditorGUILayout.HorizontalScope horizontalScope = new EditorGUILayout.HorizontalScope())
+                {
+                    if (GUILayout.Button(_saveBtnContent))
+                    {
+                        Serialize();
+                    }
+
+                    if (GUILayout.Button(_saveToBtnContent))
+                    {
+                        SerializeToFile();
+                    }
+
+                    if (GUILayout.Button(_loadBtnContent))
+                    {
+                        Deserialize();
+                    }
+
+                    if (GUILayout.Button(_loadFromBtnContent))
+                    {
+                        DeserializeFromFile();
+                    }
+                }
+            }
+
+            EditorGUILayout.Space(8f);
         }
 
         #endregion
@@ -161,6 +198,24 @@ namespace LazyJedi.Editors.ScriptableObjects
         {
             string inPath = EditorUtility.OpenFilePanel($"Load {_target.name}", Application.dataPath, "json");
             Deserialize(inPath);
+        }
+
+        #endregion
+
+        #region INITIALIZATION
+
+        private void Initialize()
+        {
+            if (!_headerFont)
+            {
+                _headerFont = LazyEditorArt.KenneyMiniSquareFont;
+            }
+
+            if (_temporaryLabelStyle == null)
+            {
+                _temporaryLabelStyle = LazyEditorStyles.CustomHelpBoxLabel(LazyColors.UnityFontColorLite, LazyColors.UnityFontColorDark, 12, _headerFont);
+                LazyEditorStyles.SwitchLabelColor(_temporaryLabelStyle, LazyColors.UnityFontColorLite, LazyColors.UnityFontColorDark);
+            }
         }
 
         #endregion

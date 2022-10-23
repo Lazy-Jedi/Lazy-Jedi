@@ -1,12 +1,11 @@
 {
-    "name": "LazyJedi.Editor",
+    "name": "LazyJedi.Editors",
     "rootNamespace": "",
     "references": [
-        "GUID:ac403b1a1d4fb554289021d7562800ba"
+        "GUID:ac403b1a1d4fb554289021d7562800ba",
+        "GUID:18fe634a0dddbb846b11b9b79bd11bca"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
