@@ -208,7 +208,7 @@ namespace LazyJedi.Editors.ScriptableObjects
         {
             if (!_headerFont)
             {
-                _headerFont = LazyEditorArt.KenneyMiniSquareFont;
+                _headerFont = Resources.Load<Font>(LazyEditorArt.KenneyMiniSquareFont);
             }
 
             if (_temporaryLabelStyle == null)

@@ -268,8 +268,8 @@ namespace LazyJedi.Editors.MenuItems
 
         private void Initialization()
         {
-            if (!_lightImage) _lightImage = LazyEditorArt.LazyJediLiteLogo;
-            if (!_darkImage) _darkImage   = LazyEditorArt.LazyJediDarkLogo;
+            if (!_lightImage) _lightImage = Resources.Load<Texture2D>(LazyEditorArt.LazyJediLiteLogo);
+            if (!_darkImage) _darkImage   = Resources.Load<Texture2D>(LazyEditorArt.LazyJediDarkLogo);
 
             if (_logoRect == Rect.zero)
             {
@@ -279,7 +279,7 @@ namespace LazyJedi.Editors.MenuItems
                 _logoRect.y      = 0f;
             }
 
-            if (!_headerFont) _headerFont = LazyEditorArt.KenneyMiniSquareFont;
+            if (!_headerFont) _headerFont = Resources.Load<Font>(LazyEditorArt.KenneyMiniSquareFont);
             _centeredLabel ??= LazyEditorStyles.CustomHelpBoxLabel(LazyColors.UnityFontColorLite, LazyColors.UnityFontColorDark, 16, _headerFont);
             LazyEditorStyles.SwitchLabelColor(_centeredLabel, LazyColors.UnityFontColorLite, LazyColors.UnityFontColorDark);
         }
