@@ -72,7 +72,7 @@ namespace LazyJedi.Editors.Internal
 
         private static GUIStyle NewHelpBoxCenteredLabel(Color light, Color dark, int fontSize = 12, Font font = null)
         {
-            GUIStyle customLabel = EditorStyles.helpBox;
+            GUIStyle customLabel = new GUIStyle(EditorStyles.helpBox);
             customLabel.alignment        = TextAnchor.MiddleCenter;
             customLabel.font             = font;
             customLabel.fontSize         = fontSize;

@@ -49,11 +49,6 @@ namespace LazyJedi.Editors.ScriptableObjects
         {
             _target = target as ScriptableObject;
 
-            _saveBtnContent     = new GUIContent("Save", $"Serialize {_target?.name ?? ""} to Temporary/json folder.");
-            _saveToBtnContent   = new GUIContent("Save To...", $"Serialize {_target?.name ?? ""} to a folder of your choice.");
-            _loadBtnContent     = new GUIContent("Load", $"Deserialize {_target?.name ?? ""} from Temporary/json folder.");
-            _loadFromBtnContent = new GUIContent("Load From...", $"Deserialize {_target?.name ?? ""} from a file of your choice.");
-
             Initialize();
         }
 
@@ -206,6 +201,11 @@ namespace LazyJedi.Editors.ScriptableObjects
 
         private void Initialize()
         {
+            _saveBtnContent     = new GUIContent("Save", $"Serialize {_target?.name ?? ""} to Temporary/json folder.");
+            _saveToBtnContent   = new GUIContent("Save To...", $"Serialize {_target?.name ?? ""} to a folder of your choice.");
+            _loadBtnContent     = new GUIContent("Load", $"Deserialize {_target?.name ?? ""} from Temporary/json folder.");
+            _loadFromBtnContent = new GUIContent("Load From...", $"Deserialize {_target?.name ?? ""} from a file of your choice.");
+
             if (!_headerFont)
             {
                 _headerFont = Resources.Load<Font>(LazyEditorArt.KenneyMiniSquareFont);

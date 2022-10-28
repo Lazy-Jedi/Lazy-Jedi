@@ -281,7 +281,6 @@ namespace LazyJedi.Editors.MenuItems
 
             if (!_headerFont) _headerFont = Resources.Load<Font>(LazyEditorArt.KenneyMiniSquareFont);
             _centeredLabel ??= LazyEditorStyles.CustomHelpBoxLabel(LazyColors.UnityFontColorLite, LazyColors.UnityFontColorDark, 16, _headerFont);
-            LazyEditorStyles.SwitchLabelColor(_centeredLabel, LazyColors.UnityFontColorLite, LazyColors.UnityFontColorDark);
         }
 
         private void LoadData()
