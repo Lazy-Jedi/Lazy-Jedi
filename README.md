@@ -1,6 +1,7 @@
 # Lazy Jedi
 
-The Lazy Jedi is a lite Unity Library of really cool Editor Tools and Runtime scripts that will spice up any project really fast.
+The Lazy Jedi is a lite Unity Library of really cool Editor Tools and Runtime scripts that will spice up any project
+really fast.
 
 # Editor
 
@@ -30,29 +31,34 @@ Following settings can be edited in the Project Setup Window:
 The Company name, Resources Folder and the Folders List is serialized to a .json file on your Machine.<br>
 You can find that file at Application.persistentPath + /Uee/LazyJedi
 
-The tool does come with an "Auto Save" feature that will automatically save your settings everytime you make a change to the Folders List or Company name.
+The tool does come with an "Auto Save" feature that will automatically save your settings everytime you make a change to
+the Folders List or Company name.
 However, if you are not using Auto Save, please use the **"Save Settings"** Button.
 
 ![](~Documentation/Images/project-setup.png)
 
 ## Open
 
-The "Open" menu in Lazy-Jedi allows you to open the Applications Persistent or Data Paths or open a Resources Folder on your Computer.
+The "Open" menu in Lazy-Jedi allows you to open the Applications Persistent or Data Paths or open a Resources Folder on
+your Computer.
 
 ![](~Documentation/Images/open.png)
 
 ### Resources Folder
 
-The Resources Folder is a local folder on your machine. This is the same folder that is linked when you use the Project Setup<br>
+The Resources Folder is a local folder on your machine. This is the same folder that is linked when you use the Project
+Setup<br>
 window and Select a local Resources folder on your Computer.
 
 ![](~Documentation/Images/open-resources.png)
 
 ### Application Paths
 
-The Application Paths are local folders on your machine. These folders are the Persistent and Data Paths that are relative to your Unity Project.
+The Application Paths are local folders on your machine. These folders are the Persistent and Data Paths that are
+relative to your Unity Project.
 
-The "Open/Application Paths" allows you to easily open the Directories for these Paths so that you do not have to browse your Computer to find them.
+The "Open/Application Paths" allows you to easily open the Directories for these Paths so that you do not have to browse
+your Computer to find them.
 
 ![](~Documentation/Images/open-application-paths.png)
 
@@ -60,7 +66,7 @@ The "Open/Application Paths" allows you to easily open the Directories for these
 
 ### Serializable Dictionary Creator
 
-Please note that the Serialize Dictionary Package is now a separate addon. However, it will be shipped with 
+Please note that the Serialize Dictionary Package is now a separate addon. However, it will be shipped with
 future Lazy Jedi packages from now on.
 
 My Serializable Dictionary Creator, you can easily create different Serializable Dictionary Implementations for
@@ -70,7 +76,8 @@ To use the Creator, navigate to Lazy-Jedi/Create/Serializable Dictionary
 
 ![](~Documentation/Images/create-serializable-dictionary.png)
 
-With the Creator you can easily Create Serialized Dictionary, MonoBehaviours with S-Dictionary or Scriptable Objects with<br>
+With the Creator you can easily Create Serialized Dictionary, MonoBehaviours with S-Dictionary or Scriptable Objects
+with<br>
 S-Dictionary Classes without much effort.
 
 ![](~Documentation/Images/create-serializable-dictionary-window.png)
@@ -85,18 +92,24 @@ To create any one of the above classes, you need to provide the following inform
     * Use Custom if your Type is not in the Drop Down
 
 ## Unity Terminal
-The Unity Terminal Addon allows you to code process commands that can be executed within Unity via the .Net System.Diagnostics library.
 
-This is useful if you want to execute external processes within the Unity Environment. 
+The Unity Terminal Addon allows you to code process commands that can be executed within Unity via the .Net
+System.Diagnostics library.
 
-One good example would be to start an Android Emulator that can be used to Install and Test your Android builds made using Unity.
+This is useful if you want to execute external processes within the Unity Environment.
+
+One good example would be to start an Android Emulator that can be used to Install and Test your Android builds made
+using Unity.
 
 ### Process Utilities
+
 The Process Utilities has static Methods that shorthand executing Processes via .Net Process method.
+
 * StartProcess(string filename, bool runAsAdmin = false)
 * StartAdvProcess(string filename, string argument, bool hideWindow = false, bool runAsAdmin = false)
 
-Please note that you do not need to run Processes on another thread, the only reason why I am using async is to avoid conflicts with the main Unity Thread.
+Please note that you do not need to run Processes on another thread, the only reason why I am using async is to avoid
+conflicts with the main Unity Thread.
 
 ```csharp
 [MenuItem("Window/Python/Python Shell")]
@@ -119,17 +132,22 @@ public static void OpenPersonalResourcesFolder()
 ```
 
 ### Command Prompt and PowerShell
+
 Opens the Command Prompt or PowerShell in Unity as either an Admin or Non Admin.
 
 Please Note<br>
 The predefined Unity Terminal commands for opening the Command Prompt or PowerShell only work on the Windows OS.<br>
-I unfortunately do no have a Linux based OS to include the equivalent commands. However, if I do get the commands I will include them.
+I unfortunately do no have a Linux based OS to include the equivalent commands. However, if I do get the commands I will
+include them.
 
 ![](~Documentation/Images/unity-terminal.png)
+
 ### Custom Processes
+
 Custom Processes is a Script where you can create your own custom processes that can be executed within Unity.
 
-One of the Predefined Custom Processes is to Open your Local Resources folder on your Computer. This location is set in the Project Setup Window.
+One of the Predefined Custom Processes is to Open your Local Resources folder on your Computer. This location is set in
+the Project Setup Window.
 
 ```csharp
 public static class CustomProcesses
@@ -153,7 +171,8 @@ public static class CustomProcesses
 For Practical examples please look at the Extension Examples in the Examples folder.
 The examples will help you understand how to use the Various Extension methods that are available.
 
-* GameObject
+## GameObject Extensions
+
     * Activate(),
     * Deactivate(),
     * Destroy(),
@@ -186,7 +205,8 @@ print($"Your Objects Clone - {clone.name}");
 YourObject.Destroy();
 ```
 
-* Transform
+## Transform Extensions
+
     * Activate(),
     * Deactivate(),
     * Clone(),
@@ -216,7 +236,8 @@ print("Delete Original Parent With Children");
 
 ```
 
-* LayerMask
+## LayerMask Extensions
+
     * InLayerMask(LayerMask layerMask)
 
 ```csharp
@@ -224,7 +245,8 @@ print("Delete Original Parent With Children");
 print($"Is Layer Mask A, in Layer Mask B - {LayerMaskB.InLayerMask(LayerMaskA)}");
 ```
 
-* String
+## String Extensions
+
     * ToBase64(),
     * FromBase64(),
     * ToBytes(),
@@ -257,7 +279,8 @@ if (word.IsNotNull())
 }
 ```
 
-* Array and List
+## Array and List Extensions
+
     * Shuffle()
 
 ```csharp
@@ -280,6 +303,54 @@ public string[] WordsArray = new[]
 // Shuffle Elements in an Array or List
 WordsArray.Shuffle();
 WordsList.Shuffle();
+```
+
+## Texture2D Extensions
+
+    * ToBase64(),
+    * ToTexture2D(),
+
+```csharp
+
+public Texture2D YourTexture2D;
+
+public void Start()
+{
+
+    string base64 = YourTexture2D.ToBase64();
+    print(base64);
+    
+    Texture2D newTexture2D = base64.ToTexure2D();
+    print(newTexture2D == null);
+
+}
+
+```
+
+## UI Extensions
+
+    * AddListener(UnityAction action),
+    * ToBase64(UnityAction action),
+    * RemoveAllListeners(),
+    * SetPlaceHolderText(string text),
+
+```csharp
+public Button YourButton;
+public TMP_InputField YourInput;
+
+public void Start()
+{
+    YourButton.AddListener(ButtonClickEvent);
+    YourButton.RemoveListener(ButtonClickEvent);
+    YourButton.RemoveAllListeners();
+    
+    YourInput.placeholder.SetPlaceHolderText("Hi");
+}
+
+public void ButtonClickEvent()
+{
+    print("Something");
+}
 ```
 
 ## Utilities
@@ -331,10 +402,12 @@ public class UseSerializedDictionary : MonoBehaviour
 
 ## MackySoft - Serializable References
 
-The "SubclassSelector" attribute allows you to easily set subclasses of those abstract classes in the Editor that are serialized by SerializeReference
+The "SubclassSelector" attribute allows you to easily set subclasses of those abstract classes in the Editor that are
+serialized by SerializeReference
 attribute.
 
-Please look at the Serialized Reference Example in the Examples folder to understand how to use the "[SubclassSelector]" attribute correctly.
+Please look at the Serialized Reference Example in the Examples folder to understand how to use the "[SubclassSelector]"
+attribute correctly.
 
 ```csharp
 public interface ICommand
@@ -405,6 +478,7 @@ public class SerializedReferenceExamples : MonoBehaviour
 ```
 
 # Lazy Jedi Addons
+
 + [Lazy Seven Zip](https://github.com/Lazy-Jedi/lazy-seven-zip)
 + [Lazy Palette Swapper](https://github.com/Lazy-Jedi/lazy-palette-swapper)
 + [Lazy Sprite Extractor](https://github.com/Lazy-Jedi/lazy-sprite-extractor)
@@ -412,7 +486,9 @@ public class SerializedReferenceExamples : MonoBehaviour
 # Credits
 
 ## Creators
+
 1. Mentor - [BluMalice](https://github.com/BLUDRAG)
+2. Cristian Alexandru Geambasu - [Daemon3000](https://gist.github.com/daemon3000)
 
 ## Assets
 

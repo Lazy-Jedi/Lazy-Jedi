@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace LazyJedi
@@ -9,7 +7,6 @@ namespace LazyJedi
     {
         #region FIELDS
 
-        public string name;
         public int coins;
 
         #endregion

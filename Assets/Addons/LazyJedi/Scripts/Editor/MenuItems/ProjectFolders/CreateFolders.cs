@@ -16,7 +16,7 @@ namespace LazyJedi.Editors.MenuItems
 
         #region METHODS
 
-        [MenuItem("File/Create Project Folders #&F", priority = 150)]
+        [MenuItem("File/Create Project Folders", priority = 150)]
         private static void CreateProjectFolders()
         {
             ProjectSetup projectSetup = new ProjectSetup();
