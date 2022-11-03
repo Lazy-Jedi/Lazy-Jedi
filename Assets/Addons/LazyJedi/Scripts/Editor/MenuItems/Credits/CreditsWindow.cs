@@ -123,5 +123,5 @@ namespace LazyJedi.Editors.MenuItems
 
         #endregion
     }
-#endif
 }
+#endif

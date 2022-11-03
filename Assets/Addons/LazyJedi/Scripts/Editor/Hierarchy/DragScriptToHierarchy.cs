@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 /*
  * Created By: BluMalice
  */
@@ -56,15 +57,15 @@ namespace LazyJedi.Editors.Hierarchy
             foreach (EditorWindow hierarchy in hierarchies)
             {
                 FieldInfo sceneHierarchyField = _hierarchyType.GetField("m_SceneHierarchy", BindingFlags.Instance | BindingFlags.NonPublic);
-                object sceneHierarchy = sceneHierarchyField.GetValue(hierarchy);
-                Type sceneHierarchyType = sceneHierarchy.GetType();
+                object    sceneHierarchy      = sceneHierarchyField.GetValue(hierarchy);
+                Type      sceneHierarchyType  = sceneHierarchy.GetType();
 
                 PropertyInfo treeViewProperty = sceneHierarchyType.GetProperty("treeView", BindingFlags.Instance | BindingFlags.NonPublic);
-                object treeView = treeViewProperty.GetValue(sceneHierarchy);
-                Type treeViewType = treeView.GetType();
+                object       treeView         = treeViewProperty.GetValue(sceneHierarchy);
+                Type         treeViewType     = treeView.GetType();
 
                 PropertyInfo keyboardInputCallbackProperty = treeViewType.GetProperty("keyboardInputCallback", BindingFlags.Instance | BindingFlags.Public);
-                Action keyboardInputCallback = (Action)keyboardInputCallbackProperty.GetValue(treeView);
+                Action       keyboardInputCallback         = (Action)keyboardInputCallbackProperty.GetValue(treeView);
 
                 if (keyboardInputCallback != null)
                 {
@@ -102,7 +103,7 @@ namespace LazyJedi.Editors.Hierarchy
                     }
 
                     PropertyInfo hoveredObjectProperty = _hierarchyType.GetProperty("hoveredObject", BindingFlags.Instance | BindingFlags.Public);
-                    object hoveredObject = hoveredObjectProperty.GetValue(hierarchy);
+                    object       hoveredObject         = hoveredObjectProperty.GetValue(hierarchy);
 
                     if (hoveredObject != null)
                     {
@@ -139,3 +140,4 @@ namespace LazyJedi.Editors.Hierarchy
         #endregion
     }
 }
+#endif
