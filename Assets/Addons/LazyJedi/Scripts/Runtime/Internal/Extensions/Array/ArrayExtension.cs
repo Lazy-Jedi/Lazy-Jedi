@@ -11,15 +11,9 @@ namespace LazyJedi.Extensions
         /// <summary>
         ///     Shuffling Algorithm Based on Knuth Fisher Yates Shuffle.
         /// </summary>
-        /// <example>
-        ///     <code>
-        /// T[] list = { 1, 2, 3};
-        /// list.Shuffle();
-        /// </code>
-        /// </example>
         /// <param name="array"></param>
         /// <typeparam name="T"></typeparam>
-        public static void Shuffle(this Array array)
+        public static void Shuffle<T>(this T[] array)
         {
             Random random = new Random();
             for (int i = 0; i < array.Length; i++)
@@ -37,11 +31,20 @@ namespace LazyJedi.Extensions
         /// <returns>
         ///     The list with the newly Swapped Elements.
         /// </returns>
-        private static void Swap(this Array array, int i, int j)
+        public static void Swap<T>(this T[] array, int i, int j)
         {
-            object element = array.GetValue(i);
-            array.SetValue(array.GetValue(j), i);
-            array.SetValue(element, j);
+            (array[i], array[j]) = (array[j], array[i]);
+        }
+
+        /// <summary>
+        /// Get a random Item from the array
+        /// </summary>
+        /// <param name="array"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T GetRandomItem<T>(this T[] array)
+        {
+            return array[UnityEngine.Random.Range(0, array.Length)];
         }
     }
 }

@@ -9,17 +9,8 @@ namespace LazyJedi.Extensions
     public static class ListExtension
     {
         /// <summary>
-        ///     Shuffling Algorithm Based on Knuth Fisher Yates Shuffle.
+        /// Shuffle a List of Elements using Knuth Fisher Yates Algorithm
         /// </summary>
-        /// <example>
-        ///     <code>
-        /// List<T>
-        ///             list = new List
-        ///             <T>
-        ///                 (){ 1, 2, 3};
-        ///                 list.Shuffle();
-        /// </code>
-        /// </example>
         /// <param name="list"></param>
         /// <typeparam name="T"></typeparam>
         public static void Shuffle<T>(this List<T> list)
@@ -32,7 +23,7 @@ namespace LazyJedi.Extensions
         }
 
         /// <summary>
-        ///     Swap 2 Elements at Index i and Index j.
+        /// Swap 2 Elements in a List
         /// </summary>
         /// <param name="list"></param>
         /// <param name="i"></param>
@@ -41,9 +32,14 @@ namespace LazyJedi.Extensions
         /// <returns>
         ///     The list with the newly Swapped Elements.
         /// </returns>
-        private static void Swap<T>(this List<T> list, int i, int j)
+        public static void Swap<T>(this List<T> list, int i, int j)
         {
             (list[i], list[j]) = (list[j], list[i]);
+        }
+
+        public static T GetRandomItem<T>(this List<T> list)
+        {
+            return list[UnityEngine.Random.Range(0, list.Count)];
         }
     }
 }

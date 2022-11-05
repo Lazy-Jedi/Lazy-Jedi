@@ -9,7 +9,7 @@ namespace LazyJedi.Editors.MenuItems
     {
         #region METHODS
 
-        [MenuItem("File/Restart Editor #r", priority = 190)]
+        [MenuItem("File/Restart Editor &#r", priority = 190)]
         public static void ReopenProject()
         {
             if (EditorUtility.DisplayDialog("Restart Editor", "Do you want to Restart the Editor?", "Yes", "Cancel"))

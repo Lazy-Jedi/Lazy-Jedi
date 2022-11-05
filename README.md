@@ -281,7 +281,9 @@ if (word.IsNotNull())
 
 ## Array and List Extensions
 
-    * Shuffle()
+    * Shuffle(),
+    * GetRandomItem(),
+    * Swap()
 
 ```csharp
 public List<string> WordsList = new List<string>()
@@ -300,9 +302,19 @@ public string[] WordsArray = new[]
     "Shuffle"
 };
 
-// Shuffle Elements in an Array or List
-WordsArray.Shuffle();
-WordsList.Shuffle();
+private void Start()
+{
+    // Shuffle Elements in an Array or List
+    WordsArray.Shuffle();
+    WordsList.Shuffle();
+    
+    WordsArray.Swap(i, j);
+    WordsList.Swap(i, j);
+    
+    string item1 = WordsArray.GetRandomItem();
+    string item2 = WordsList.GetRandomItem();
+
+}
 ```
 
 ## Texture2D Extensions
