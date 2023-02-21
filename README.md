@@ -251,6 +251,7 @@ print($"Is Layer Mask A, in Layer Mask B - {LayerMaskB.InLayerMask(LayerMaskA)}"
     * FromBase64(),
     * ToBytes(),
     * FromBytes()
+    * ToShort(), ToInt(), ToFloat(), ToDouble(), ToLong(), ToBool() 
 
 ```csharp
 // String Conversions to Base64 and back and to Bytes and back
@@ -277,6 +278,35 @@ if (word.IsNotNull())
 {
     print("Word is Not Null");
 }
+
+// Parsing a String Int, Float, Double, etc to its Primitive Type
+string aStringInt = "1";
+int anInt = aStringInt.ToInt();
+
+string aStringFloat = "3.14";
+float aFloat = aStringFloat.ToFloat();
+
+string aStringDouble = "3.145";
+double aDouble = aStringDouble.ToDouble();
+
+```
+
+## Float Extensions
+Convert a float to a Time String either a mm:ss (minutes and seconds) or hh:mm:ss (hours, minutes and seconds)
+
+    * ToTimeMS(),
+    * ToTimeHMS(),
+
+```csharp
+
+float time = 1800.14f;
+
+// This will print out the time equivalent of the float in Minutes and Seconds
+print(time.ToTimeMS());
+
+// This will print out the time equivalent of the float in Hours,Minutes and Seconds
+print(time.ToTimeHMS());
+
 ```
 
 ## Array and List Extensions

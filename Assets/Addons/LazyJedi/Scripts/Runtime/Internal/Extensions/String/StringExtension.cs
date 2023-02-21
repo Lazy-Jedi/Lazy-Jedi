@@ -24,5 +24,39 @@ namespace LazyJedi.Extensions
         {
             return string.IsNullOrEmpty(text64) ? string.Empty : Encoding.UTF8.GetString(Convert.FromBase64String(text64));
         }
+
+        #region LAZY PARSING
+
+        public static short ToShort(this string value)
+        {
+            return short.Parse(value);
+        }
+
+        public static int ToInt(this string value)
+        {
+            return int.Parse(value);
+        }
+
+        public static float ToFloat(this string value)
+        {
+            return float.Parse(value);
+        }
+
+        public static double ToDouble(this string value)
+        {
+            return double.Parse(value);
+        }
+
+        public static long ToLong(this string value)
+        {
+            return long.Parse(value);
+        }
+
+        public static bool ToBool(this string value)
+        {
+            return bool.Parse(value);
+        }
+
+        #endregion
     }
 }
