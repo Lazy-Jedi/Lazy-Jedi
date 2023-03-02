@@ -44,13 +44,15 @@ your Computer.
 
 ![](~Documentation/Images/open.png)
 
-### Resources Folder
+### Resource and Temporary Folders
 
 The Resources Folder is a local folder on your machine. This is the same folder that is linked when you use the Project
-Setup<br>
-window and Select a local Resources folder on your Computer.
+Setup window and Select a local Resources folder on your Computer.
 
-![](~Documentation/Images/open-resources.png)
+The Temporary Folder is a local folder on your machine that is used to save temporary files that are created by Serializing Scriptable Objects for example.<br>
+You can use the Temporary Folder to save any temporary files that you may need to use in your project.
+
+![](~Documentation/Images/open-folders.png)
 
 ### Application Paths
 
