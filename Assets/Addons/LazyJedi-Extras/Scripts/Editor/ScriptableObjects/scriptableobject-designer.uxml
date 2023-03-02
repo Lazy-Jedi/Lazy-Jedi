@@ -5,7 +5,7 @@
             <ui:Label tabindex="-1" text="Temporary Persistence" display-tooltip-when-elided="true" name="lbHeader" style="-unity-text-align: middle-center; border-left-width: 0.5px; border-right-width: 0.5px; border-top-width: 0.5px; border-bottom-width: 0.5px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); padding-left: 1px; padding-right: 1px; padding-top: 1px; padding-bottom: 1px; margin-left: 1px; margin-right: 1px; margin-top: 1px; margin-bottom: 1px; -unity-font: resource(&apos;Fonts/Google-fonts/Rubik-Medium&apos;); -unity-font-definition: none; height: 24px; white-space: flex-start; text-overflow: clip; font-size: 16px;" />
             <ui:Toggle label="  Show Overwrite Warning?" value="true" name="tglOverwrite" style="flex-direction: row-reverse; align-self: flex-start;" />
             <ui:VisualElement name="veButtons" style="background-color: rgba(0, 0, 0, 0); align-self: stretch; justify-content: center; align-items: auto; flex-direction: row;">
-                <ui:Button text="Open Folder" display-tooltip-when-elided="true" name="btnOpen" view-data-key="btnOpenKey" />
+                <ui:Button text="Open Temp Folder" display-tooltip-when-elided="true" name="btnOpen" view-data-key="btnOpenKey" />
                 <ui:Button text="Save" display-tooltip-when-elided="true" name="btnSave" view-data-key="btnSaveKey" />
                 <ui:Button text="Save To..." display-tooltip-when-elided="true" name="btnSaveTo" view-data-key="btnSaveToKey" />
                 <ui:Button text="Load" display-tooltip-when-elided="true" name="btnLoad" view-data-key="btnLoadKey" />
