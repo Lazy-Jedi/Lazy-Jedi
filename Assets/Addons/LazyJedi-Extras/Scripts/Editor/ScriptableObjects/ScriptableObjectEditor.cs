@@ -80,7 +80,7 @@ namespace LazyJedi.Editors.ScriptableObjects
             Toggle tglOverwrite = _root.Q<Toggle>("tglOverwrite");
             tglOverwrite.RegisterValueChangedCallback(OnOverwriteToggle_Click);
             _showOverwriteWarning = tglOverwrite.value;
-
+            
             return _root;
         }
 

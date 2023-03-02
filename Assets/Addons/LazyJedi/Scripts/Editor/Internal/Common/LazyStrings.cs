@@ -15,7 +15,7 @@ namespace LazyJedi.Editors.Internal
 
         #region PROPERTIES
 
-        public static string PROJECT_PARENT_DIRECTORY
+        public static string PERSISTANT_PARENT_PATH
         {
             get => Directory.GetParent(Directory.GetParent(Application.persistentDataPath).FullName).FullName;
         }
