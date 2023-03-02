@@ -537,6 +537,9 @@ public class SerializedReferenceExamples : MonoBehaviour
 ## Assets
 
 1. Kenney - [Fonts](https://www.kenney.nl/assets)
+2. Omnibus-Type - MuseoModerno - [Font](https://fonts.google.com/specimen/MuseoModerno?query=Museo)
+3. Andrew Paglinawan - Quicksand - [Font](https://fonts.google.com/specimen/Quicksand?query=quicksand)
+4. Hubert and Fischer - Rubik - [Font](https://fonts.google.com/specimen/Rubik?query=rubik)
 
 ## Packages
 
