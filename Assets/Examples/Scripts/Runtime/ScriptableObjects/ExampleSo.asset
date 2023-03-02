@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf66169df0f0a15408a933b8792273ab, type: 3}
   m_Name: ExampleSo
   m_EditorClassIdentifier: 
-  name: 
-  coins: 0
+  Coins: -100
+  _name: 

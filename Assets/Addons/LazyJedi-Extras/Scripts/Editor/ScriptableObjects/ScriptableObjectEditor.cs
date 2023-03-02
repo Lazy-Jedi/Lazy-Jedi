@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using LazyJedi.Editors.Internal;
-using LazyJedi.Globals;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
 
 namespace LazyJedi.Editors.ScriptableObjects
 {
@@ -15,29 +16,31 @@ namespace LazyJedi.Editors.ScriptableObjects
     {
         #region VARIABLES
 
+        [SerializeField]
+        private VisualTreeAsset _design;
+
+        private string outPath = string.Empty;
+        private string inPath = string.Empty;
+
         private ScriptableObject _target;
-
         private bool _showOverwriteWarning = false;
-
-        private GUIContent _saveBtnContent;
-        private GUIContent _saveToBtnContent;
-        private GUIContent _loadBtnContent;
-        private GUIContent _loadFromBtnContent;
-
-        private GUIStyle _temporaryLabelStyle;
-        private Font _headerFont;
 
         #endregion
 
         #region PROPERTIES
 
-        private string StandardPath
+        private string TemporaryPath
         {
             get
             {
-                ProjectSetup projectSetup = new ProjectSetup();
-                projectSetup.LoadSettings();
-                return Path.Combine(projectSetup.TemporaryFolder, "json");
+                string path = new ProjectSetup().LoadSettings().TemporaryFolder;
+                path = Path.Combine(string.IsNullOrEmpty(path) ? LazyStrings.DEFAULT_TEMPORARY_PATH : path, "Json");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                return path;
             }
         }
 
@@ -45,71 +48,79 @@ namespace LazyJedi.Editors.ScriptableObjects
 
         #region UNITY METHODS
 
-        private void OnEnable()
-        {
-            _target = target as ScriptableObject;
+        private VisualElement _root;
 
-            Initialize();
-        }
-
-        public override void OnInspectorGUI()
+        public override VisualElement CreateInspectorGUI()
         {
-            AssignSelButtonDrawer();
-            PersistenceButtonsDrawer();
-            DrawDefaultInspector();
-        }
+            _root = new VisualElement();
+            _design.CloneTree(_root);
 
-        private void OnDestroy()
-        {
-            Resources.UnloadAsset(_headerFont);
+            VisualElement defaultInspector = _root.Q("Default_Inspector");
+            InspectorElement.FillDefaultInspector(defaultInspector, serializedObject, this);
+            _target = (ScriptableObject)serializedObject.targetObject;
+
+            Button btnAssign = _root.Q<Button>("btnAssign");
+            btnAssign.RegisterCallback<MouseUpEvent>(OnAssignSelfButton_Clicked);
+
+            Button btnOpen = _root.Q<Button>("btnOpen");
+            btnOpen.RegisterCallback<MouseUpEvent>(OnOpenButton_Clicked);
+
+            Button btnSave = _root.Q<Button>("btnSave");
+            btnSave.RegisterCallback<MouseUpEvent>(OnSaveButton_Clicked);
+
+            Button btnSaveTo = _root.Q<Button>("btnSaveTo");
+            btnSaveTo.RegisterCallback<MouseUpEvent>(OnSaveToButton_Clicked);
+
+            Button btnLoad = _root.Q<Button>("btnLoad");
+            btnLoad.RegisterCallback<MouseUpEvent>(OnLoadButton_Clicked);
+
+            Button btnLoadFrom = _root.Q<Button>("btnLoadFrom");
+            btnLoadFrom.RegisterCallback<MouseUpEvent>(OnLoadFromButton_Clicked);
+
+            Toggle tglOverwrite = _root.Q<Toggle>("tglOverwrite");
+            tglOverwrite.RegisterValueChangedCallback(OnOverwriteToggle_Click);
+            _showOverwriteWarning = tglOverwrite.value;
+
+            return _root;
         }
 
         #endregion
 
-        #region DRAWER METHODS
+        #region UI EVENT METHODS
 
-        private void AssignSelButtonDrawer()
+        private void OnOverwriteToggle_Click(ChangeEvent<bool> evt)
         {
-            if (GUILayout.Button("Assign Self"))
-            {
-                AssignSelf();
-            }
-
-            EditorGUILayout.Space(8f);
+            _showOverwriteWarning = evt.newValue;
         }
 
-        private void PersistenceButtonsDrawer()
+        private void OnAssignSelfButton_Clicked(MouseUpEvent evt)
         {
-            using (EditorGUILayout.VerticalScope VerticalScope = new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
-            {
-                EditorGUILayout.LabelField("Temporary Persistence", _temporaryLabelStyle);
-                _showOverwriteWarning = EditorGUILayout.ToggleLeft("Enable Overwrite Warning", _showOverwriteWarning);
+            AssignSelf();
+        }
 
-                using (EditorGUILayout.HorizontalScope horizontalScope = new EditorGUILayout.HorizontalScope())
-                {
-                    if (GUILayout.Button(_saveBtnContent))
-                    {
-                        Serialize();
-                    }
+        private void OnOpenButton_Clicked(MouseUpEvent evt)
+        {
+            EditorUtility.RevealInFinder(TemporaryPath);
+        }
 
-                    if (GUILayout.Button(_saveToBtnContent))
-                    {
-                        SerializeToFile();
-                    }
+        private void OnSaveButton_Clicked(MouseUpEvent evt)
+        {
+            Serialize();
+        }
 
-                    if (GUILayout.Button(_loadBtnContent))
-                    {
-                        Deserialize();
-                    }
+        private void OnSaveToButton_Clicked(MouseUpEvent evt)
+        {
+            SerializeToFile();
+        }
 
-                    if (GUILayout.Button(_loadFromBtnContent))
-                    {
-                        DeserializeFromFile();
-                    }
-                }
-            }
+        private void OnLoadButton_Clicked(MouseUpEvent evt)
+        {
+            Deserialize();
+        }
 
-            EditorGUILayout.Space(8f);
+        private void OnLoadFromButton_Clicked(MouseUpEvent evt)
+        {
+            DeserializeFromFile();
         }
 
         #endregion
@@ -119,7 +130,7 @@ namespace LazyJedi.Editors.ScriptableObjects
         private void AssignSelf()
         {
             List<GameObject> rootObjects = new List<GameObject>();
-            int              sceneCount  = EditorSceneManager.sceneCount;
+            int sceneCount = EditorSceneManager.sceneCount;
 
             for (int i = 0; i < sceneCount; i++)
             {
@@ -143,9 +154,9 @@ namespace LazyJedi.Editors.ScriptableObjects
             }
         }
 
-        private void Serialize(string outPath = "")
+        private void Serialize()
         {
-            if (string.IsNullOrEmpty(outPath)) outPath = StandardPath;
+            if (string.IsNullOrEmpty(outPath)) outPath = TemporaryPath;
             if (!outPath.Contains(".json"))
             {
                 if (!Directory.Exists(outPath)) Directory.CreateDirectory(outPath);
@@ -169,14 +180,14 @@ namespace LazyJedi.Editors.ScriptableObjects
 
         private void SerializeToFile()
         {
-            string outPath = EditorUtility.SaveFilePanel($"Save {_target.name}", Application.dataPath, _target.name, "json");
-            Serialize(outPath);
+            outPath = EditorUtility.SaveFilePanel($"Save {_target.name}", TemporaryPath, _target.name, "json");
+            if (string.IsNullOrEmpty(outPath)) return;
+            Serialize();
         }
 
-
-        private void Deserialize(string inPath = "")
+        private void Deserialize()
         {
-            if (string.IsNullOrEmpty(inPath)) inPath = Path.Combine(StandardPath, $"{_target.name}.json");
+            if (string.IsNullOrEmpty(inPath)) inPath = Path.Combine(TemporaryPath, $"{_target.name}.json");
             if (!File.Exists(inPath))
             {
                 Debug.unityLogger.LogWarning("", $"The file @ {inPath} does not exist.");
@@ -191,31 +202,8 @@ namespace LazyJedi.Editors.ScriptableObjects
 
         private void DeserializeFromFile()
         {
-            string inPath = EditorUtility.OpenFilePanel($"Load {_target.name}", Application.dataPath, "json");
-            Deserialize(inPath);
-        }
-
-        #endregion
-
-        #region INITIALIZATION
-
-        private void Initialize()
-        {
-            _saveBtnContent     = new GUIContent("Save", $"Serialize {_target?.name ?? ""} to Temporary/json folder.");
-            _saveToBtnContent   = new GUIContent("Save To...", $"Serialize {_target?.name ?? ""} to a folder of your choice.");
-            _loadBtnContent     = new GUIContent("Load", $"Deserialize {_target?.name ?? ""} from Temporary/json folder.");
-            _loadFromBtnContent = new GUIContent("Load From...", $"Deserialize {_target?.name ?? ""} from a file of your choice.");
-
-            if (!_headerFont)
-            {
-                _headerFont = Resources.Load<Font>(LazyEditorArt.KenneyMiniSquareFont);
-            }
-
-            if (_temporaryLabelStyle == null)
-            {
-                _temporaryLabelStyle = LazyEditorStyles.CustomHelpBoxLabel(LazyColors.UnityFontColorLite, LazyColors.UnityFontColorDark, 12, _headerFont);
-                LazyEditorStyles.SwitchLabelColor(_temporaryLabelStyle, LazyColors.UnityFontColorLite, LazyColors.UnityFontColorDark);
-            }
+            inPath = EditorUtility.OpenFilePanel($"Load {_target.name}", TemporaryPath, "json");
+            Deserialize();
         }
 
         #endregion

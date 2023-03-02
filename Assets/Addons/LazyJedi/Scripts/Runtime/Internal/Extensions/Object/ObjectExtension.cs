@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace LazyJedi.Extensions
@@ -16,7 +17,7 @@ namespace LazyJedi.Extensions
         {
             return @object == null;
         }
-
+        
         /// <summary>
         /// Check if a System Object is Not Null
         /// </summary>
@@ -25,6 +26,18 @@ namespace LazyJedi.Extensions
         public static bool IsNotNull(this object @object)
         {
             return @object != null;
+        }
+
+        /// <summary>
+        /// Serialize an object to a Json String.
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="prettyPrint"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static string ToJson<T>(this T @object, bool prettyPrint = false)
+        {
+            return JsonUtility.ToJson(@object, prettyPrint);
         }
 
         /// <summary>

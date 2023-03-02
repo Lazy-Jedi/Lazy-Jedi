@@ -7,11 +7,20 @@ namespace LazyJedi
     {
         #region FIELDS
 
-        public int coins;
+        public int Coins;
+
+        [SerializeField]
+        private string _name;
 
         #endregion
 
-        #region METHODS
+        #region Properties
+
+        public string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
 
         #endregion
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using UnityEngine;
 
 namespace LazyJedi.Extensions
 {
@@ -55,6 +56,33 @@ namespace LazyJedi.Extensions
         public static bool ToBool(this string value)
         {
             return bool.Parse(value);
+        }
+
+        #endregion
+
+        #region JSON
+
+        /// <summary>
+        /// Create an object from a Json String
+        /// </summary>
+        /// <param name="json"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T FromJson<T>(this string json)
+        {
+            return JsonUtility.FromJson<T>(json);
+        }
+
+        /// <summary>
+        /// Overwrite an existing object from a Json String.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="objectToOverwrite"></param>
+        /// <returns></returns>
+        public static object FromJsonOverwrite(this string json, object objectToOverwrite)
+        {
+            JsonUtility.FromJsonOverwrite(json, objectToOverwrite);
+            return objectToOverwrite;
         }
 
         #endregion

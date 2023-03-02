@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace LazyJedi.Editors.Internal
 {
@@ -16,8 +17,10 @@ namespace LazyJedi.Editors.Internal
         [Header("Resources Folder")]
         public string ResourcesFolder = string.Empty;
 
+        [FormerlySerializedAs("ChangeTemporaryFolder")]
         [Header("Custom Folders")]
-        public string TemporaryFolder = string.Empty;
+        public bool UseCustomTemporaryFolder;
+        public string TemporaryFolder;
 
         [Header("Folders")]
         public List<string> Folders = new List<string>()
@@ -32,8 +35,6 @@ namespace LazyJedi.Editors.Internal
             "_Project/Scripts/Runtime",
         };
 
-        private const string CREATOR_ALIAS = "Uee";
-        private const string PRODUCT_NAME = "LazyJedi";
         private const string FILENAME = "project-setup.json";
 
         #endregion
@@ -44,9 +45,8 @@ namespace LazyJedi.Editors.Internal
         {
             get
             {
-                string projectPath  = Application.persistentDataPath;
-                string settingsPath = Directory.GetParent(Directory.GetParent(projectPath).FullName).FullName;
-                settingsPath = Path.Combine(settingsPath, CREATOR_ALIAS, PRODUCT_NAME);
+                string settingsPath = LazyStrings.PROJECT_PARENT_DIRECTORY;
+                settingsPath = Path.Combine(settingsPath, LazyStrings.CREATOR_ALIAS, LazyStrings.LAZY_JEDI);
                 if (Directory.Exists(settingsPath)) return settingsPath;
 
                 Directory.CreateDirectory(settingsPath);
@@ -60,23 +60,24 @@ namespace LazyJedi.Editors.Internal
 
         #region METHODS
 
-        public void SaveSettings()
+        public ProjectSetup SaveSettings()
         {
             string json = JsonUtility.ToJson(this, true);
             File.WriteAllText(Path.Combine(SettingsPath, FILENAME), json);
+            return this;
         }
 
-        public void LoadSettings()
+        public ProjectSetup LoadSettings()
         {
             string path = Path.Combine(SettingsPath, FILENAME);
             if (!File.Exists(path))
             {
-                SaveSettings();
-                return;
+                return SaveSettings();
             }
 
             string json = File.ReadAllText(path);
             JsonUtility.FromJsonOverwrite(json, this);
+            return this;
         }
 
         #endregion

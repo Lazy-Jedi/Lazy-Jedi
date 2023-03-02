@@ -58,6 +58,24 @@ namespace LazyJedi.Extensions
         }
 
         /// <summary>
+        /// Activate a GameObject after X seconds has elapsed.
+        /// </summary>
+        /// <param name="gameObject"></param>
+        /// <param name="seconds"></param>
+        /// <returns></returns>
+        public static IEnumerator Activate(this GameObject gameObject, float seconds)
+        {
+            float elapsedTime = 0f;
+            while (elapsedTime <= seconds)
+            {
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            gameObject.Activate();
+        }
+
+        /// <summary>
         /// Disable this Instance.
         /// </summary>
         /// <param name="gameObject"></param>
@@ -66,6 +84,12 @@ namespace LazyJedi.Extensions
             gameObject.SetActive(false);
         }
 
+        /// <summary>
+        /// Deactivate a GameObject after X seconds has Elapsed.
+        /// </summary>
+        /// <param name="gameObject"></param>
+        /// <param name="seconds"></param>
+        /// <returns></returns>
         public static IEnumerator Deactivate(this GameObject gameObject, float seconds)
         {
             float elapsedTime = 0f;
@@ -100,8 +124,7 @@ namespace LazyJedi.Extensions
         /// <param name="identity"></param>
         /// <param name="parent"></param>
         /// <returns></returns>
-        public static GameObject Clone(this GameObject gameObject, Vector3 position = new Vector3(),
-            Quaternion identity = new Quaternion(),
+        public static GameObject Clone(this GameObject gameObject, Vector3 position = new Vector3(), Quaternion identity = new Quaternion(),
             Transform parent = null)
         {
             return Object.Instantiate(gameObject, position, identity, parent);

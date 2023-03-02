@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using System.IO;
 using System.Threading.Tasks;
 using LazyJedi.Editors.Internal;
 using UnityEditor;
@@ -51,6 +52,13 @@ namespace UnityTerminal
         public static void OpenPersonalResourcesFolder()
         {
             ProcessUtilities.StartAdvProcess("explorer.exe", ResourcesFolder);
+        }
+
+        [MenuItem("Lazy-Jedi/Open/Temporary Folder %#T", priority = 200)]
+        public static void OpenTemporaryFolder()
+        {
+            string path = new ProjectSetup().LoadSettings().TemporaryFolder;
+            ProcessUtilities.StartAdvProcess("explorer.exe", Path.Combine(string.IsNullOrEmpty(path) ? LazyStrings.DEFAULT_TEMPORARY_PATH : path));
         }
 
         #endregion

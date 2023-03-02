@@ -17,7 +17,7 @@ namespace LazyJedi.Editors.MenuItems
         [MenuItem("Lazy-Jedi/Setup/Project Setup #&P", priority = 100)]
         public static void OpenWindow()
         {
-            Window         = GetWindow<ProjectSetupWindow>(true, "Project Setup");
+            Window = GetWindow<ProjectSetupWindow>(true, "Project Setup");
             Window.minSize = new Vector2(645, 945);
             Window.Show();
 
@@ -53,6 +53,7 @@ namespace LazyJedi.Editors.MenuItems
         private string _productName;
 
         private string _resourcesFolder;
+        private bool _useCustomTemporaryFolder;
         private string _temporaryFolder;
 
         private Texture2D _productIcon;
@@ -115,7 +116,7 @@ namespace LazyJedi.Editors.MenuItems
             {
                 EditorGUILayout.LabelField("Product Settings", _centeredLabel);
                 _productIcon = (Texture2D)EditorGUILayout.ObjectField("Product Icon", _productIcon, typeof(Texture2D), false);
-                _cursor      = (Texture2D)EditorGUILayout.ObjectField("Cursor", _cursor, typeof(Texture2D), false);
+                _cursor = (Texture2D)EditorGUILayout.ObjectField("Cursor", _cursor, typeof(Texture2D), false);
                 if (_cursor)
                 {
                     _cursorHotspot = EditorGUILayout.Vector2Field("Cursor Hotspot:", _cursorHotspot);
@@ -196,8 +197,8 @@ namespace LazyJedi.Editors.MenuItems
                         if (GUILayout.Button(LazyEditorStyles.CROSS_CHAR, GUILayout.Width(24f)))
                         {
                             _folders.RemoveAt(i);
-                            _count         -= 1;
-                            _changeOccured =  true;
+                            _count -= 1;
+                            _changeOccured = true;
                         }
                     }
                 }
@@ -259,7 +260,23 @@ namespace LazyJedi.Editors.MenuItems
 
         private void TemporaryFolderDrawer()
         {
+            EditorGUI.BeginChangeCheck();
+            _useCustomTemporaryFolder = EditorGUILayout.BeginToggleGroup("Use a custom Temporary Folder?", _useCustomTemporaryFolder);
+            if (EditorGUI.EndChangeCheck())
+            {
+                if (!_useCustomTemporaryFolder)
+                {
+                    _temporaryFolder = LazyStrings.DEFAULT_TEMPORARY_PATH;
+                }
+            }
+
             CustomFolderDrawerHelper(ref _temporaryFolder, _temporaryGUIContent, "Temporary Folder");
+            if (string.IsNullOrEmpty(_temporaryFolder))
+            {
+                _temporaryFolder = LazyStrings.DEFAULT_TEMPORARY_PATH;
+            }
+
+            EditorGUILayout.EndToggleGroup();
         }
 
         #endregion
@@ -269,17 +286,17 @@ namespace LazyJedi.Editors.MenuItems
         private void Initialization()
         {
             if (!_lightImage) _lightImage = Resources.Load<Texture2D>(LazyEditorArt.LazyJediLiteLogo);
-            if (!_darkImage) _darkImage   = Resources.Load<Texture2D>(LazyEditorArt.LazyJediDarkLogo);
+            if (!_darkImage) _darkImage = Resources.Load<Texture2D>(LazyEditorArt.LazyJediDarkLogo);
 
             if (_logoRect == Rect.zero)
             {
-                _logoRect.width  = 512;
+                _logoRect.width = 512;
                 _logoRect.height = 192;
-                _logoRect.x      = (position.width / 2f) - (_logoRect.width / 2f);
-                _logoRect.y      = 0f;
+                _logoRect.x = (position.width / 2f) - (_logoRect.width / 2f);
+                _logoRect.y = 0f;
             }
 
-            if (!_headerFont) _headerFont = Resources.Load<Font>(LazyEditorArt.KenneyMiniSquareFont);
+            if (!_headerFont) _headerFont = Resources.Load<Font>(LazyEditorArt.MiniSquareFont);
             _centeredLabel ??= LazyEditorStyles.CustomHelpBoxLabel(LazyColors.UnityFontColorLite, LazyColors.UnityFontColorDark, 16, _headerFont);
         }
 
@@ -287,20 +304,20 @@ namespace LazyJedi.Editors.MenuItems
         {
             Debug.unityLogger.Log("Load Data");
 
-            _projectSetup = new ProjectSetup();
-            _projectSetup.LoadSettings();
+            _projectSetup = new ProjectSetup().LoadSettings();
 
             if (!string.IsNullOrEmpty(_projectSetup.CompanyName)) _companyName = _projectSetup.CompanyName;
-            _folders         = _projectSetup.Folders;
-            _count           = _folders.Count;
+            _folders = _projectSetup.Folders;
+            _count = _folders.Count;
             _resourcesFolder = _projectSetup.ResourcesFolder;
-            _temporaryFolder = _projectSetup.TemporaryFolder;
+            _useCustomTemporaryFolder = _projectSetup.UseCustomTemporaryFolder;
+            _temporaryFolder = string.IsNullOrEmpty(_projectSetup.TemporaryFolder)
+                ? LazyStrings.DEFAULT_TEMPORARY_PATH
+                : _projectSetup.TemporaryFolder;
 
-            if (!string.IsNullOrEmpty(_temporaryFolder) && !Directory.Exists(_temporaryFolder))
-            {
-                Directory.CreateDirectory(_temporaryFolder);
-                AssetDatabase.Refresh();
-            }
+            if (Directory.Exists(_temporaryFolder)) return;
+            Directory.CreateDirectory(_temporaryFolder);
+            AssetDatabase.Refresh();
         }
 
         private void SaveData()
@@ -308,10 +325,12 @@ namespace LazyJedi.Editors.MenuItems
             if (_projectSetup == null) return;
 
             Debug.unityLogger.Log("Save Data");
-            _projectSetup.CompanyName     = _companyName;
-            _projectSetup.Folders         = _folders;
+            _projectSetup.CompanyName = _companyName;
+            _projectSetup.Folders = _folders;
             _projectSetup.ResourcesFolder = _resourcesFolder;
-            _projectSetup.TemporaryFolder = _temporaryFolder;
+            _projectSetup.UseCustomTemporaryFolder = _useCustomTemporaryFolder;
+            _projectSetup.TemporaryFolder = _useCustomTemporaryFolder ? _temporaryFolder : string.Empty;
+
             _projectSetup.SaveSettings();
         }
 
@@ -324,7 +343,7 @@ namespace LazyJedi.Editors.MenuItems
             _cursor = PlayerSettings.defaultCursor;
             if (PlayerSettings.cursorHotspot != Vector2.zero) _cursorHotspot = PlayerSettings.cursorHotspot;
 
-            Texture2D[] icons                   = PlayerSettings.GetIconsForTargetGroup(BuildTargetGroup.Unknown);
+            Texture2D[] icons = PlayerSettings.GetIconsForTargetGroup(BuildTargetGroup.Unknown);
             if (icons?.Length > 0) _productIcon = icons[0];
         }
 

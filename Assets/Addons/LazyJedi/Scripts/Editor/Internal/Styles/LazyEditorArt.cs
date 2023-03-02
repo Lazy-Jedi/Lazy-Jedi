@@ -5,8 +5,8 @@ namespace LazyJedi.Editors.Internal
     {
         #region ARTWORK
 
-        public static readonly string LazyJediLiteLogo = "Icons/light-saber-light";
-        public static readonly string LazyJediDarkLogo = "Icons/light-saber-dark";
+        public const string LazyJediLiteLogo = "Icons/light-saber-light";
+        public const string LazyJediDarkLogo = "Icons/light-saber-dark";
 
         #endregion
 
@@ -15,7 +15,32 @@ namespace LazyJedi.Editors.Internal
         /// <summary>
         /// Kenney Mini Square Font
         /// </summary>
-        public static readonly string KenneyMiniSquareFont = "Fonts/kenney-fonts/MiniSquare";
+        public const string MiniSquareFont = "Fonts/Kenney-fonts/MiniSquare";
+
+        /// <summary>
+        /// MuseoModerno ExtraBold Font
+        /// </summary>
+        public const string MuseoModernoExtraBoldFont = "Fonts/Google-fonts/MuseoModerno-ExtraBold";
+
+        /// <summary>
+        /// QuickSand Bold Font
+        /// </summary>
+        public const string QuicksandBoldFont = "Fonts/Google-fonts/Quicksand-Bold";
+
+        /// <summary>
+        /// Quicksand Medium Font
+        /// </summary>
+        public const string QuicksandSemiBoldFont = "Fonts/Google-fonts/Quicksand-SemiBold";
+
+        /// <summary>
+        /// Rubik Bold Font
+        /// </summary>
+        public const string RubikMediumFont = "Fonts/Google-fonts/Rubik-Medium";
+
+        /// <summary>
+        /// Rubik Semibold Font
+        /// </summary>
+        public const string RubikSemiboldFont = "Fonts/Google-fonts/Rubik-Semibold";
 
         #endregion
     }
