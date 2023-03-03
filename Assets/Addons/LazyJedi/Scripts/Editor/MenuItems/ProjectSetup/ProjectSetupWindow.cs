@@ -266,14 +266,14 @@ namespace LazyJedi.Editors.MenuItems
             {
                 if (!_useCustomTemporaryFolder)
                 {
-                    _temporaryFolder = LazyStrings.DEFAULT_TEMPORARY_PATH;
+                    _temporaryFolder = LazyEditorStrings.DEFAULT_TEMPORARY_PATH;
                 }
             }
 
             CustomFolderDrawerHelper(ref _temporaryFolder, _temporaryGUIContent, "Temporary Folder");
             if (string.IsNullOrEmpty(_temporaryFolder))
             {
-                _temporaryFolder = LazyStrings.DEFAULT_TEMPORARY_PATH;
+                _temporaryFolder = LazyEditorStrings.DEFAULT_TEMPORARY_PATH;
             }
 
             EditorGUILayout.EndToggleGroup();
@@ -312,7 +312,7 @@ namespace LazyJedi.Editors.MenuItems
             _resourcesFolder = _projectSetup.ResourcesFolder;
             _useCustomTemporaryFolder = _projectSetup.UseCustomTemporaryFolder;
             _temporaryFolder = string.IsNullOrEmpty(_projectSetup.TemporaryFolder)
-                ? LazyStrings.DEFAULT_TEMPORARY_PATH
+                ? LazyEditorStrings.DEFAULT_TEMPORARY_PATH
                 : _projectSetup.TemporaryFolder;
 
             if (Directory.Exists(_temporaryFolder)) return;

@@ -34,7 +34,7 @@ namespace LazyJedi.Editors.ScriptableObjects
             get
             {
                 string path = new ProjectSetup().LoadSettings().TemporaryFolder;
-                path = Path.Combine(string.IsNullOrEmpty(path) ? LazyStrings.DEFAULT_TEMPORARY_PATH : path, "Json");
+                path = Path.Combine(string.IsNullOrEmpty(path) ? LazyEditorStrings.DEFAULT_TEMPORARY_PATH : path, "Json");
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);

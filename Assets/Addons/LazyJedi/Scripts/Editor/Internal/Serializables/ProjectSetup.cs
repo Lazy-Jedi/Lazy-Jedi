@@ -46,8 +46,8 @@ namespace LazyJedi.Editors.Internal
         {
             get
             {
-                string settingsPath = LazyStrings.PERSISTANT_PARENT_PATH;
-                settingsPath = Path.Combine(settingsPath, LazyStrings.CREATOR_ALIAS, LazyStrings.LAZY_JEDI);
+                string settingsPath = LazyEditorStrings.PERSISTANT_PARENT_PATH;
+                settingsPath = Path.Combine(settingsPath, LazyEditorStrings.CREATOR_ALIAS, LazyEditorStrings.LAZY_JEDI);
                 if (Directory.Exists(settingsPath)) return settingsPath;
 
                 Directory.CreateDirectory(settingsPath);

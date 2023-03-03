@@ -16,20 +16,6 @@ namespace UnityTerminal
     /// </summary>
     public static class CustomProcesses
     {
-        #region PROPERTIES
-
-        private static string ResourcesFolder
-        {
-            get
-            {
-                ProjectSetup projectSetup = new ProjectSetup();
-                projectSetup.LoadSettings();
-                return projectSetup.ResourcesFolder.Replace("/", "\\");
-            }
-        }
-
-        #endregion
-
         #region PYTHON
 
         [MenuItem("Window/Python/Python Shell")]
@@ -51,14 +37,14 @@ namespace UnityTerminal
         [MenuItem("Lazy-Jedi/Open/Resources Folder %#O", priority = 200)]
         public static void OpenPersonalResourcesFolder()
         {
-            ProcessUtilities.StartAdvProcess("explorer.exe", ResourcesFolder);
+            ProcessUtilities.StartAdvProcess("explorer.exe", new ProjectSetup().LoadSettings().ResourcesFolder.Replace("/", "\\"));
         }
 
         [MenuItem("Lazy-Jedi/Open/Temporary Folder %#T", priority = 200)]
         public static void OpenTemporaryFolder()
         {
             string path = new ProjectSetup().LoadSettings().TemporaryFolder;
-            ProcessUtilities.StartAdvProcess("explorer.exe", Path.Combine(string.IsNullOrEmpty(path) ? LazyStrings.DEFAULT_TEMPORARY_PATH : path));
+            ProcessUtilities.StartAdvProcess("explorer.exe", Path.Combine(string.IsNullOrEmpty(path) ? LazyEditorStrings.DEFAULT_TEMPORARY_PATH : path));
         }
 
         #endregion
