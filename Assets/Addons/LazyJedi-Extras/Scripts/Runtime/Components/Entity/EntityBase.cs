@@ -1,3 +1,4 @@
+using LazyJedi.Extensions;
 using UnityEngine;
 
 namespace LazyJedi.Components
@@ -7,29 +8,29 @@ namespace LazyJedi.Components
         #region STATE METHODS
 
         /// <summary>
-        /// Activate Object
+        /// Activate this GameObject
         /// </summary>
         public virtual void Activate()
         {
-            gameObject.SetActive(true);
+            gameObject.Activate();
         }
 
         /// <summary>
-        /// Deactivate Object
+        /// Deactivate this GameObject
         /// </summary>
         public virtual void Deactivate()
         {
-            gameObject.SetActive(false);
+            gameObject.Deactivate();
         }
 
         /// <summary>
-        /// Destroy Object
+        /// Destroy this GameObject
         /// </summary>
-        public virtual void DestroyGO()
+        public virtual void DestroySelf()
         {
             Destroy(gameObject);
         }
-        
+
         /// <summary>
         /// Create a Clone of this Object
         /// </summary>

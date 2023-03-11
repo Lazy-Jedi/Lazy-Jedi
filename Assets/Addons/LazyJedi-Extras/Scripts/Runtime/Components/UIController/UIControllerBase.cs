@@ -11,22 +11,28 @@ namespace LazyJedi.Components
         public Canvas CurrentCanvas;
 
         [Header("Canvas Delay Properties")]
-        public float ActivateDelay = 1f;
+        [Tooltip("Amount of time to wait before activating the Canvas")]
+        public float ActivateTime = 1f;
+        [Tooltip("Amount of time to wait before deactivating the Canvas")]
+        public float DeactivateTime = 1f;
 
-        private UIControllerBase _callingController;
+        private UIControllerBase _otherCanvas;
 
         #endregion
 
         #region PROPERTIES
 
-        public UIControllerBase CallingController
+        /// <summary>
+        /// Reference to any Other Canvas
+        /// </summary>
+        public UIControllerBase OtherCanvas
         {
-            get => _callingController;
+            get => _otherCanvas;
             set
             {
-                _callingController = value;
+                _otherCanvas = value;
                 ActivateCanvas();
-                _callingController.DeactivateCanvas();
+                _otherCanvas.DeactivateCanvas();
             }
         }
 
@@ -43,31 +49,36 @@ namespace LazyJedi.Components
 
         #region CANVAS STATE METHODS
 
+        /// <summary>
+        /// Activate the Current Canvas
+        /// </summary>
         public virtual void ActivateCanvas()
         {
             CurrentCanvas.enabled = true;
         }
 
-        public virtual void ActivateCanvas(UIControllerBase callingController)
+        /// <summary>
+        /// Activate the Current Canvas and Deactivate Other Canvas
+        /// </summary>
+        /// <param name="otherCanvas"></param>
+        public virtual void ActivateCanvas(UIControllerBase otherCanvas)
         {
-            CallingController = callingController;
+            OtherCanvas = otherCanvas;
         }
 
         public virtual void ActivateCanvasDelay()
         {
-            StartCoroutine(ActivateCanvasDelayRoutine());
-        }
-
-        public virtual IEnumerator ActivateCanvasDelayRoutine()
-        {
-            WaitForSeconds delay = new WaitForSeconds(ActivateDelay);
-            yield return delay;
-            CurrentCanvas.enabled = true;
+            StartCoroutine(SetActiveCanvasRoutine(true, ActivateTime));
         }
 
         public virtual void DeactivateCanvas()
         {
             CurrentCanvas.enabled = false;
+        }
+
+        public virtual void DeactivateCanvasDelay()
+        {
+            StartCoroutine(SetActiveCanvasRoutine(false, ActivateTime));
         }
 
         #endregion
@@ -103,7 +114,7 @@ namespace LazyJedi.Components
         #region DO METHODS
 
         /// <summary>
-        /// Do anything required to be called during Awake here.
+        /// Do anything required during Awake here.
         /// Example:
         /// Initialization of Objects, Fields and Properties
         /// Subscribe to Events
@@ -113,7 +124,7 @@ namespace LazyJedi.Components
         }
 
         /// <summary>
-        /// Do anything required to be called during OnEnable here.
+        /// Do anything required during OnEnable here.
         /// Example:
         /// Reset Properties, Objects and Fields
         /// Subscribe to Events
@@ -123,7 +134,7 @@ namespace LazyJedi.Components
         }
 
         /// <summary>
-        /// Do anything required to be called during Start here.
+        /// Do anything required during Start here.
         /// Example:
         /// Initialize Objects
         /// Subscribe to Events
@@ -134,7 +145,7 @@ namespace LazyJedi.Components
         }
 
         /// <summary>
-        /// Do anything required to be called during OnDisable here.
+        /// Do anything required during OnDisable here.
         /// Example:
         /// Unsubscribe from Events
         /// </summary>
@@ -143,12 +154,23 @@ namespace LazyJedi.Components
         }
 
         /// <summary>
-        /// Do anything required to be called during OnDestroy here.
+        /// Do anything that is required during OnDestroy here.
         /// Example:
         /// Dispose of any Objects
         /// </summary>
         public virtual void DoOnDestroy()
         {
+        }
+
+        #endregion
+
+        #region HELPER METHODS
+
+        public virtual IEnumerator SetActiveCanvasRoutine(bool state, float time)
+        {
+            WaitForSeconds delay = new WaitForSeconds(time);
+            yield return delay;
+            CurrentCanvas.enabled = state;
         }
 
         #endregion
