@@ -5,40 +5,15 @@ using UnityEngine.Pool;
 
 namespace LazyJedi.Common
 {
-    public class PooledObject<T> : IDisposable where T : class
-    {
-        #region PROPERTIES
-
-        public T PoolObject { get; }
-        public IObjectPool<T> Pool { get; }
-
-        #endregion
-
-        #region CONSTRUCTORS
-
-        public PooledObject(T value, IObjectPool<T> pool)
-        {
-            PoolObject = value;
-            Pool = pool;
-        }
-
-        #endregion
-
-        #region METHODS
-
-        public void Dispose()
-        {
-            Pool.Release(PoolObject);
-        }
-
-        #endregion
-    }
-
+    /// <summary>
+    /// Object Pool Class
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class ObjectPool<T> : IDisposable, IObjectPool<T> where T : class
     {
         #region FIELDS
 
-        private readonly List<T> _pool;
+        private List<T> _pool;
         private readonly int _maxSize;
 
         private readonly Func<T> _onCreate;
@@ -73,14 +48,9 @@ namespace LazyJedi.Common
         public ObjectPool(Func<T> onCreate, Action<T> onGet = null, Action<T> onRelease = null, Action<T> onDestroy = null,
             bool collectionCheck = false, int defaultCapacity = 10, int maxSize = 10000)
         {
-            if (maxSize <= 0)
-            {
-                Debug.unityLogger.LogError("ObjectPool", "Max Size must be greater than 0.");
-                return;
-            }
             if (onCreate == null)
             {
-                Debug.unityLogger.LogError("onCreate", $"A function to Create {typeof(T)} must be provided.");
+                Debug.LogError($"A function to Create {typeof(T)} must be provided.");
                 return;
             }
 
@@ -90,7 +60,7 @@ namespace LazyJedi.Common
             _onRelease = onRelease;
             _onDestroy = onDestroy;
             _collectionCheck = collectionCheck;
-            _maxSize = maxSize;
+            _maxSize = Mathf.Abs(maxSize);
         }
 
         #endregion
@@ -128,7 +98,7 @@ namespace LazyJedi.Common
         /// <exception cref="Exception"></exception>
         public UnityEngine.Pool.PooledObject<T> Get(out T value)
         {
-            throw new Exception("PLEASE DO NOT USE THIS GET METHOD! USE GetPoolObject INSTEAD!");
+            throw new Exception("DO NOT USE THIS GET METHOD! USE GetPoolObject INSTEAD!");
         }
 
         /// <summary>
@@ -151,7 +121,7 @@ namespace LazyJedi.Common
         {
             if (_collectionCheck && _pool.Contains(element))
             {
-                Debug.unityLogger.LogError("ObjectPool", "Object already released to pool.");
+                Debug.LogException(new Exception("Object already released to pool."));
                 return;
             }
 

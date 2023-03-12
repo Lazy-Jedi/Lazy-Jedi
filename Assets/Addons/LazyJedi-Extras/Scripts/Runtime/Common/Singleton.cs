@@ -20,7 +20,6 @@ namespace LazyJedi.Common
         {
             get
             {
-                
                 if (_instance != null) return _instance;
                 _instance = FindObjectOfType<T>();
 
