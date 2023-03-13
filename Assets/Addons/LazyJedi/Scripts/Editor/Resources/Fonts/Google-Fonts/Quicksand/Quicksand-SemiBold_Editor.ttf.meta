@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e110c919ea5e84fea8cbc2f0556ecfef
+guid: 6700a9c491374b44eab38eae941ccd40
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,11 +8,11 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Quicksand
   fontNames:
   - Quicksand
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 301a36849b9c44ad0be66166ff9296a2, type: 3}
+  - {fileID: 12800000, guid: 2533e46ac6f5cda4fa71077e01c4c758, type: 3}
+  - {fileID: 12800000, guid: e21a5545e8a40ff4c84b37f7952c385d, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

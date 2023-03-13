@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f3703b68435c41aab3bb9d087ca0c59
+guid: e21a5545e8a40ff4c84b37f7952c385d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,8 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: MuseoModerno
   fontNames:
-  - MuseoModerno
+  - Quicksand
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
