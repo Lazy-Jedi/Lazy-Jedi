@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace LazyJedi.Editors.Internal
 {
@@ -12,14 +11,11 @@ namespace LazyJedi.Editors.Internal
     {
         #region VARIABLES
 
-        [Header("Project Properties")]
-        public string CompanyName = string.Empty;
-
         [Header("Resources Folder")]
         public string ResourcesFolder = string.Empty;
 
-        [FormerlySerializedAs("ChangeTemporaryFolder")]
         [Header("Custom Folders")]
+        public bool UseProjectTemporaryFolder;
         public bool UseCustomTemporaryFolder;
         public string TemporaryFolder;
 

@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using LazyJedi.Editors.Internal;
 using UnityEditor;
+using UnityEngine;
 
 namespace UnityTerminal
 {
@@ -43,7 +44,7 @@ namespace UnityTerminal
         [MenuItem("Lazy-Jedi/Open/Temporary Folder %#T", priority = 200)]
         public static void OpenTemporaryFolder()
         {
-            string path = new ProjectSetup().LoadSettings().TemporaryFolder;
+            string path = new ProjectSetup().LoadSettings().TemporaryFolder.Replace("/", "\\");
             ProcessUtilities.StartAdvProcess("explorer.exe", Path.Combine(string.IsNullOrEmpty(path) ? LazyEditorStrings.DEFAULT_TEMPORARY_PATH : path));
         }
 

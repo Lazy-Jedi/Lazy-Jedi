@@ -49,7 +49,7 @@ namespace LazyJedi.Components
         /// Initialization of Objects, Fields and Properties
         /// Subscribe to Events
         /// </summary>
-        public virtual void DoOnAwake()
+        protected virtual void DoOnAwake()
         {
         }
 
@@ -59,7 +59,7 @@ namespace LazyJedi.Components
         /// Reset Properties, Objects and Fields
         /// Subscribe to Events
         /// </summary>
-        public virtual void DoOnEnable()
+        protected virtual void DoOnEnable()
         {
         }
 
@@ -70,7 +70,7 @@ namespace LazyJedi.Components
         /// Subscribe to Events
         /// DontDestroyOnLoad
         /// </summary>
-        public virtual void DoOnStart()
+        protected virtual void DoOnStart()
         {
         }
 
@@ -79,7 +79,7 @@ namespace LazyJedi.Components
         /// Example:
         /// Unsubscribe from Events
         /// </summary>
-        public virtual void DoOnDisable()
+        protected virtual void DoOnDisable()
         {
         }
 
@@ -88,7 +88,7 @@ namespace LazyJedi.Components
         /// Example:
         /// Dispose of any Objects
         /// </summary>
-        public virtual void DoOnDestroy()
+        protected virtual void DoOnDestroy()
         {
         }
 

@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using System;
 using System.Collections.Generic;
 using System.IO;
 using LazyJedi.Editors.Internal;
@@ -18,11 +19,12 @@ namespace LazyJedi.Editors.MenuItems
         public static void OpenWindow()
         {
             Window = GetWindow<ProjectSetupWindow>(true, "Project Setup");
-            Window.minSize = new Vector2(645, 945);
+            Window.minSize = new Vector2(770, 982);
             Window.Show();
 
-            Window.LoadProjectSettings();
-            Window.LoadData();
+            Window.LoadPlayerSettings();
+            Window.LoadProjectSetupData();
+            Window.InitializeWindow();
         }
 
         #endregion
@@ -45,7 +47,7 @@ namespace LazyJedi.Editors.MenuItems
 
         #endregion
 
-        #region FIELDS
+        #region PLAYER AND PROJECT SETUP FIELDS
 
         private ProjectSetup _projectSetup;
 
@@ -53,11 +55,11 @@ namespace LazyJedi.Editors.MenuItems
         private string _productName;
 
         private string _resourcesFolder;
+        private bool _useProjectTemporaryFolder;
         private bool _useCustomTemporaryFolder;
         private string _temporaryFolder;
 
         private Texture2D _productIcon;
-
         private Texture2D _cursor;
         private Vector2 _cursorHotspot;
 
@@ -70,20 +72,11 @@ namespace LazyJedi.Editors.MenuItems
 
         public void OnGUI()
         {
-            Initialization();
             BackgroundLogoDrawer();
-
-            EditorGUILayout.Space(_logoRect.height);
-            EditorGUI.BeginChangeCheck();
             AutoSaveDrawer();
             ProductInfoDrawer();
             CustomFoldersDrawer();
             ProjectFoldersDrawer();
-            if (EditorGUI.EndChangeCheck())
-            {
-                UpdateProjectSettings();
-            }
-
             ButtonsDrawer();
         }
 
@@ -102,6 +95,7 @@ namespace LazyJedi.Editors.MenuItems
         {
             _logoRect.x = (position.width / 2f) - (_logoRect.width / 2f);
             GUI.DrawTexture(_logoRect, EditorGUIUtility.isProSkin ? _lightImage : _darkImage, ScaleMode.ScaleToFit);
+            EditorGUILayout.Space(_logoRect.height);
         }
 
         private void AutoSaveDrawer()
@@ -111,6 +105,7 @@ namespace LazyJedi.Editors.MenuItems
 
         private void ProductInfoDrawer()
         {
+            EditorGUI.BeginChangeCheck();
             EditorGUILayout.Space(8f);
             using (EditorGUILayout.VerticalScope verticalScope = new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
             {
@@ -125,6 +120,10 @@ namespace LazyJedi.Editors.MenuItems
                 _companyName = EditorGUILayout.TextField("Company Name:", _companyName);
                 _productName = EditorGUILayout.TextField("Product Name:", _productName);
             }
+            if (EditorGUI.EndChangeCheck())
+            {
+                UpdateProjectSettings();
+            }
 
             EditorGUILayout.Space(4f);
         }
@@ -134,8 +133,8 @@ namespace LazyJedi.Editors.MenuItems
             using (EditorGUILayout.VerticalScope verticalScope = new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
             {
                 EditorGUILayout.LabelField("Custom Folders", _centeredLabel);
-                ResourcesFolderDrawer();
-                TemporaryFolderDrawer();
+                ResourcesFolderDrawerHelper();
+                TemporaryFolderDrawerHelper();
             }
 
             EditorGUILayout.Space(4f);
@@ -207,7 +206,7 @@ namespace LazyJedi.Editors.MenuItems
 
                 if (_autoSave && _changeOccured)
                 {
-                    SaveData();
+                    SaveProjectSetupData();
                     _changeOccured = false;
                 }
             }
@@ -222,7 +221,7 @@ namespace LazyJedi.Editors.MenuItems
 
             if (GUILayout.Button("Save Settings"))
             {
-                SaveData();
+                SaveProjectSetupData();
             }
         }
 
@@ -250,43 +249,58 @@ namespace LazyJedi.Editors.MenuItems
                 {
                     _changeOccured = true;
                 }
+
+                if (_autoSave && _changeOccured)
+                {
+                    SaveProjectSetupData();
+                    _changeOccured = false;
+                }
             }
         }
 
-        private void ResourcesFolderDrawer()
+        private void ResourcesFolderDrawerHelper()
         {
             CustomFolderDrawerHelper(ref _resourcesFolder, _resourcesGUIContent, "Resources Folder");
         }
 
-        private void TemporaryFolderDrawer()
+        private void TemporaryFolderDrawerHelper()
         {
             EditorGUI.BeginChangeCheck();
-            _useCustomTemporaryFolder = EditorGUILayout.BeginToggleGroup("Use a custom Temporary Folder?", _useCustomTemporaryFolder);
-            if (EditorGUI.EndChangeCheck())
-            {
-                if (!_useCustomTemporaryFolder)
-                {
-                    _temporaryFolder = LazyEditorStrings.DEFAULT_TEMPORARY_PATH;
-                }
-            }
-
+            _useProjectTemporaryFolder = EditorGUILayout.ToggleLeft("Use Project Temporary Folder?", _useProjectTemporaryFolder);
+            _temporaryFolder = !_useProjectTemporaryFolder ? LazyEditorStrings.DEFAULT_TEMPORARY_PATH : LazyEditorStrings.PROJECT_TEMPORARY_PATH;
+            _useCustomTemporaryFolder = EditorGUILayout.BeginToggleGroup("Change Temporary Folder?", _useCustomTemporaryFolder);
             CustomFolderDrawerHelper(ref _temporaryFolder, _temporaryGUIContent, "Temporary Folder");
             if (string.IsNullOrEmpty(_temporaryFolder))
             {
                 _temporaryFolder = LazyEditorStrings.DEFAULT_TEMPORARY_PATH;
             }
-
             EditorGUILayout.EndToggleGroup();
+            if (EditorGUI.EndChangeCheck())
+            {
+                _changeOccured = true;
+            }
+
+            if (_autoSave && _changeOccured)
+            {
+                SaveProjectSetupData();
+                _changeOccured = false;
+            }
         }
 
         #endregion
 
         #region METHODS
 
-        private void Initialization()
+        private void InitializeWindow()
         {
-            if (!_lightImage) _lightImage = Resources.Load<Texture2D>(LazyEditorArt.LazyJediLiteLogo);
-            if (!_darkImage) _darkImage = Resources.Load<Texture2D>(LazyEditorArt.LazyJediDarkLogo);
+            if (!_lightImage)
+            {
+                _lightImage = Resources.Load<Texture2D>(LazyEditorArt.LazyJediLiteLogo);
+            }
+            if (!_darkImage)
+            {
+                _darkImage = Resources.Load<Texture2D>(LazyEditorArt.LazyJediDarkLogo);
+            }
 
             if (_logoRect == Rect.zero)
             {
@@ -296,49 +310,62 @@ namespace LazyJedi.Editors.MenuItems
                 _logoRect.y = 0f;
             }
 
-            if (!_headerFont) _headerFont = Resources.Load<Font>(LazyEditorArt.MiniSquareFont);
+            if (!_headerFont)
+            {
+                _headerFont = Resources.Load<Font>(LazyEditorArt.MiniSquareFont);
+            }
             _centeredLabel ??= LazyEditorStyles.CustomHelpBoxLabel(LazyColors.UnityFontColorLite, LazyColors.UnityFontColorDark, 16, _headerFont);
         }
 
-        private void LoadData()
+        private void LoadProjectSetupData()
         {
-            Debug.unityLogger.Log("Load Data");
-
+            Debug.unityLogger.Log("Load Project Setup Data");
             _projectSetup = new ProjectSetup().LoadSettings();
-
-            if (!string.IsNullOrEmpty(_projectSetup.CompanyName)) _companyName = _projectSetup.CompanyName;
             _folders = _projectSetup.Folders;
             _count = _folders.Count;
             _resourcesFolder = _projectSetup.ResourcesFolder;
             _useCustomTemporaryFolder = _projectSetup.UseCustomTemporaryFolder;
+            _useProjectTemporaryFolder = _projectSetup.UseProjectTemporaryFolder;
+
             _temporaryFolder = string.IsNullOrEmpty(_projectSetup.TemporaryFolder)
                 ? LazyEditorStrings.DEFAULT_TEMPORARY_PATH
                 : _projectSetup.TemporaryFolder;
 
-            if (Directory.Exists(_temporaryFolder)) return;
-            Directory.CreateDirectory(_temporaryFolder);
+            if (!Directory.Exists(_temporaryFolder))
+            {
+                Directory.CreateDirectory(_temporaryFolder);
+            }
             AssetDatabase.Refresh();
         }
 
-        private void SaveData()
+        private void SaveProjectSetupData()
         {
-            if (_projectSetup == null) return;
-
-            Debug.unityLogger.Log("Save Data");
-            _projectSetup.CompanyName = _companyName;
+            Debug.unityLogger.Log("Save Project Setup Data");
             _projectSetup.Folders = _folders;
             _projectSetup.ResourcesFolder = _resourcesFolder;
             _projectSetup.UseCustomTemporaryFolder = _useCustomTemporaryFolder;
-            _projectSetup.TemporaryFolder = _useCustomTemporaryFolder ? _temporaryFolder : string.Empty;
+            _projectSetup.UseProjectTemporaryFolder = _useProjectTemporaryFolder;
 
+            _projectSetup.TemporaryFolder =
+                !_useCustomTemporaryFolder // If not using custom temporary folder
+                    ? !_useProjectTemporaryFolder // If not using project temporary folder
+                        ? LazyEditorStrings.DEFAULT_TEMPORARY_PATH // Use default temporary folder, else
+                        : LazyEditorStrings.PROJECT_TEMPORARY_PATH // Use project temporary folder, else
+                    : _temporaryFolder; // Use custom temporary folder
             _projectSetup.SaveSettings();
         }
 
-        private void LoadProjectSettings()
+        private void LoadPlayerSettings()
         {
-            Debug.unityLogger.Log("Load Project Settings");
-            if (!string.IsNullOrEmpty(PlayerSettings.companyName)) _companyName = PlayerSettings.companyName;
-            if (!string.IsNullOrEmpty(PlayerSettings.productName)) _productName = PlayerSettings.productName;
+            Debug.unityLogger.Log("Load Player Settings");
+            if (!string.IsNullOrEmpty(PlayerSettings.companyName))
+            {
+                _companyName = PlayerSettings.companyName;
+            }
+            if (!string.IsNullOrEmpty(PlayerSettings.productName))
+            {
+                _productName = PlayerSettings.productName;
+            }
 
             _cursor = PlayerSettings.defaultCursor;
             if (PlayerSettings.cursorHotspot != Vector2.zero) _cursorHotspot = PlayerSettings.cursorHotspot;
@@ -349,6 +376,7 @@ namespace LazyJedi.Editors.MenuItems
 
         private void UpdateProjectSettings()
         {
+            Debug.unityLogger.Log("Update Project Settings");
             PlayerSettings.companyName = _companyName;
             PlayerSettings.productName = _productName;
 

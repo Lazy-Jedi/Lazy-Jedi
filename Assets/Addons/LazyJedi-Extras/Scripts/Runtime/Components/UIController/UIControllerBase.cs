@@ -8,7 +8,8 @@ namespace LazyJedi.Components
         #region VARIABLES
 
         [Header("Current Canvas")]
-        public Canvas CurrentCanvas;
+        [SerializeField]
+        private Canvas _currentCanvas;
 
         [Header("Canvas Delay Properties")]
         [Tooltip("Amount of time to wait before activating the Canvas")]
@@ -16,7 +17,7 @@ namespace LazyJedi.Components
         [Tooltip("Amount of time to wait before deactivating the Canvas")]
         public float DeactivateTime = 1f;
 
-        private UIControllerBase _otherCanvas;
+        private UIControllerBase _otherUIController;
 
         #endregion
 
@@ -25,14 +26,14 @@ namespace LazyJedi.Components
         /// <summary>
         /// Reference to any Other Canvas
         /// </summary>
-        public UIControllerBase OtherCanvas
+        public UIControllerBase OtherUIController
         {
-            get => _otherCanvas;
+            get => _otherUIController;
             set
             {
-                _otherCanvas = value;
+                _otherUIController = value;
                 ActivateCanvas();
-                _otherCanvas.DeactivateCanvas();
+                _otherUIController.DeactivateCanvas();
             }
         }
 
@@ -40,9 +41,12 @@ namespace LazyJedi.Components
 
         #region UNITY METHODS
 
-        public virtual void Awake()
+        protected virtual void Awake()
         {
-            if (!CurrentCanvas) CurrentCanvas = GetComponent<Canvas>();
+            if (!_currentCanvas)
+            {
+                _currentCanvas = GetComponent<Canvas>();
+            }
         }
 
         #endregion
@@ -54,7 +58,7 @@ namespace LazyJedi.Components
         /// </summary>
         public virtual void ActivateCanvas()
         {
-            CurrentCanvas.enabled = true;
+            _currentCanvas.enabled = true;
         }
 
         /// <summary>
@@ -63,7 +67,7 @@ namespace LazyJedi.Components
         /// <param name="otherCanvas"></param>
         public virtual void ActivateCanvas(UIControllerBase otherCanvas)
         {
-            OtherCanvas = otherCanvas;
+            OtherUIController = otherCanvas;
         }
 
         public virtual void ActivateCanvasDelay()
@@ -73,7 +77,7 @@ namespace LazyJedi.Components
 
         public virtual void DeactivateCanvas()
         {
-            CurrentCanvas.enabled = false;
+            _currentCanvas.enabled = false;
         }
 
         public virtual void DeactivateCanvasDelay()
@@ -119,7 +123,7 @@ namespace LazyJedi.Components
         /// Initialization of Objects, Fields and Properties
         /// Subscribe to Events
         /// </summary>
-        public virtual void DoOnAwake()
+        protected virtual void DoOnAwake()
         {
         }
 
@@ -129,7 +133,7 @@ namespace LazyJedi.Components
         /// Reset Properties, Objects and Fields
         /// Subscribe to Events
         /// </summary>
-        public virtual void DoOnEnable()
+        protected virtual void DoOnEnable()
         {
         }
 
@@ -140,7 +144,7 @@ namespace LazyJedi.Components
         /// Subscribe to Events
         /// DontDestroyOnLoad
         /// </summary>
-        public virtual void DoOnStart()
+        protected virtual void DoOnStart()
         {
         }
 
@@ -149,7 +153,7 @@ namespace LazyJedi.Components
         /// Example:
         /// Unsubscribe from Events
         /// </summary>
-        public virtual void DoOnDisable()
+        protected virtual void DoOnDisable()
         {
         }
 
@@ -158,7 +162,7 @@ namespace LazyJedi.Components
         /// Example:
         /// Dispose of any Objects
         /// </summary>
-        public virtual void DoOnDestroy()
+        protected virtual void DoOnDestroy()
         {
         }
 
@@ -170,7 +174,7 @@ namespace LazyJedi.Components
         {
             WaitForSeconds delay = new WaitForSeconds(time);
             yield return delay;
-            CurrentCanvas.enabled = state;
+            _currentCanvas.enabled = state;
         }
 
         #endregion
