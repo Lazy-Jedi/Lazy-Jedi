@@ -48,6 +48,60 @@ namespace LazyJedi.Common
             {
                 Destroy(gameObject);
             }
+            DoOnAwake();
+        }
+
+        #endregion
+
+        #region DO METHODS
+
+        protected virtual void DoOnAwake()
+        {
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// A Simple Singleton Variant that doesn't use DontDestroyOnLoad.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public abstract class SimpleSingleton<T> : MonoBehaviour where T : SimpleSingleton<T>
+    {
+        #region FIELDS
+
+        [Header("Singleton Settings")]
+        public bool DoNotDestroyOnLoad = true;
+        
+        public static T Instance;
+
+        #endregion
+
+        #region UNITY METHODS
+
+        protected virtual void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = (T)this;
+                if (DoNotDestroyOnLoad)
+                {
+                    DontDestroyOnLoad(gameObject);
+                }
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+            DoOnAwake();
+        }
+
+        #endregion
+
+        #region DO METHODS
+
+        protected virtual void DoOnAwake()
+        {
         }
 
         #endregion
