@@ -254,6 +254,10 @@ print($"Is Layer Mask A, in Layer Mask B - {LayerMaskB.InLayerMask(LayerMaskA)}"
     * ToBytes(),
     * FromBytes()
     * ToShort(), ToInt(), ToFloat(), ToDouble(), ToLong(), ToBool() 
+    * IsValidEmail_Regex(), IsValidEmail_StrictRegex(), IsValidEmail_MailAddress()
+    * IsValidUrl_Regex(), IsValidUrl_Uri()
+    * IsValidPhoneNumber(), IsAlphanumeric(), InnerTrim()
+    * HasSpecialChars(), RemoveAllSpecialChars(), RemoveSpecialChars_ExclSpaces(), RemoveSpecialChars_ExclPunctuation()
 
 ```csharp
 // String Conversions to Base64 and back and to Bytes and back
@@ -291,9 +295,33 @@ float aFloat = aStringFloat.ToFloat();
 string aStringDouble = "3.145";
 double aDouble = aStringDouble.ToDouble();
 
+string emailAddress = "your.email.address-123@domain1.com";
+string specialCharactersSequence = "A!@#$%^&*()_+=-`~[]B{}\\|;:\'\",<.>/?C";
+string wordsWithSpecialChars = "Hello, %^#$World!";
+string sentence = "Hello, World!\nLet's go!\nTime for a \"Programming\" Lesson!\nEmail me @ youremail@gmail.com for*any#questions (what language to use).";
+string alphaNumeric = "123ABC";
+string url = "https://www.google.com";
+string mobileNumber = "+27821234567";
+
+print($"Is Valid Email {emailAddress} : {emailAddress.IsValidEmail_MailAddress()}");
+print($"Is Valid Email {emailAddress} : {emailAddress.IsValidEmail_Regex()}");
+print($"Is Valid Email {emailAddress} : {emailAddress.IsValidEmail_StrictRegex()}");
+
+print($"Is AlphaNumeric {alphaNumeric} - {alphaNumeric.IsAlphanumeric()}");
+
+print($"Has Special Characters {specialCharactersSequence} - {specialCharactersSequence.HasSpecialChars()}");
+print($"Remove All Special Characters {specialCharactersSequence} - {specialCharactersSequence.RemoveAllSpecialChars()}");
+print($"Remove Special Chars Excl Spaces {wordsWithSpecialChars} - {wordsWithSpecialChars.RemoveSpecialChars_ExclSpaces()}");
+print($"Remove Special Chars Excl Punctuation {sentence} - {sentence.RemoveSpecialChars_ExclPunctuation(" ")}");
+
+print($"Is Valid Number {mobileNumber} - {mobileNumber.IsValidPhoneNumber()}");
+print($"Is Valid URL {url} - {url.IsValidUrl_Regex()}");
+print($"Is Valid URL {url} - {url.IsValidUrl_Uri()}");
+
 ```
 
 ## Float Extensions
+
 Convert a float to a Time String either a mm:ss (minutes and seconds) or hh:mm:ss (hours, minutes and seconds)
 
     * ToTimeMS(),
