@@ -82,7 +82,7 @@ namespace LazyJedi.Components
 
         public virtual void DeactivateCanvasDelay()
         {
-            StartCoroutine(SetActiveCanvasRoutine(false, ActivateTime));
+            StartCoroutine(SetActiveCanvasRoutine(false, DeactivateTime));
         }
 
         #endregion

@@ -7,10 +7,6 @@ namespace LazyJedi.Extensions
 {
     public static class MonoBehaviourExtensions
     {
-        #region FIELDS
-
-        #endregion
-
         #region METHODS
 
         public static void PrintWarning(this MonoBehaviour behaviour, string message)
@@ -53,11 +49,19 @@ namespace LazyJedi.Extensions
             behaviour.gameObject.Destroy(seconds);
         }
 
+        /// <summary>
+        /// Activate Behaviour
+        /// </summary>
+        /// <param name="behaviour"></param>
         public static void Activate(this MonoBehaviour behaviour)
         {
             behaviour.enabled = true;
         }
 
+        /// <summary>
+        /// Deactivate Behaviour
+        /// </summary>
+        /// <param name="behaviour"></param>
         public static void Deactivate(this MonoBehaviour behaviour)
         {
             behaviour.enabled = false;
@@ -76,7 +80,6 @@ namespace LazyJedi.Extensions
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
-
             behaviour.Deactivate();
         }
 
