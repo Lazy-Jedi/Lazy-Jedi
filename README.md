@@ -249,10 +249,10 @@ print($"Is Layer Mask A, in Layer Mask B - {LayerMaskB.InLayerMask(LayerMaskA)}"
 
 ## String Extensions
 
-    * ToBase64(),
-    * FromBase64(),
-    * ToBytes(),
-    * FromBytes()
+    * IsNullOrEmpty(), IsNullOrWhiteSpace()
+    * FromJson(), FromJsonOverwrite()
+    * ToBase64(), FromBase64(),
+    * ToBytes(), FromBytes()
     * ToShort(), ToInt(), ToFloat(), ToDouble(), ToLong(), ToBool() 
     * IsValidEmail_Regex(), IsValidEmail_StrictRegex(), IsValidEmail_MailAddress()
     * IsValidUrl_Regex(), IsValidUrl_Uri()

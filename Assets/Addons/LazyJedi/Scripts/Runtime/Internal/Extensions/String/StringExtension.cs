@@ -3,11 +3,26 @@ using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace LazyJedi.Extensions
 {
     public static class StringExtension
     {
+        #region STRING METHODS
+
+        public static bool IsNullOrWhiteSpace(this string value, bool trim = false)
+        {
+            return string.IsNullOrWhiteSpace(trim ? value.Trim() : value);
+        }
+
+        public static bool IsNullOrEmpty(this string value, bool trim = false)
+        {
+            return string.IsNullOrEmpty(trim ? value.Trim() : value);
+        }
+
+        #endregion
+
         #region ENCODING
 
         public static byte[] ToBytes(this string value)
@@ -91,6 +106,18 @@ namespace LazyJedi.Extensions
             return objectToOverwrite;
         }
 
+        /// <summary>
+        /// Overwrite an existing object from a Json String.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="objectToOverwrite"></param>
+        /// <returns></returns>
+        public static Object FromJsonOverwrite(this string json, Object objectToOverwrite)
+        {
+            JsonUtility.FromJsonOverwrite(json, objectToOverwrite);
+            return objectToOverwrite;
+        }
+
         #endregion
 
         #region PATTERN MATCHING
@@ -125,7 +152,7 @@ namespace LazyJedi.Extensions
         {
             return Regex.Replace(value, @"[^\w\d\s\n!@&()-\',.:\\""\\]", replacement).InnerTrim();
         }
-        
+
         /// <summary>
         /// Trims 2 or more white spaces between words and/or letters.
         /// </summary>
