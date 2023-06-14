@@ -168,12 +168,113 @@ public static class CustomProcesses
 
 # Runtime
 
+## IO
+
+### LazyDataIO
+LazyDataIO is a static class that allows you to easily save and load data to and from a file. 
+You can use this class to save and load Serializable Classes, Structs or ScriptableObjects.
+
+```csharp
+
+// The following strings can be changed at runtime to suit your needs
+
+// Default PathType is PersistentDataPath
+string defaultPath = LazyDataIO.DefaultPath;
+
+// Default Save Path is Application.persistentDataPath + "/Saves/"
+string savePath = LazyDataIO.SavePath;
+
+// Default Settings Path is Application.persistentDataPath + "/Settings/"
+string settingsPath = LazyDataIO.SettingsPath;
+
+// Default Slot Prefix is "Slot_"
+string slotPrefix = LazyDataIO.SlotPrefix;
+
+// Save Data
+LazyDataIO.Save(data);
+LazyDataIO.Save(data, "filename");
+LazyDataIO.Save(data, "filename", pathType: PathType.PersistentDataPath);
+LazyDataIO.Save(data, "filename", pathType: PathType.PersistentDataPath, prettyPrint: true);
+
+// Save Data to Slot
+LazyDataIO.SaveToSlot(data, 1);
+LazyDataIO.SaveToSlot(data, 1, "filename");
+LazyDataIO.SaveToSlot(data, 1, "filename", pathType: PathType.PersistentDataPath);
+
+// Load Data
+LazyDataIO.Load<T>(); // T is the Type of the Data you want to load
+LazyDataIO.Load<T>("filename");
+LazyDataIO.Load<T>("filename", pathType: PathType.PersistentDataPath);
+
+// Load Data from Slot
+LazyDataIO.LoadFromSlot<T>(1); // T is the Type of the Data you want to load
+LazyDataIO.LoadFromSlot<T>(1, "filename");
+LazyDataIO.LoadFromSlot<T>(1, "filename", pathType: PathType.PersistentDataPath);
+
+// Load and Overwrite Data
+LazyDataIO.LoadAndOverwrite(data);
+LazyDataIO.LoadAndOverwrite(data, "filename");
+LazyDataIO.LoadAndOverwrite("filename", pathType: PathType.PersistentDataPath);
+
+// Load and Overwrite Data from Slot
+LazyDataIO.LoadAndOverwriteFromSlot(data, 1);
+LazyDataIO.LoadAndOverwriteFromSlot(data, 1, "filename");
+LazyDataIO.LoadAndOverwriteFromSlot(data, 1, "filename", pathType: PathType.PersistentDataPath);
+
+// Delete Data
+LazyDataIO.Delete<T>(); // T is the Type of the Data you want to delete
+LazyDataIO.Delete("filename");
+LazyDataIO.Delete("filename", pathType: PathType.PersistentDataPath);
+
+// Delete Data from Slot
+LazyDataIO.DeleteFromSlot<T>(1); // T is the Type of the Data you want to delete
+LazyDataIO.DeleteFromSlot(1, "filename");
+LazyDataIO.DeleteFromSlot(1, "filename", pathType: PathType.PersistentDataPath);
+
+
+```
+
 ## Extensions
 
 For Practical examples please look at the Extension Examples in the Examples folder.
 The examples will help you understand how to use the Various Extension methods that are available.
 
-## GameObject Extensions
+### Object Extensions
+
+    * IsNull(),
+    * IsNotNull(),
+    * ToJson(),
+    * Save(),
+    * Overwrite(),
+
+```csharp
+MyScriptableObject myScriptableObject;
+
+myScriptableObject.IsNull(); // Returns true if the Object is null
+myScriptableObject.IsNotNull(); // Returns true if the Object is not null
+
+myScriptableObject.ToJson(); // Returns the ScriptableObject as a Json String
+
+// Save ScriptableObject to a Json File
+myScriptableObject.Save(); // Saves the ScriptableObject to a Json File
+
+// Saves the ScriptableObject to a Json File with the name "MyScriptableObject" and pretty prints the Json
+myScriptableObject.Save(filename:"MyScriptableObject", pathType:PathType.Default, prettyPrint: true);
+
+// Saves the ScriptableObject to a Json File with the name "MyScriptableObject" to the first save slot and pretty prints the Json
+myScriptableObject.Save(slotIndex:1, filename:"MyScriptableObject", pathType:PathType.Default, prettyPrint: true);
+
+// Overwrite myScriptableObject
+myScriptableObject.Overwrite(); // Loads the ScriptableObject data and Overwrites the myScriptableObject
+
+// Overwrite myScriptableObject with the data from the Json File with the name "MyScriptableObject"
+myScriptableObject.Overwrite(filename:"MyScriptableObject",pathType:PathType.Default);
+
+// Overwrite myScriptableObject with the data from the first save slot
+myScriptableObject.Overwrite(slotIndex:1,filename:"MyScriptableObject",pathType:PathType.Default);
+```
+
+### GameObject Extensions
 
     * Activate(),
     * Deactivate(),
@@ -207,7 +308,7 @@ print($"Your Objects Clone - {clone.name}");
 YourObject.Destroy();
 ```
 
-## Transform Extensions
+### Transform Extensions
 
     * Activate(),
     * Deactivate(),
@@ -238,7 +339,7 @@ print("Delete Original Parent With Children");
 
 ```
 
-## LayerMask Extensions
+### LayerMask Extensions
 
     * InLayerMask(LayerMask layerMask)
 
@@ -247,7 +348,7 @@ print("Delete Original Parent With Children");
 print($"Is Layer Mask A, in Layer Mask B - {LayerMaskB.InLayerMask(LayerMaskA)}");
 ```
 
-## String Extensions
+### String Extensions
 
     * IsNullOrEmpty(), IsNullOrWhiteSpace()
     * FromJson(), FromJsonOverwrite()
@@ -320,7 +421,7 @@ print($"Is Valid URL {url} - {url.IsValidUrl_Uri()}");
 
 ```
 
-## Float Extensions
+### Float Extensions
 
 Convert a float to a Time String either a mm:ss (minutes and seconds) or hh:mm:ss (hours, minutes and seconds)
 
@@ -339,7 +440,7 @@ print(time.ToTimeHMS());
 
 ```
 
-## Array and List Extensions
+### Array and List Extensions
 
     * Shuffle(),
     * GetRandomItem(),
@@ -377,7 +478,7 @@ private void Start()
 }
 ```
 
-## Texture2D Extensions
+### Texture2D Extensions
 
     * ToBase64(),
     * ToTexture2D(),
@@ -399,7 +500,7 @@ public void Start()
 
 ```
 
-## UI Extensions
+### UI Extensions
 
     * AddListener(UnityAction action),
     * ToBase64(UnityAction action),

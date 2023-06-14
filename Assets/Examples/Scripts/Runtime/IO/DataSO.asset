@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf66169df0f0a15408a933b8792273ab, type: 3}
-  m_Name: ExampleSo
+  m_Script: {fileID: 11500000, guid: 66d231fcf7c741e59dfef010c42a02ce, type: 3}
+  m_Name: DataSO
   m_EditorClassIdentifier: 
-  Coins: -100
-  _name: 
+  ID: 1
+  Name: Two

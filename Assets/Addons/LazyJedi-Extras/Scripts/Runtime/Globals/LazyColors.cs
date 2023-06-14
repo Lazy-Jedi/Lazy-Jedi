@@ -18,7 +18,7 @@ namespace LazyJedi.Globals
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get => new Color(0.8431373f, 0.8431373f, 0.8431373f);
         }
-
+        
         #endregion
     }
 }

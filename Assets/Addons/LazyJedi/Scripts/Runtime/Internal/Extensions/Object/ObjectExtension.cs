@@ -1,3 +1,4 @@
+using LazyJedi.IO;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -5,6 +6,75 @@ namespace LazyJedi.Extensions
 {
     public static class ObjectExtension
     {
+        #region SERIALIZATION AND DESERIALIZATION
+
+        /// <summary>
+        /// Serialize an object to a Json String.
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="prettyPrint"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static string ToJson(this object @object, bool prettyPrint = false)
+        {
+            return JsonUtility.ToJson(@object, prettyPrint);
+        }
+
+        /// <summary>
+        /// Serialize a Unity Object. Works best with a ScriptableObject.
+        /// </summary>
+        /// <param name="data">Serializable Object</param>
+        /// <param name="filename">Custom Filename</param>
+        /// <param name="pathType">Default Location of the Save File.</param>
+        /// <param name="prettyPrint">Pretty Print the JSON data</param>
+        /// <typeparam name="T"></typeparam>
+        public static void Save<T>(this T data, string filename = "", PathType pathType = PathType.DefaultFolder, bool prettyPrint = false) where T : Object
+        {
+            LazyDataIO.Save(data, filename, pathType, prettyPrint);
+        }
+
+        /// <summary>
+        /// Serialize a Unity Object to a Slot. Works best with a ScriptableObject.
+        /// </summary>
+        /// <param name="data">Serializable Object</param>
+        /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
+        /// <param name="filename">Custom Filename</param>
+        /// <param name="pathType">Default Location of the Save File.</param>
+        /// <param name="prettyPrint">Pretty Print the JSON data</param>
+        /// <typeparam name="T"></typeparam>
+        public static void Save<T>(this T data, int slotIndex, string filename = "", PathType pathType = PathType.DefaultFolder, bool prettyPrint = false)
+            where T : Object
+        {
+            LazyDataIO.SaveToSlot(data, slotIndex, filename, pathType, prettyPrint);
+        }
+
+        /// <summary>
+        /// Deserialize a Json Data to a Unity Object. Works best with a ScriptableObject.
+        /// </summary>
+        /// <param name="data">Serializable Object</param>
+        /// <param name="filename">Custom Filename</param>
+        /// <param name="pathType">Default Location of the Save File.</param>
+        /// <typeparam name="T"></typeparam>
+        public static void Overwrite<T>(this T data, string filename = "", PathType pathType = PathType.DefaultFolder) where T : Object
+        {
+            LazyDataIO.LoadAndOverwrite(data, filename, pathType);
+        }
+
+        /// <summary>
+        /// Deserialize a Json Data from a Slot to a Unity Object. Works best with a ScriptableObject.
+        /// </summary>
+        /// <param name="data">Serializable Object</param>
+        /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
+        /// <param name="filename">Custom Filename</param>
+        /// <param name="pathType">Default Location of the Save File.</param>
+        /// <typeparam name="T"></typeparam>
+        public static void Overwrite<T>(this T data, int slotIndex, string filename = "", PathType pathType = PathType.DefaultFolder) where T : Object
+        {
+            LazyDataIO.LoadFromSlotAndOverwrite(data, slotIndex, filename, pathType);
+        }
+
+        #endregion
+
         #region NULL CHECKS
 
         /// <summary>
@@ -25,18 +95,6 @@ namespace LazyJedi.Extensions
         public static bool IsNotNull(this object @object)
         {
             return @object != null;
-        }
-
-        /// <summary>
-        /// Serialize an object to a Json String.
-        /// </summary>
-        /// <param name="object"></param>
-        /// <param name="prettyPrint"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static string ToJson(this object @object, bool prettyPrint = false)
-        {
-            return JsonUtility.ToJson(@object, prettyPrint);
         }
 
         /// <summary>
