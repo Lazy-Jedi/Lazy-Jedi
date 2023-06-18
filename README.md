@@ -192,44 +192,45 @@ string slotPrefix = LazyDataIO.SlotPrefix;
 
 // Save Data
 LazyDataIO.Save(data);
-LazyDataIO.Save(data, "filename");
-LazyDataIO.Save(data, "filename", pathType: PathType.PersistentDataPath);
-LazyDataIO.Save(data, "filename", pathType: PathType.PersistentDataPath, prettyPrint: true);
+LazyDataIO.Save(data, filename: "filename");
+LazyDataIO.Save(data, "filename", pathType: PathType.DefaultFolder);
+LazyDataIO.Save(data, "filename", PathType.DefaultFolder, prettyPrint: true);
 
 // Save Data to Slot
-LazyDataIO.SaveToSlot(data, 1);
-LazyDataIO.SaveToSlot(data, 1, "filename");
-LazyDataIO.SaveToSlot(data, 1, "filename", pathType: PathType.PersistentDataPath);
+LazyDataIO.SaveToSlot(data, slotIndex: 1);
+LazyDataIO.SaveToSlot(data, 1, filename: "filename");
+LazyDataIO.SaveToSlot(data, 1, "filename", pathType: PathType.DefaultFolder);
+LazyDataIO.SaveToSlot(data, 1, "filename", PathType.DefaultFolder, prettyPrint: true);
 
 // Load Data
 LazyDataIO.Load<T>(); // T is the Type of the Data you want to load
-LazyDataIO.Load<T>("filename");
-LazyDataIO.Load<T>("filename", pathType: PathType.PersistentDataPath);
+LazyDataIO.Load<T>(filename: "filename");
+LazyDataIO.Load<T>("filename", pathType: PathType.DefaultFolder);
 
 // Load Data from Slot
-LazyDataIO.LoadFromSlot<T>(1); // T is the Type of the Data you want to load
-LazyDataIO.LoadFromSlot<T>(1, "filename");
-LazyDataIO.LoadFromSlot<T>(1, "filename", pathType: PathType.PersistentDataPath);
+LazyDataIO.LoadFromSlot<T>(slotIndex: 1); // T is the Type of the Data you want to load
+LazyDataIO.LoadFromSlot<T>(1, filename: "filename");
+LazyDataIO.LoadFromSlot<T>(1, "filename", pathType: PathType.DefaultFolder);
 
 // Load and Overwrite Data
 LazyDataIO.LoadAndOverwrite(data);
-LazyDataIO.LoadAndOverwrite(data, "filename");
-LazyDataIO.LoadAndOverwrite("filename", pathType: PathType.PersistentDataPath);
+LazyDataIO.LoadAndOverwrite(data, filename: "filename");
+LazyDataIO.LoadAndOverwrite("filename", pathType: PathType.DefaultFolder);
 
 // Load and Overwrite Data from Slot
-LazyDataIO.LoadAndOverwriteFromSlot(data, 1);
-LazyDataIO.LoadAndOverwriteFromSlot(data, 1, "filename");
-LazyDataIO.LoadAndOverwriteFromSlot(data, 1, "filename", pathType: PathType.PersistentDataPath);
+LazyDataIO.LoadAndOverwriteFromSlot(data, slotIndex: 1);
+LazyDataIO.LoadAndOverwriteFromSlot(data, 1, filename: "filename");
+LazyDataIO.LoadAndOverwriteFromSlot(data, 1, "filename", pathType: PathType.DefaultFolder);
 
 // Delete Data
 LazyDataIO.Delete<T>(); // T is the Type of the Data you want to delete
-LazyDataIO.Delete("filename");
-LazyDataIO.Delete("filename", pathType: PathType.PersistentDataPath);
+LazyDataIO.Delete(filename: "filename");
+LazyDataIO.Delete("filename", pathType: PathType.DefaultFolder);
 
 // Delete Data from Slot
-LazyDataIO.DeleteFromSlot<T>(1); // T is the Type of the Data you want to delete
-LazyDataIO.DeleteFromSlot(1, "filename");
-LazyDataIO.DeleteFromSlot(1, "filename", pathType: PathType.PersistentDataPath);
+LazyDataIO.DeleteFromSlot<T>(slotIndex: 1); // T is the Type of the Data you want to delete
+LazyDataIO.DeleteFromSlot(1, filname: "filename");
+LazyDataIO.DeleteFromSlot(1, "filename", pathType: PathType.DefaultFolder);
 
 
 ```
