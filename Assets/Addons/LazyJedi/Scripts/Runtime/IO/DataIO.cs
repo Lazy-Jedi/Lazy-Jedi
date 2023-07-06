@@ -4,36 +4,34 @@ using UnityEngine;
 
 namespace LazyJedi.IO
 {
-    public enum PathType
+    public static class DataIO
     {
-        SaveFolder,
-        OptionsFolder,
-        DefaultFolder,
-    }
-
-    public static class LazyDataIO
-    {
-        #region PROPERTIES
+        #region FIELDS
 
         /// <summary>
         /// Slot Prefix for the Save Folders
         /// </summary>
-        public static string SlotPrefix { get; set; } = "Slot_";
+        public static string SlotPrefix = "Slot_";
 
         /// <summary>
         /// Default Path for the Save and Settings Files and Folders.
         /// </summary>
-        public static string DefaultPath { get; set; } = Application.persistentDataPath;
+        public static string DefaultPath = Application.persistentDataPath;
 
         /// <summary>
         /// Save Path for the Save Files.
         /// </summary>
-        public static string SavePath { get; set; } = Path.Combine(DefaultPath, "SaveData");
+        public static string SavePath = Path.Combine(DefaultPath, "SaveData");
 
         /// <summary>
         /// Settings Path for the Settings Files.
         /// </summary>
-        public static string SettingsPath { get; set; } = Path.Combine(DefaultPath, "Settings");
+        public static string SettingsPath = Path.Combine(DefaultPath, "Settings");
+
+        /// <summary>
+        /// Default Extension for the Save Files.
+        /// </summary>
+        public static string Extension = "json";
 
         #endregion
 
@@ -46,7 +44,6 @@ namespace LazyJedi.IO
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
         /// <param name="prettyPrint">Pretty Print the JSON data</param>
-        /// <typeparam name="T"></typeparam>
         public static void Save<T>(T data, string filename = "", PathType pathType = PathType.DefaultFolder, bool prettyPrint = false)
         {
             string path = GetFilePathHelper<T>(pathType, filename: filename);
@@ -65,7 +62,6 @@ namespace LazyJedi.IO
         /// </summary>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
-        /// <typeparam name="T"></typeparam>
         /// <returns>Returns the Object created from the loaded data or returns the data object instance</returns>
         public static T Load<T>(string filename = "", PathType pathType = PathType.DefaultFolder)
         {
@@ -73,14 +69,13 @@ namespace LazyJedi.IO
             return !File.Exists(path) ? default : JsonUtility.FromJson<T>(File.ReadAllText(path));
         }
 
-        /// <summary>
+        /// <summary>dev 
         /// Overwrites the data object with the data from the save file.
         /// Works best with ScriptableObjects.
         /// </summary>
         /// <param name="data">Serializable Object</param>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
-        /// <typeparam name="T"></typeparam>
         public static void LoadAndOverwrite<T>(T data, string filename = "", PathType pathType = PathType.DefaultFolder)
         {
             string path = GetFilePathHelper<T>(pathType, filename: filename);
@@ -89,16 +84,6 @@ namespace LazyJedi.IO
                 return;
             }
             JsonUtility.FromJsonOverwrite(File.ReadAllText(path), data);
-        }
-        
-        public static void Delete<T>(string filename = "", PathType pathType = PathType.DefaultFolder)
-        {
-            string path = GetFilePathHelper<T>(pathType, filename: filename);
-            if (!File.Exists(path))
-            {
-                return;
-            }
-            File.Delete(path);
         }
 
         #endregion
@@ -113,7 +98,6 @@ namespace LazyJedi.IO
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
         /// <param name="prettyPrint">Pretty Print the JSON data</param>
-        /// <typeparam name="T"></typeparam>
         public static void SaveToSlot<T>(T data, int slotIndex = 1, string filename = "", PathType pathType = PathType.DefaultFolder, bool prettyPrint = false)
         {
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
@@ -148,7 +132,6 @@ namespace LazyJedi.IO
         /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
-        /// <typeparam name="T"></typeparam>
         public static void LoadFromSlotAndOverwrite<T>(T data, int slotIndex = 1, string filename = "", PathType pathType = PathType.DefaultFolder)
         {
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
@@ -158,7 +141,32 @@ namespace LazyJedi.IO
             }
             JsonUtility.FromJsonOverwrite(File.ReadAllText(path), data);
         }
-        
+
+        #endregion
+
+        #region DELETE METHODS
+
+        /// <summary>
+        /// Delete the save file.
+        /// </summary>
+        /// <param name="filename">Filename of the Save File</param>
+        /// <param name="pathType">Path of the File</param>
+        public static void Delete<T>(string filename = "", PathType pathType = PathType.DefaultFolder)
+        {
+            string path = GetFilePathHelper<T>(pathType, filename: filename);
+            if (!File.Exists(path))
+            {
+                return;
+            }
+            File.Delete(path);
+        }
+
+        /// <summary>
+        /// Delete the save file from the slot.
+        /// </summary>
+        /// <param name="slotIndex">Index of the Save File</param>
+        /// <param name="filename">Filename of the Save File</param>
+        /// <param name="pathType">Path of the File</param>
         public static void DeleteFromSlot<T>(int slotIndex = 1, string filename = "", PathType pathType = PathType.DefaultFolder)
         {
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
@@ -190,7 +198,7 @@ namespace LazyJedi.IO
 
         private static string GetFilePathHelper<T>(PathType pathType, int slotIndex = 0, string filename = "")
         {
-            return Path.Combine(GetPathHelper(pathType, slotIndex), $"{(filename.IsNullOrEmpty() ? typeof(T).Name : filename)}.json");
+            return Path.Combine(GetPathHelper(pathType, slotIndex), $"{(filename.IsNullOrEmpty() ? typeof(T).Name : filename)}.{Extension}");
         }
 
         #endregion

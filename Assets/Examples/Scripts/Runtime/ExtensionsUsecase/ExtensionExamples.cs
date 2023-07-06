@@ -105,11 +105,12 @@ namespace LazyJedi.Examples
             {
                 print("Word is Not Null");
             }
-            
+
             string emailAddress = "your.email.address-123@domain1.com";
             string specialCharactersSequence = "A!@#$%^&*()_+=-`~[]B{}\\|;:\'\",<.>/?C";
             string wordsWithSpecialChars = "Hello, %^#$World!";
-            string sentence = "Hello, World!\nLet's go!\nTime for a \"Programming\" Lesson!\nEmail me @ youremail@gmail.com for*any#questions (what language to use).";
+            string sentence =
+                "Hello, World!\nLet's go!\nTime for a \"Programming\" Lesson!\nEmail me @ youremail@gmail.com for*any#questions (what language to use).";
             string alphaNumeric = "123ABC";
             string url = "https://www.google.com";
             string mobileNumber = "+27821234567";

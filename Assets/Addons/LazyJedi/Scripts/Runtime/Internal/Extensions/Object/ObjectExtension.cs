@@ -21,6 +21,17 @@ namespace LazyJedi.Extensions
         }
 
         /// <summary>
+        /// Serialize an object to Json and Convert the Json string to Bytes.
+        /// </summary>
+        /// <param name="object"></param>
+        /// <param name="prettyPrint"></param>
+        /// <returns></returns>
+        public static byte[] ToJsonBytes(this object @object, bool prettyPrint = false)
+        {
+            return JsonUtility.ToJson(@object, prettyPrint).ToBytes();
+        }
+
+        /// <summary>
         /// Serialize a Unity Object. Works best with a ScriptableObject.
         /// </summary>
         /// <param name="data">Serializable Object</param>
@@ -30,7 +41,7 @@ namespace LazyJedi.Extensions
         /// <typeparam name="T"></typeparam>
         public static void Save<T>(this T data, string filename = "", PathType pathType = PathType.DefaultFolder, bool prettyPrint = false) where T : Object
         {
-            LazyDataIO.Save(data, filename, pathType, prettyPrint);
+            DataIO.Save(data, filename, pathType, prettyPrint);
         }
 
         /// <summary>
@@ -45,7 +56,7 @@ namespace LazyJedi.Extensions
         public static void Save<T>(this T data, int slotIndex, string filename = "", PathType pathType = PathType.DefaultFolder, bool prettyPrint = false)
             where T : Object
         {
-            LazyDataIO.SaveToSlot(data, slotIndex, filename, pathType, prettyPrint);
+            DataIO.SaveToSlot(data, slotIndex, filename, pathType, prettyPrint);
         }
 
         /// <summary>
@@ -57,7 +68,7 @@ namespace LazyJedi.Extensions
         /// <typeparam name="T"></typeparam>
         public static void Overwrite<T>(this T data, string filename = "", PathType pathType = PathType.DefaultFolder) where T : Object
         {
-            LazyDataIO.LoadAndOverwrite(data, filename, pathType);
+            DataIO.LoadAndOverwrite(data, filename, pathType);
         }
 
         /// <summary>
@@ -70,7 +81,7 @@ namespace LazyJedi.Extensions
         /// <typeparam name="T"></typeparam>
         public static void Overwrite<T>(this T data, int slotIndex, string filename = "", PathType pathType = PathType.DefaultFolder) where T : Object
         {
-            LazyDataIO.LoadFromSlotAndOverwrite(data, slotIndex, filename, pathType);
+            DataIO.LoadFromSlotAndOverwrite(data, slotIndex, filename, pathType);
         }
 
         #endregion

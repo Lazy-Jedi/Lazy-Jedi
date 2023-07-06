@@ -1,5 +1,5 @@
-using LazyJedi.Extensions;
 using LazyJedi.IO;
+using LazyJedi.Utility;
 using UnityEngine;
 
 namespace LazyJedi.Examples
@@ -17,6 +17,9 @@ namespace LazyJedi.Examples
         public Data DataSlot1;
         public DataSO DataSO;
 
+        public byte[] Key = null;
+        public byte[] IV = null;
+
         #endregion
 
         #region UNITY METHODS
@@ -26,18 +29,19 @@ namespace LazyJedi.Examples
             if (SaveButton)
             {
                 SaveButton = false;
-                LazyDataIO.Save(Data);
-                DataSO.Save();
-
-                LazyDataIO.SaveToSlot(DataSlot1, 1);
+                // DataIO.Save(Data);
+                // DataSO.Save();
+                //
+                // DataIO.SaveToSlot(DataSlot1, 1);
+                // SecureDataIO.Save(Data);
+                SecureDataIO.Save(Data, ref Key, ref IV);
             }
 
             if (LoadButton)
             {
                 LoadButton = false;
-                Data = LazyDataIO.Load<Data>();
-                DataSlot1 = LazyDataIO.LoadFromSlot<Data>(1);
-                DataSO.Overwrite();
+                // Data = SecureDataIO.Load<Data>();
+                Data = SecureDataIO.Load<Data>(Key, IV);
             }
         }
 

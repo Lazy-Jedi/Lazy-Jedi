@@ -3,10 +3,10 @@ using UnityEngine;
 namespace LazyJedi.Common
 {
     /// <summary>
-    /// Singleton class that can be inherited to create a singleton.
+    /// A base class for creating a singleton MonoBehaviour. <br/>
+    /// The singleton will be created if it does not exist when calling <see cref="Instance"/>. <br/>
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
+    public abstract class MonoSingletonBase<T> : MonoBehaviour where T : MonoSingletonBase<T>
     {
         #region FIELDS
 
@@ -20,11 +20,15 @@ namespace LazyJedi.Common
         {
             get
             {
-                if (_instance != null) return _instance;
-                _instance = FindObjectOfType<T>();
-
-                if (_instance != null) return _instance;
-
+                if (_instance != null)
+                {
+                    return _instance;
+                }
+                _instance = FindFirstObjectByType<T>();
+                if (_instance != null)
+                {
+                    return _instance;
+                }
                 GameObject singletonObject = new GameObject();
                 _instance = singletonObject.AddComponent<T>();
                 singletonObject.name = $"{typeof(T)} - [Singleton]";
@@ -63,16 +67,17 @@ namespace LazyJedi.Common
     }
 
     /// <summary>
-    /// A Simple Singleton Variant that doesn't use DontDestroyOnLoad.
+    /// A base class for creating a simple singleton MonoBehaviour. <br/>
+    /// Your singleton will not be created if it does not exist. <br/>
+    /// You will need to create your singleton manually by inheriting this class. <br/>
+    /// Then attach your singleton to a GameObject.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public abstract class SimpleSingleton<T> : MonoBehaviour where T : SimpleSingleton<T>
     {
         #region FIELDS
 
         [Header("Singleton Settings")]
         public bool DoNotDestroyOnLoad = true;
-        
         public static T Instance;
 
         #endregion
@@ -105,5 +110,28 @@ namespace LazyJedi.Common
         }
 
         #endregion
+    }
+
+    /// <summary>
+    /// The base class for creating a singleton class. <br/>
+    /// These are for non-MonoBehaviour classes.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public abstract class SingletonClass<T> where T : class, new()
+    {
+        private static T _instance;
+
+        public static T Instance
+        {
+            get
+            {
+                if (_instance != null)
+                {
+                    return _instance;
+                }
+                _instance ??= new T();
+                return _instance;
+            }
+        }
     }
 }

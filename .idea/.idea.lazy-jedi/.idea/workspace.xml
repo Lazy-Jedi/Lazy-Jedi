@@ -6,7 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="5dd1a37c-cff4-48fe-8ed3-c82a9a5844e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/MonoSingletonBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/Singleton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/MonoSingletonBase.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/LazyJedi.Extras.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/LazyJedi.Extras.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO/DataIO.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO/DataIO/LazyDataIO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO/DataIO/LazyDataIO.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Object/ObjectExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Object/ObjectExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/String/StringExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/String/StringExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ExtensionsUsecase/ExtensionExamples.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ExtensionsUsecase/ExtensionExamples.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/IO/IOTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/IO/IOTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/IO/data-io-scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/IO/data-io-scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +32,22 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/3c/d744af27/Convert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/6a/6793cb08/CipherMode.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/82/1945bcfd/RSACryptoServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/9a/9ee67523/RSAParameters.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/9e/c334fcda/File.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/b5/35a98897/Byte.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/c1/99b3f1e5/SymmetricAlgorithm.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/c8/8de788fa/ICspAsymmetricAlgorithm.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/f7/57608b3a/RandomNumberGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6aa56e57ab504395b555cf3ed50fa53d46ac00/1d/255d81e3/RSAParameters.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/73743ae7681f4b9ba6190f4a6642578617ab18/3f/76bc1437/CapiNative.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/73743ae7681f4b9ba6190f4a6642578617ab18/dd/3d76ddd5/AesManaged.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/73743ae7681f4b9ba6190f4a6642578617ab18/f1/ebb4ac39/AesCryptoServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/908f8bca7f3649909af9c6824762362b364758/9f/e779da5a/MailAddress.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c40c8b1222b14086a48f20bf0311197e364b18/56/b50735ab/MailAddress.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/ab/4b141ab0/RSA.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/ScriptableObjects/ScriptableObjectEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/ObjectPool/PooledObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
@@ -27,13 +57,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Serializables/ProjectSetup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/Credits/CreditsWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ProjectFolders/CreateFolders.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Bytes/ByteExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Float/FloatExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ExtensionsUsecase/ExtensionExamples.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/IO/IOTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/ChangeColour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/ICommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ScriptableObjects/ExampleSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ScriptableObjects/UseExampleSo.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,7 +89,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -80,7 +110,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="F:\Program Files\Unity\2022.3.1f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="F:\Program Files\Unity\Unity 2023.1.3f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -88,7 +118,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="F:\Program Files\Unity\2022.3.1f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="F:\Program Files\Unity\Unity 2023.1.3f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -239,7 +269,30 @@
       <workItem from="1686685868772" duration="1559000" />
       <workItem from="1686777252896" duration="2145000" />
       <workItem from="1686779539372" duration="2166000" />
-      <workItem from="1687071592841" duration="408000" />
+      <workItem from="1687071592841" duration="1607000" />
+      <workItem from="1687447803216" duration="10403000" />
+      <workItem from="1687492838860" duration="1424000" />
+      <workItem from="1687495137076" duration="259000" />
+      <workItem from="1687495413117" duration="278000" />
+      <workItem from="1687500850837" duration="607000" />
+      <workItem from="1687510541610" duration="9622000" />
+      <workItem from="1687591755595" duration="4113000" />
+      <workItem from="1687668986532" duration="5022000" />
+      <workItem from="1687718183360" duration="24000" />
+      <workItem from="1687718237019" duration="3061000" />
+      <workItem from="1687972767765" duration="2134000" />
+      <workItem from="1688034583805" duration="3278000" />
+      <workItem from="1688043103559" duration="8792000" />
+      <workItem from="1688108116578" duration="5975000" />
+      <workItem from="1688152468956" duration="2860000" />
+      <workItem from="1688201006477" duration="595000" />
+      <workItem from="1688212339884" duration="636000" />
+      <workItem from="1688280898054" duration="10015000" />
+      <workItem from="1688320697788" duration="9966000" />
+      <workItem from="1688392804368" duration="17680000" />
+      <workItem from="1688488324211" duration="8265000" />
+      <workItem from="1688566322981" duration="3548000" />
+      <workItem from="1688631816965" duration="16236000" />
     </task>
     <servers />
   </component>
