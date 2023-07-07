@@ -49,7 +49,8 @@ your Computer.
 The Resources Folder is a local folder on your machine. This is the same folder that is linked when you use the Project
 Setup window and Select a local Resources folder on your Computer.
 
-The Temporary Folder is a local folder on your machine that is used to save temporary files that are created by Serializing Scriptable Objects for example.<br>
+The Temporary Folder is a local folder on your machine that is used to save temporary files that are created by
+Serializing Scriptable Objects for example.<br>
 You can use the Temporary Folder to save any temporary files that you may need to use in your project.
 
 ![](~Documentation/Images/open-folders.png)
@@ -170,69 +171,160 @@ public static class CustomProcesses
 
 ## IO
 
-### LazyDataIO
-LazyDataIO is a static class that allows you to easily save and load data to and from a file. 
+### DataIO
+
+DataIO is a static class that allows you to easily save and load data to and from a file.
 You can use this class to save and load Serializable Classes, Structs or ScriptableObjects.
 
+The following method Parameters are optional:
+
++ slotIndex - Default Slot is 1
++ filename - Default filename is "typeof(T).Name"
++ pathType - Default pathType is PathType.DefaultFolder
++ prettyPrint - Default prettyPrint is false
+
+The following strings can be changed at runtime to suit your needs.
+
 ```csharp
-
-// The following strings can be changed at runtime to suit your needs
-
 // Default PathType is PersistentDataPath
-string defaultPath = LazyDataIO.DefaultPath;
+string defaultPath = DataIO.DefaultPath;
 
 // Default Save Path is Application.persistentDataPath + "/Saves/"
-string savePath = LazyDataIO.SavePath;
+string savePath = DataIO.SavePath;
 
 // Default Settings Path is Application.persistentDataPath + "/Settings/"
-string settingsPath = LazyDataIO.SettingsPath;
+string settingsPath = DataIO.SettingsPath;
 
 // Default Slot Prefix is "Slot_"
-string slotPrefix = LazyDataIO.SlotPrefix;
+string slotPrefix = DataIO.SlotPrefix;
 
+// Default File Extension is "json"
+string extension = DataIO.Extension;
+
+```
+
+The following methods can be used to save and load data:
+
+```csharp
 // Save Data
-LazyDataIO.Save(data);
-LazyDataIO.Save(data, filename: "filename");
-LazyDataIO.Save(data, "filename", pathType: PathType.DefaultFolder);
-LazyDataIO.Save(data, "filename", PathType.DefaultFolder, prettyPrint: true);
+DataIO.Save(data, filename: "filename", pathType: PathType.DefaultFolder, prettyPrint: true);
 
 // Save Data to Slot
-LazyDataIO.SaveToSlot(data, slotIndex: 1);
-LazyDataIO.SaveToSlot(data, 1, filename: "filename");
-LazyDataIO.SaveToSlot(data, 1, "filename", pathType: PathType.DefaultFolder);
-LazyDataIO.SaveToSlot(data, 1, "filename", PathType.DefaultFolder, prettyPrint: true);
+DataIO.SaveToSlot(data, slotIndex: 1, filename:"filename", pathType: PathType.DefaultFolder, prettyPrint: true);
 
 // Load Data
-LazyDataIO.Load<T>(); // T is the Type of the Data you want to load
-LazyDataIO.Load<T>(filename: "filename");
-LazyDataIO.Load<T>("filename", pathType: PathType.DefaultFolder);
+DataIO.Load<T>(filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to load
 
 // Load Data from Slot
-LazyDataIO.LoadFromSlot<T>(slotIndex: 1); // T is the Type of the Data you want to load
-LazyDataIO.LoadFromSlot<T>(1, filename: "filename");
-LazyDataIO.LoadFromSlot<T>(1, "filename", pathType: PathType.DefaultFolder);
+DataIO.LoadFromSlot<T>(slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to load
 
 // Load and Overwrite Data
-LazyDataIO.LoadAndOverwrite(data);
-LazyDataIO.LoadAndOverwrite(data, filename: "filename");
-LazyDataIO.LoadAndOverwrite("filename", pathType: PathType.DefaultFolder);
+DataIO.LoadAndOverwrite(data, filename: "filename", pathType: PathType.DefaultFolder);
 
 // Load and Overwrite Data from Slot
-LazyDataIO.LoadAndOverwriteFromSlot(data, slotIndex: 1);
-LazyDataIO.LoadAndOverwriteFromSlot(data, 1, filename: "filename");
-LazyDataIO.LoadAndOverwriteFromSlot(data, 1, "filename", pathType: PathType.DefaultFolder);
+DataIO.LoadAndOverwriteFromSlot(slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder);
 
 // Delete Data
-LazyDataIO.Delete<T>(); // T is the Type of the Data you want to delete
-LazyDataIO.Delete(filename: "filename");
-LazyDataIO.Delete("filename", pathType: PathType.DefaultFolder);
+DataIO.Delete<T>(filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to delete
 
 // Delete Data from Slot
-LazyDataIO.DeleteFromSlot<T>(slotIndex: 1); // T is the Type of the Data you want to delete
-LazyDataIO.DeleteFromSlot(1, filname: "filename");
-LazyDataIO.DeleteFromSlot(1, "filename", pathType: PathType.DefaultFolder);
+DataIO.Delete<T>(slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to delete
+```
 
+### SecureDataIO
 
+DataIO is a static class that allows you to easily save and load data to and from a file.
+You can use this class to save and load Serializable Classes, Structs or ScriptableObjects.
+
+Please note that you can encrypt and decrypt data using the SecureDataIO class. However, you will need to set the Key
+and IV before you can encrypt and decrypt data using the AES save and load methods.
+
+**!!! Important !!!** <br>
+You are responsible for keeping your AES Key and IV safe. If you lose your AES Key or IV you will not
+be able to decrypt your data.
+
+The following method Parameters are optional:
+
++ slotIndex - Default Slot is 1
++ filename - Default filename is "typeof(T).Name"
++ pathType - Default pathType is PathType.DefaultFolder
++ prettyPrint - Default prettyPrint is false
+
+The following strings can be changed at runtime to suit your needs.
+
+```csharp
+// Default PathType is PersistentDataPath
+string defaultPath = SecureDataIO.DefaultPath;
+
+// Default Save Path is Application.persistentDataPath + "/Saves/"
+string savePath = SecureDataIO.SavePath;
+
+// Default Settings Path is Application.persistentDataPath + "/Settings/"
+string settingsPath = SecureDataIO.SettingsPath;
+
+// Default Slot Prefix is "Slot_"
+string slotPrefix = SecureDataIO.SlotPrefix;
+
+// Default File Extension is "bin"
+string extension = SecureDataIO.Extension;
+
+// The Default CipherMode is CBC
+CipherMode CipherMode = SecureDataIO.CipherMode;
+
+// The Default PaddingMode is PKCS7
+PaddingMode PaddingMode =SecureDataIO.PaddingMode;
+```
+
+The following methods can be used to generate a new AES Key and IV and RSA Public and Private Keys:
+```csharp
+GenerateRSAKeyPair(out RSAParameters publicKey, out RSAParameters privateKey);
+GenerateAESKeyAndIV(out byte[] aesKey, out byte[] aesIV);
+EncryptAESKey(RSAParameters publicKey, byte[] aesKey, bool fOAEP = false);
+```
+
+The following methods are used to save and load data using either Base64 or AES encryption and decryption. <br>
+```csharp
+// Save Data - Base64
+SecureDataIO.Save(data, filename: "filename", pathType: PathType.DefaultFolder, prettyPrint: true);
+
+// Save Data to Slot - Base64
+SecureDataIO.SaveToSlot(data, slotIndex: 1, filename:"filename", pathType: PathType.DefaultFolder, prettyPrint: true);
+
+// Load Data - Base64
+SecureDataIO.Load<T>(filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to load
+
+// Load Data from Slot - Base64
+SecureDataIO.LoadFromSlot<T>(slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to load
+
+// Load and Overwrite Data - Base64
+SecureDataIO.LoadAndOverwrite(data, filename: "filename", pathType: PathType.DefaultFolder);
+
+// Load and Overwrite Data from Slot - Base64
+SecureDataIO.LoadAndOverwriteFromSlot(slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder);
+
+// Save Data - AES
+SecureDataIO.Save(data, key, iv, filename: "filename", pathType: PathType.DefaultFolder, prettyPrint: true);
+
+// Save Data to Slot - AES
+SecureDataIO.SaveToSlot(data, key, iv, slotIndex: 1, filename:"filename", pathType: PathType.DefaultFolder, prettyPrint: true);
+
+// Load Data - AES
+SecureDataIO.Load<T>(key, iv, filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to load
+
+// Load Data from Slot - AES
+SecureDataIO.LoadFromSlot<T>(key, iv, slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to load
+
+// Load and Overwrite Data - AES
+SecureDataIO.LoadAndOverwrite(data, key, iv, filename: "filename", pathType: PathType.DefaultFolder);
+
+// Load and Overwrite Data from Slot - AES
+SecureDataIO.LoadAndOverwriteFromSlot(data, key, iv, slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder);
+
+// Delete Data
+SecureDataIO.Delete<T>(filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to delete
+
+// Delete Data from Slot
+SecureDataIO.DeleteFromSlot<T>(slotIndex: 1, filname: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to delete
 ```
 
 ## Extensions
@@ -246,6 +338,7 @@ The examples will help you understand how to use the Various Extension methods t
     * IsNotNull(),
     * ToJson(),
     * Save(),
+    * Load(),
     * Overwrite(),
 
 ```csharp
@@ -529,9 +622,10 @@ public void ButtonClickEvent()
 
 ## Utilities
 
-* MathUtility - Created by BluMalice
-    * GetValueFromPercentage(float percentage, float min, float max)
-    * GetPercentageFromValue(float value, float min, float max)
+### MathUtility - Created by BluMalice
+
++ GetValueFromPercentage(float percentage, float min, float max)
++ GetPercentageFromValue(float value, float min, float max)
 
 ```csharp
 public class ProgressBar : MonoBehaviour
@@ -549,6 +643,40 @@ public class ProgressBar : MonoBehaviour
         return MathUtility.GetValueFromPercentage(Fill.amount, Min, Max);
     }
 }
+```
+
+### SecurityUtility
+
+You can use the SecurityUtility to encrypt and decrypt data using AES and RSA Encryption. <br>
+AES can be used on large data sets and RSA can be used to encrypt the AES Key and IV.
+
+The methods below are used to generate cryptographically secure random byte array or AES and RSA Keys.
+```csharp
+GenerateUniqueByteArray(int length = 16)
+GenerateAESKeyAndIV(out byte[] key, out byte[] iv)
+GenerateRSAKeyPair(out RSAParameters publicKey, out RSAParameters privateKey, int keySize = 2048)
+```
+
+The methods below are used to encrypt and decrypt data using AES and RSA.
+
+```csharp
+AESEncryption(string data, ref byte[] key, ref byte[] iv, CipherMode cipherMode = CipherMode.CBC, PaddingMode paddingMode = PaddingMode.PKCS7)
+AESDecryption(byte[] data, ref byte[] key, ref byte[] iv, CipherMode cipherMode = CipherMode.CBC, PaddingMode paddingMode = PaddingMode.PKCS7)
+RSAEncryption(byte[] data, RSAParameters publicKey, bool fOAEP = false)
+RSADecryption(byte[] data, RSAParameters privateKey, bool fOAEP = false)
+```
+
+The methods below are used to import and export RSA Keys and store them in the Registry or PlayerPrefs.
+
+```csharp
+ImportRSAXMLKeys(string publicKey, string privateKey)
+ExportRSAXMLKeys(RSAParameters publicKey, RSAParameters privateKey)
+StoreRSAKey_Registry(string key, string value, string rsaKey)
+StoreRSAKey_PlayerPrefs(string key, string value)
+GetRSAKey_Registry(string keyID)
+GetRSAKey_PlayerPrefs(string keyID)
+DeleteRSAKey_Registry(string keyID)
+DeleteRSAKey_PlayerPrefs(string keyID)
 ```
 
 # Packages

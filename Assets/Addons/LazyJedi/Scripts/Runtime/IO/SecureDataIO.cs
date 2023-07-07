@@ -54,7 +54,7 @@ namespace LazyJedi.IO
 
         #endregion
 
-        #region AES AND RSA METHODS
+        #region AES AND RSA KEY METHODS
 
         public static void GenerateRSAKeyPair(out RSAParameters publicKey, out RSAParameters privateKey)
         {
@@ -76,7 +76,7 @@ namespace LazyJedi.IO
         #region SIMPLE SAVE AND LOAD METHODS
 
         /// <summary>
-        /// Saves the data object to the save file.
+        /// Saves the data object to the save file using Base64 Encoding.
         /// </summary>
         /// <param name="data">Serializable Class or Struct or ScriptableObject</param>
         /// <param name="filename">Custom Filename</param>
@@ -98,7 +98,7 @@ namespace LazyJedi.IO
         }
 
         /// <summary>
-        /// Loads the data object from the save file. <br/>
+        /// Loads the data object from the save file using Base64 Decoding. <br/>
         /// Use LoadAndOverwrite if you are loading a ScriptableObject.
         /// </summary>
         /// <param name="filename">Custom Filename</param>
@@ -107,11 +107,16 @@ namespace LazyJedi.IO
         public static T Load<T>(string filename = "", PathType pathType = PathType.DefaultFolder)
         {
             string path = GetFilePathHelper<T>(pathType, filename: filename);
-            return !File.Exists(path) ? default : JsonUtility.FromJson<T>(File.ReadAllText(path).FromBase64());
+            if (File.Exists(path))
+            {
+                return JsonUtility.FromJson<T>(File.ReadAllText(path).FromBase64());
+            }
+            Debug.unityLogger.LogError("Load", "File does not exist, cannot load.");
+            return default;
         }
 
         /// <summary>
-        /// Overwrites the data object with the data from the save file. <br/>
+        /// Overwrites the data object with the data from the save file using Base64 Decoding. <br/>
         /// Works best with ScriptableObjects.
         /// </summary>
         /// <param name="data">Serializable Object</param>
@@ -122,9 +127,72 @@ namespace LazyJedi.IO
             string path = GetFilePathHelper<T>(pathType, filename: filename);
             if (!File.Exists(path))
             {
+                Debug.unityLogger.LogError("Load And Overwrite", "File does not exist, cannot load and overwrite.");
                 return;
             }
             JsonUtility.FromJsonOverwrite(File.ReadAllText(path), data);
+        }
+
+        #endregion
+
+        #region SIMPLE SAVE AND LOAD SLOT METHODS
+
+        /// <summary>
+        /// Save the data object to a slot using Base64 Encoding.
+        /// </summary>
+        /// <param name="data">Serializable Object</param>
+        /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
+        /// <param name="filename">Custom Filename</param>
+        /// <param name="pathType">Default Location of the Save File.</param>
+        /// <param name="prettyPrint">Pretty Print the JSON data</param>
+        public static void SaveToSlot<T>(T data, int slotIndex = 1, string filename = "", PathType pathType = PathType.DefaultFolder, bool prettyPrint = false)
+        {
+            string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
+            string parentPath = GetParentFolderHelper(pathType, slotIndex);
+            if (!Directory.Exists(parentPath))
+            {
+                Directory.CreateDirectory(parentPath);
+            }
+            string json = data.ToJson(prettyPrint).ToBase64();
+            File.WriteAllText(path, json);
+        }
+
+        /// <summary>
+        /// Load the data from the slot using Base64 Decoding.
+        /// Use LoadSlotOverwrite if you are loading a ScriptableObject.
+        /// </summary>
+        /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
+        /// <param name="filename">Custom Filename</param>
+        /// <param name="pathType">Default Location of the Save File.</param>
+        /// <returns>Returns the Object created from the loaded data or returns the data object instance</returns>
+        public static T LoadFromSlot<T>(int slotIndex = 1, string filename = "", PathType pathType = PathType.DefaultFolder)
+        {
+            string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
+            if (File.Exists(path))
+            {
+                return JsonUtility.FromJson<T>(File.ReadAllText(path).FromBase64());
+            }
+            Debug.unityLogger.LogError("Load", "File does not exist, cannot load from slot.");
+            return default;
+        }
+
+        /// <summary>
+        /// Overwrite the data object with the data loaded from the slot using Base64 Decoding.
+        /// Works best with ScriptableObjects.
+        /// </summary>
+        /// <param name="data">Serializable Object</param>
+        /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
+        /// <param name="filename">Custom Filename</param>
+        /// <param name="pathType">Default Location of the Save File.</param>
+        public static void LoadAndOverwriteFromSlot<T>(T data, int slotIndex = 1, string filename = "", PathType pathType = PathType.DefaultFolder)
+        {
+            string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
+            if (!File.Exists(path))
+            {
+                Debug.unityLogger.LogError("Load And Overwrite", "File does not exist, cannot load and overwrite.");
+                return;
+            }
+            JsonUtility.FromJsonOverwrite(File.ReadAllText(path).FromBase64(), data);
         }
 
         #endregion
@@ -164,7 +232,7 @@ namespace LazyJedi.IO
             byte[] encryptedJson = SecurityUtility.AESEncryption(data.ToJson(prettyPrint), ref key, ref iv, CipherMode, PaddingMode);
             File.WriteAllBytes(path, encryptedJson);
         }
-        
+
         /// <summary>
         /// Use AES Decryption to load the data object from the save file. <br/>
         /// Use the Overwrite methods if you are loading a ScriptableObject.
@@ -187,9 +255,12 @@ namespace LazyJedi.IO
                 return default;
             }
             string path = GetFilePathHelper<T>(pathType, filename: filename);
-            return !File.Exists(path)
-                ? default
-                : JsonUtility.FromJson<T>(SecurityUtility.AESDecryption(File.ReadAllBytes(path), key, iv, CipherMode, PaddingMode));
+            if (File.Exists(path))
+            {
+                return JsonUtility.FromJson<T>(SecurityUtility.AESDecryption(File.ReadAllBytes(path), key, iv, CipherMode, PaddingMode));
+            }
+            Debug.unityLogger.LogError("Load", "File does not exist, cannot load data.");
+            return default;
         }
 
         /// <summary>
@@ -212,6 +283,7 @@ namespace LazyJedi.IO
             string path = GetFilePathHelper<T>(pathType, filename: filename);
             if (!File.Exists(path))
             {
+                Debug.unityLogger.LogError("Load", "File does not exist, cannot load and overwrite.");
                 return;
             }
             JsonUtility.FromJsonOverwrite(SecurityUtility.AESDecryption(File.ReadAllBytes(path), key, iv), data);
@@ -219,7 +291,7 @@ namespace LazyJedi.IO
 
         #endregion
 
-        #region SAVE AND LOAD SLOT METHODS
+        #region AES SAVE AND LOAD SLOT METHODS
 
         /// <summary>
         /// Use AES Encryption to save the data object to a save slot. <br/>
@@ -279,9 +351,13 @@ namespace LazyJedi.IO
             }
 
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
-            return !File.Exists(path)
-                ? default
-                : JsonUtility.FromJson<T>(SecurityUtility.AESDecryption(File.ReadAllBytes(path), key, iv, CipherMode, PaddingMode));
+
+            if (File.Exists(path))
+            {
+                return JsonUtility.FromJson<T>(SecurityUtility.AESDecryption(File.ReadAllBytes(path), key, iv, CipherMode, PaddingMode));
+            }
+            Debug.unityLogger.LogError("Load", "File does not exist, cannot load data.");
+            return default;
         }
 
         /// <summary>
@@ -294,7 +370,7 @@ namespace LazyJedi.IO
         /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Location of the Save File.</param>
-        public static void LoadFromSlotAndOverwrite<T>(
+        public static void LoadAndOverwriteFromSlot<T>(
             T data,
             byte[] key,
             byte[] iv,
@@ -310,6 +386,7 @@ namespace LazyJedi.IO
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
             if (!File.Exists(path))
             {
+                Debug.unityLogger.LogError("Load", "File does not exist, cannot load and overwrite.");
                 return;
             }
             JsonUtility.FromJsonOverwrite(SecurityUtility.AESDecryption(File.ReadAllBytes(path), key, iv), data);
@@ -329,6 +406,7 @@ namespace LazyJedi.IO
             string path = GetFilePathHelper<T>(pathType, filename: filename);
             if (!File.Exists(path))
             {
+                Debug.unityLogger.LogError("Delete", "File does not exist, cannot delete.");
                 return;
             }
             File.Delete(path);
@@ -345,6 +423,7 @@ namespace LazyJedi.IO
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
             if (!File.Exists(path))
             {
+                Debug.unityLogger.LogError("Delete", "File does not exist, cannot delete.");
                 return;
             }
             File.Delete(path);

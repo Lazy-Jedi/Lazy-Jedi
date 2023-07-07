@@ -1,8 +1,7 @@
-using System;
 using System.IO;
 using System.Security.Cryptography;
-using System.Threading.Tasks;
 using LazyJedi.Extensions;
+using Microsoft.Win32;
 using UnityEngine;
 
 namespace LazyJedi.Utility
@@ -67,44 +66,25 @@ namespace LazyJedi.Utility
         /// <param name="data">String data to encrypt</param>
         /// <param name="key">The AES Key</param>
         /// <param name="iv">The AES IV</param>
-        /// <param name="mode">The Cipher Mode used for Encryption</param>
-        /// <param name="padding">The Padding Mode used for Encryption</param>
+        /// <param name="cipherMode">The Cipher Mode used for Encryption</param>
+        /// <param name="paddingMode">The Padding Mode used for Encryption</param>
         /// <returns></returns>
         public static byte[] AESEncryption(
             string data, ref byte[] key, ref byte[] iv,
-            CipherMode mode = CipherMode.CBC,
-            PaddingMode padding = PaddingMode.PKCS7)
+            CipherMode cipherMode = CipherMode.CBC,
+            PaddingMode paddingMode = PaddingMode.PKCS7)
         {
-            byte[] encryptedData;
             using Aes aes = Aes.Create();
-            
-            if (mode != CipherMode.CBC)
-            {
-                aes.Mode = mode;
-            }
-            if (padding != PaddingMode.PKCS7)
-            {
-                aes.Padding = padding;
-            }
-            if (key.IsNull())
-            {
-                Debug.unityLogger.LogWarning("Key", "The AES Key is null. Generating a new AES Key.");
-                key = aes.Key;
-            }
-            if (iv.IsNull())
-            {
-                Debug.unityLogger.LogWarning("IV", "The AES IV is null. Generating a new AES IV.");
-                iv = aes.IV;
-            }
-
-
+            ValidateAESSettingsHelper(cipherMode, paddingMode, aes);
+            ValidateAESKeyIVHelper(ref key, ref iv, aes);
             using ICryptoTransform encryptor = aes.CreateEncryptor(key, iv);
             using MemoryStream memoryStream = new MemoryStream();
             using CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);
-            using StreamWriter writer = new StreamWriter(cryptoStream);
-            writer.Write(data);
-            encryptedData = memoryStream.ToArray();
-            return encryptedData;
+            using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
+            {
+                streamWriter.Write(data);
+            }
+            return memoryStream.ToArray();
         }
 
         /// <summary>
@@ -113,23 +93,16 @@ namespace LazyJedi.Utility
         /// <param name="data">The encrypted byte data</param>
         /// <param name="key">Your AES Key</param>
         /// <param name="iv">Your AES IV</param>
-        /// <param name="mode">The Cipher Mode determines how the AES Encryption will be done</param>
-        /// <param name="padding">The Padding Mode used for Decryption</param>
+        /// <param name="cipherMode">The Cipher Mode determines how the AES Encryption will be done</param>
+        /// <param name="paddingMode">The Padding Mode used for Decryption</param>
         /// <returns>The decrypted string</returns>
         public static string AESDecryption(
             byte[] data, byte[] key, byte[] iv,
-            CipherMode mode = CipherMode.CBC,
-            PaddingMode padding = PaddingMode.PKCS7)
+            CipherMode cipherMode = CipherMode.CBC,
+            PaddingMode paddingMode = PaddingMode.PKCS7)
         {
             using Aes aes = Aes.Create();
-            if (mode != CipherMode.CBC)
-            {
-                aes.Mode = mode;
-            }
-            if (padding != PaddingMode.PKCS7)
-            {
-                aes.Padding = padding;
-            }
+            ValidateAESSettingsHelper(cipherMode, paddingMode, aes);
             if (!IsAESKeyAndIVValid(key, iv))
             {
                 Debug.unityLogger.LogError("Invalid", "The AES Key and IV are not valid.");
@@ -140,10 +113,10 @@ namespace LazyJedi.Utility
             aes.IV = iv;
 
             using ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-            using MemoryStream msDecrypt = new MemoryStream(data);
-            using CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read);
-            using StreamReader reader = new StreamReader(csDecrypt);
-            return reader.ReadToEnd();
+            using MemoryStream memoryStream = new MemoryStream(data);
+            using CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
+            using StreamReader streamReader = new StreamReader(cryptoStream);
+            return streamReader.ReadToEnd();
         }
 
         #endregion
@@ -193,17 +166,19 @@ namespace LazyJedi.Utility
         /// <param name="publicKey">The RSA Public key</param>
         /// <param name="privateKey">The RSA Private key</param>
         /// <returns>RSAParameters Tuple</returns>
-        public static (RSAParameters, RSAParameters) ImportRSAKeys(byte[] publicKey, byte[] privateKey)
+        public static (RSAParameters, RSAParameters) ImportRSAXMLKeys(string publicKey, string privateKey)
         {
-            if (publicKey == null || privateKey == null)
+            if (publicKey.IsNullOrEmpty() || privateKey.IsNullOrEmpty())
             {
-                Debug.unityLogger.LogError("RSA", "RSA public or private key is null. Please provide both public and private keys.");
+                Debug.unityLogger.LogError("RSA", "RSA public or private key is not valid. Please provide both public and private keys.");
                 return default;
             }
             using RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-            rsa.ImportRSAPublicKey(publicKey, out int @public);
-            rsa.ImportRSAPrivateKey(privateKey, out int @private);
-            return (rsa.ExportParameters(true), rsa.ExportParameters(false));
+            rsa.FromXmlString(publicKey);
+            RSAParameters publicParameters = rsa.ExportParameters(false);
+            rsa.FromXmlString(privateKey);
+            RSAParameters privateParameters = rsa.ExportParameters(true);
+            return (publicParameters, privateParameters);
         }
 
         /// <summary>
@@ -213,8 +188,8 @@ namespace LazyJedi.Utility
         /// </summary>
         /// <param name="publicKey">Public RSA Key</param>
         /// <param name="privateKey">Private RSA Key</param>
-        /// <returns>Byte[] Tuple</returns>
-        public static (byte[], byte[]) ExportRSAParameters(RSAParameters publicKey, RSAParameters privateKey)
+        /// <returns>String Tuple</returns>
+        public static (string, string) ExportRSAXMLKeys(RSAParameters publicKey, RSAParameters privateKey)
         {
             if (publicKey.IsNull() || privateKey.IsNull())
             {
@@ -223,10 +198,84 @@ namespace LazyJedi.Utility
             }
             using RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
             rsa.ImportParameters(privateKey);
-            byte[] privateKeyBytes = rsa.ExportCspBlob(true);
+            string privateKeyString = rsa.ToXmlString(true);
             rsa.ImportParameters(publicKey);
-            byte[] publicKeyBytes = rsa.ExportCspBlob(false);
-            return (publicKeyBytes, privateKeyBytes);
+            string publicKeyString = rsa.ToXmlString(false);
+            return (publicKeyString, privateKeyString);
+        }
+
+        /// <summary>
+        /// Stores the RSA Public or Private Keys in the Windows Registry.<br/>
+        /// </summary>
+        /// <param name="key">Registry Key Name</param>
+        /// <param name="value">Registry Value Name</param>
+        /// <param name="rsaKey">RSA Public or Private Key</param>
+        public static void StoreRSAKey_Registry(string key, string value, string rsaKey)
+        {
+            using RegistryKey registryKey = Registry.CurrentUser.CreateSubKey(key);
+            registryKey?.SetValue(value, rsaKey.ToBase64());
+        }
+
+        /// <summary>
+        /// Stores the RSA Public or Private Keys using Player Prefs.<br/>
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        public static void StoreRSAKey_PlayerPrefs(string key, string value)
+        {
+            PlayerPrefs.SetString(key, value.ToBase64());
+            PlayerPrefs.Save();
+        }
+
+        /// <summary>
+        /// Get the RSA Public or Private Keys from the Windows Registry.<br/>
+        /// </summary>
+        /// <param name="key">Registry Key Name</param>
+        /// <param name="value">Registry Value Name</param>
+        /// <returns>RSA Public or Private Key</returns>
+        public static string GetRSAKey_Registry(string key, string value)
+        {
+            using RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(key);
+            if (registryKey?.GetValue(value) != null)
+            {
+                return registryKey.GetValue(value).ToString().FromBase64();
+            }
+            Debug.LogError("The RSA Key is not stored in the registry.");
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Get the RSA Public or Private Keys from Player Prefs.<br/>
+        /// </summary>
+        /// <param name="keyID">Player Prefs Key ID</param>
+        /// <returns></returns>
+        public static string GetRSAKey_PlayerPrefs(string keyID)
+        {
+            if (!PlayerPrefs.HasKey(keyID))
+            {
+                Debug.unityLogger.LogError("Invalid Key", "The RSA Key is not stored in PlayerPrefs.");
+                return string.Empty;
+            }
+            return PlayerPrefs.GetString(keyID).FromBase64();
+        }
+
+        /// <summary>
+        /// Deletes the RSA Key from the Windows Registry.<br/>
+        /// </summary>
+        /// <param name="keyID">Registry Key ID</param>
+        public static void DeleteRSAKey_Registry(string keyID)
+        {
+            using RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(keyID);
+            registryKey?.DeleteValue(keyID);
+        }
+
+        /// <summary>
+        /// Deletes the RSA Key from Player Prefs.<br/>
+        /// </summary>
+        /// <param name="keyID">Player Prefs Key ID</param>
+        public static void DeleteRSAKey_PlayerPrefs(string keyID)
+        {
+            PlayerPrefs.DeleteKey(keyID);
         }
 
         #endregion
@@ -236,6 +285,33 @@ namespace LazyJedi.Utility
         private static bool IsAESKeyAndIVValid(byte[] key, byte[] iv)
         {
             return key != null && key.Length != 0 && iv != null && iv.Length != 0;
+        }
+
+        private static void ValidateAESKeyIVHelper(ref byte[] key, ref byte[] iv, Aes aes)
+        {
+            if (key.IsNull())
+            {
+                Debug.unityLogger.LogWarning("Key", "The AES Key is null. Generating a new AES Key.");
+                key = aes.Key;
+            }
+
+            if (iv.IsNull())
+            {
+                Debug.unityLogger.LogWarning("IV", "The AES IV is null. Generating a new AES IV.");
+                iv = aes.IV;
+            }
+        }
+
+        private static void ValidateAESSettingsHelper(CipherMode mode, PaddingMode padding, Aes aes)
+        {
+            if (mode != CipherMode.CBC)
+            {
+                aes.Mode = mode;
+            }
+            if (padding != PaddingMode.PKCS7)
+            {
+                aes.Padding = padding;
+            }
         }
 
         #endregion

@@ -21,17 +21,6 @@ namespace LazyJedi.Extensions
         }
 
         /// <summary>
-        /// Serialize an object to Json and Convert the Json string to Bytes.
-        /// </summary>
-        /// <param name="object"></param>
-        /// <param name="prettyPrint"></param>
-        /// <returns></returns>
-        public static byte[] ToJsonBytes(this object @object, bool prettyPrint = false)
-        {
-            return JsonUtility.ToJson(@object, prettyPrint).ToBytes();
-        }
-
-        /// <summary>
         /// Serialize a Unity Object. Works best with a ScriptableObject.
         /// </summary>
         /// <param name="data">Serializable Object</param>
@@ -52,11 +41,35 @@ namespace LazyJedi.Extensions
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
         /// <param name="prettyPrint">Pretty Print the JSON data</param>
-        /// <typeparam name="T"></typeparam>
         public static void Save<T>(this T data, int slotIndex, string filename = "", PathType pathType = PathType.DefaultFolder, bool prettyPrint = false)
             where T : Object
         {
             DataIO.SaveToSlot(data, slotIndex, filename, pathType, prettyPrint);
+        }
+
+        /// <summary>
+        /// Load Json Data from a File.
+        /// </summary>
+        /// <param name="data">Serializable Class or Struct object</param>
+        /// <param name="filename">Custom Filename</param>
+        /// <param name="pathType">Default Location of the Save File.</param>
+        public static T Load<T>(this T data, string filename, PathType pathType = PathType.DefaultFolder) where T : class
+        {
+            data = DataIO.Load<T>(filename, pathType);
+            return data;
+        }
+
+        /// <summary>
+        /// Load Json Data from a Slot.
+        /// </summary>
+        /// <param name="data">Serializable Class or Struct object</param>
+        /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
+        /// <param name="filename">Custom Filename</param>
+        /// <param name="pathType">Default Location of the Save File.</param>
+        public static T Load<T>(this T data, int slotIndex = 1, string filename = "", PathType pathType = PathType.DefaultFolder) where T : class
+        {
+            data = DataIO.LoadFromSlot<T>(slotIndex, filename, pathType);
+            return data;
         }
 
         /// <summary>
@@ -65,7 +78,6 @@ namespace LazyJedi.Extensions
         /// <param name="data">Serializable Object</param>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
-        /// <typeparam name="T"></typeparam>
         public static void Overwrite<T>(this T data, string filename = "", PathType pathType = PathType.DefaultFolder) where T : Object
         {
             DataIO.LoadAndOverwrite(data, filename, pathType);
@@ -78,10 +90,9 @@ namespace LazyJedi.Extensions
         /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
-        /// <typeparam name="T"></typeparam>
         public static void Overwrite<T>(this T data, int slotIndex, string filename = "", PathType pathType = PathType.DefaultFolder) where T : Object
         {
-            DataIO.LoadFromSlotAndOverwrite(data, slotIndex, filename, pathType);
+            DataIO.LoadAndOverwriteFromSlot(data, slotIndex, filename, pathType);
         }
 
         #endregion
