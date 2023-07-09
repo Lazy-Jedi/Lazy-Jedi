@@ -6,7 +6,7 @@ namespace LazyJedi.Common
     /// A base class for creating a singleton MonoBehaviour. <br/>
     /// The singleton will be created if it does not exist when calling <see cref="Instance"/>. <br/>
     /// </summary>
-    public abstract class MonoSingletonBase<T> : MonoBehaviour where T : MonoSingletonBase<T>
+    public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     {
         #region FIELDS
 
@@ -72,7 +72,7 @@ namespace LazyJedi.Common
     /// You will need to create your singleton manually by inheriting this class. <br/>
     /// Then attach your singleton to a GameObject.
     /// </summary>
-    public abstract class SimpleSingleton<T> : MonoBehaviour where T : SimpleSingleton<T>
+    public abstract class SimpleMonoSingleton<T> : MonoBehaviour where T : SimpleMonoSingleton<T>
     {
         #region FIELDS
 
@@ -117,7 +117,7 @@ namespace LazyJedi.Common
     /// These are for non-MonoBehaviour classes.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class SingletonClass<T> where T : class, new()
+    public abstract class Singleton<T> where T : class, new()
     {
         private static T _instance;
 

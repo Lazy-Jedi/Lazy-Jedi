@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="5dd1a37c-cff4-48fe-8ed3-c82a9a5844e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/MonoSingletonBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/MonoSingleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/MonoSingletonBase.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/MonoSingleton.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2023.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2023.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +25,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/3c/d744af27/Convert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/5c/de4e68ae/FileStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/6a/6793cb08/CipherMode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/82/1945bcfd/RSACryptoServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67530335b1d748808d817c82cb02ce8b578988/9a/9ee67523/RSAParameters.cs" root0="SKIP_HIGHLIGHTING" />
@@ -36,7 +43,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/ab/4b141ab0/RSA.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/ScriptableObjects/ScriptableObjectEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/ObjectPool/PooledObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Globals/LazyColors.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Hierarchy/GroupHierarchyObjects.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Common/LazyEditorStrings.cs" root0="FORCE_HIGHLIGHTING" />
@@ -47,7 +53,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Bytes/ByteExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Float/FloatExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ExtensionsUsecase/ExtensionExamples.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/IO/IOTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/FileIO/FileIOExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/ChangeColour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/ICommand.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -96,7 +102,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="F:\Program Files\Unity\Unity 2023.1.3f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="F:\Program Files\Unity\Unity 2022.3.4f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -104,7 +110,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="F:\Program Files\Unity\Unity 2023.1.3f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="F:\Program Files\Unity\Unity 2022.3.4f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -280,6 +286,8 @@
       <workItem from="1688566322981" duration="3548000" />
       <workItem from="1688631816965" duration="25225000" />
       <workItem from="1688712428044" duration="6785000" />
+      <workItem from="1688792730554" duration="9519000" />
+      <workItem from="1688897716086" duration="2303000" />
     </task>
     <servers />
   </component>

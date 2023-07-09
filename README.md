@@ -17,24 +17,24 @@ navigate the MenuBar<br>Lazy-Jedi/Setup/Project Setup<br>
 
 Following settings can be edited in the Project Setup Window:
 
-* Product Icon
-* Cursor Image
-* Cursor Hotspot
-    * Only visible if you have a cursor image
-* Company Name
-* Product Name
-* Resources Folder
-    * Your Local Resources Folder on your Computer,
-    * You can leave it blank if you do not want to add it
-* Project Folders
-    * Editable List and the Folders are only created if you click the "**Create Folders**" button
++ Product Icon
++ Cursor Image
++ Cursor Hotspot
+    + Only visible if you have a cursor image
++ Company Name
++ Product Name
++ Resources Folder
+    + Your Local Resources Folder on your Computer,
+    + You can leave it blank if you do not want to add it
++ Project Folders
+    + Editable List and the Folders are only created if you click the "**Create Folders**" button
 
 The Company name, Resources Folder and the Folders List is serialized to a .json file on your Machine.<br>
 You can find that file at Application.persistentPath + /Uee/LazyJedi
 
 The tool does come with an "Auto Save" feature that will automatically save your settings everytime you make a change to
 the Folders List or Company name.
-However, if you are not using Auto Save, please use the **"Save Settings"** Button.
+However, if you are not using Auto Save, please use the **"Save Settings"*+ Button.
 
 ![](~Documentation/Images/project-setup.png)
 
@@ -88,12 +88,12 @@ S-Dictionary Classes without much effort.
 
 To create any one of the above classes, you need to provide the following information:
 
-* S-Dictionary Class Name
-* Class Name
-* Key Type
-    * Use Custom if your Type is not in the Drop Down
-* Value Type
-    * Use Custom if your Type is not in the Drop Down
++ S-Dictionary Class Name
++ Class Name
++ Key Type
+    + Use Custom if your Type is not in the Drop Down
++ Value Type
+    + Use Custom if your Type is not in the Drop Down
 
 ## Unity Terminal
 
@@ -109,8 +109,8 @@ using Unity.
 
 The Process Utilities has static Methods that shorthand executing Processes via .Net Process method.
 
-* StartProcess(string filename, bool runAsAdmin = false)
-* StartAdvProcess(string filename, string argument, bool hideWindow = false, bool runAsAdmin = false)
++ StartProcess(string filename, bool runAsAdmin = false)
++ StartAdvProcess(string filename, string argument, bool hideWindow = false, bool runAsAdmin = false)
 
 Please note that you do not need to run Processes on another thread, the only reason why I am using async is to avoid
 conflicts with the main Unity Thread.
@@ -240,7 +240,7 @@ You can use this class to save and load Serializable Classes, Structs or Scripta
 Please note that you can encrypt and decrypt data using the SecureDataIO class. However, you will need to set the Key
 and IV before you can encrypt and decrypt data using the AES save and load methods.
 
-**!!! Important !!!** <br>
+**!!! Important !!!*+ <br>
 You are responsible for keeping your AES Key and IV safe. If you lose your AES Key or IV you will not
 be able to decrypt your data.
 
@@ -335,12 +335,12 @@ The examples will help you understand how to use the Various Extension methods t
 
 ### Object Extensions
 
-    * IsNull(),
-    * IsNotNull(),
-    * ToJson(),
-    * Save(),
-    * Load(),
-    * Overwrite(),
++ IsNull(),
++ IsNotNull(),
++ ToJson(),
++ Save(),
++ Load(),
++ Overwrite(),
 
 ```csharp
 MyScriptableObject myScriptableObject;
@@ -371,13 +371,13 @@ myScriptableObject.Overwrite(slotIndex:1,filename:"MyScriptableObject",pathType:
 
 ### GameObject Extensions
 
-    * Activate(),
-    * Deactivate(),
-    * Destroy(),
-    * Clone(),
-    * GetParent(),
-    * SetParent(Transform parent),
-    * etc
++ Activate(),
++ Deactivate(),
++ Destroy(),
++ Clone(),
++ GetParent(),
++ SetParent(Transform parent),
++ etc
 
 ```csharp
 // GameObject Extensions
@@ -405,12 +405,12 @@ YourObject.Destroy();
 
 ### Transform Extensions
 
-    * Activate(),
-    * Deactivate(),
-    * Clone(),
-    * Destroy(),
-    * DesroyAllChildren(),
-    * SetColliderInteractionLayers(string layerMaskName)
++ Activate(),
++ Deactivate(),
++ Clone(),
++ Destroy(),
++ DestroyAllChildren(),
++ SetColliderInteractionLayers(string layerMaskName)
 
 ```csharp
 // Transform Extensions
@@ -436,7 +436,7 @@ print("Delete Original Parent With Children");
 
 ### LayerMask Extensions
 
-    * InLayerMask(LayerMask layerMask)
++ InLayerMask(LayerMask layerMask)
 
 ```csharp
 // Check if Layer Mask A is in Layer Mask B
@@ -445,15 +445,15 @@ print($"Is Layer Mask A, in Layer Mask B - {LayerMaskB.InLayerMask(LayerMaskA)}"
 
 ### String Extensions
 
-    * IsNullOrEmpty(), IsNullOrWhiteSpace()
-    * FromJson(), FromJsonOverwrite()
-    * ToBase64(), FromBase64(),
-    * ToBytes(), FromBytes()
-    * ToShort(), ToInt(), ToFloat(), ToDouble(), ToLong(), ToBool() 
-    * IsValidEmail_Regex(), IsValidEmail_StrictRegex(), IsValidEmail_MailAddress()
-    * IsValidUrl_Regex(), IsValidUrl_Uri()
-    * IsValidPhoneNumber(), IsAlphanumeric(), InnerTrim()
-    * HasSpecialChars(), RemoveAllSpecialChars(), RemoveSpecialChars_ExclSpaces(), RemoveSpecialChars_ExclPunctuation()
++ IsNullOrEmpty(), IsNullOrWhiteSpace()
++ FromJson(), FromJsonOverwrite()
++ ToBase64(), FromBase64(),
++ ToBytes(), FromBytes()
++ ToShort(), ToInt(), ToFloat(), ToDouble(), ToLong(), ToBool() 
++ IsValidEmail_Regex(), IsValidEmail_StrictRegex(), IsValidEmail_MailAddress()
++ IsValidUrl_Regex(), IsValidUrl_Uri()
++ IsValidPhoneNumber(), IsAlphanumeric(), InnerTrim()
++ HasSpecialChars(), RemoveAllSpecialChars(), RemoveSpecialChars_ExclSpaces(), RemoveSpecialChars_ExclPunctuation()
 
 ```csharp
 // String Conversions to Base64 and back and to Bytes and back
@@ -516,12 +516,67 @@ print($"Is Valid URL {url} - {url.IsValidUrl_Uri()}");
 
 ```
 
+### IO Extensions
+The IO Extensions provide quick and easy access to the File System using the File.Write, File.Read and Stream Writer and Reader classes.
+
++ WriteText(), WriteBytes(), WriteLines()
++ WriteTextAsync(), WriteBytesAsync(), WriteLinesAsync()
++ ReadText(), ReadBytes(), ReadLines()
++ ReadTextAsync(), ReadBytesAsync(), ReadLinesAsync()
++ StreamWriter(), StreamWriterAsync()
++ StreamReader(), StreamReaderAsync()
+
+**Important** <br>
+These methods only check if the file path is not null or empty and if the file has an extension. <br>
+Other checks like if the file exists, if the file is read only, etc are not done.
+
+```csharp
+
+// Valid File Path String
+string filePath = $"{Application.persistentDataPath}//Test.txt";
+
+// Sync File Write
+filePath.WriteText("Hello, World!");
+filePath.WriteBytes(new byte[] { 1, 2, 3, 4, 5 });
+filePath.WriteLines(new string[] { "Hello", "World!" });
+
+// Async File Write
+await filePath.WriteTextAsync("Hello, World!");
+await filePath.WriteBytesAsync(new byte[] { 1, 2, 3, 4, 5 });
+await filePath.WriteLinesAsync(new string[] { "Hello", "World!" });
+
+// Sync File Read
+string text = filePath.ReadText();
+byte[] bytes = filePath.ReadBytes();
+string[] lines = filePath.ReadLines();
+
+// Async File Read
+string textAsync = await filePath.ReadTextAsync();
+byte[] bytesAsync = await filePath.ReadBytesAsync();
+string[] linesAsync = await filePath.ReadLinesAsync();
+
+// Sync Stream Writer
+filePath.StreamWriter("Hello, World!");
+filePath.StreamWriter(new byte[] { 1, 2, 3, 4, 5 });
+
+// Async Stream Writer
+await filePath.StreamWriterAsync("Hello, World!");
+await filePath.StreamWriterAsync(new byte[] { 1, 2, 3, 4, 5 });
+
+// Sync Stream Reader
+string streamReaderText = filePath.StreamReader();
+byte[] streamReaderBytes = filePath.StreamReaderBytes();
+
+// Async Stream Reader
+string streamReaderTextAsync = await filePath.StreamReaderAsync();
+```
+
 ### Float Extensions
 
 Convert a float to a Time String either a mm:ss (minutes and seconds) or hh:mm:ss (hours, minutes and seconds)
 
-    * ToTimeMS(),
-    * ToTimeHMS(),
++ ToTimeMS(),
++ ToTimeHMS(),
 
 ```csharp
 
@@ -537,9 +592,9 @@ print(time.ToTimeHMS());
 
 ### Array and List Extensions
 
-    * Shuffle(),
-    * GetRandomItem(),
-    * Swap()
++ Shuffle(),
++ GetRandomItem(),
++ Swap()
 
 ```csharp
 public List<string> WordsList = new List<string>()
@@ -575,8 +630,8 @@ private void Start()
 
 ### Texture2D Extensions
 
-    * ToBase64(),
-    * ToTexture2D(),
++ ToBase64(),
++ ToTexture2D(),
 
 ```csharp
 
@@ -597,10 +652,10 @@ public void Start()
 
 ### UI Extensions
 
-    * AddListener(UnityAction action),
-    * ToBase64(UnityAction action),
-    * RemoveAllListeners(),
-    * SetPlaceHolderText(string text),
++ AddListener(UnityAction action),
++ ToBase64(UnityAction action),
++ RemoveAllListeners(),
++ SetPlaceHolderText(string text),
 
 ```csharp
 public Button YourButton;
@@ -737,7 +792,7 @@ public class CreatorCommand : ICommand
 
     public void Execute()
     {
-        Object.Instantiate(Prefab, new Vector3(Random.value * 5f, Random.value * 5f, 0f), Quaternion.identity);
+        Object.Instantiate(Prefab, new Vector3(Random.value + 5f, Random.value + 5f, 0f), Quaternion.identity);
     }
 }
 
