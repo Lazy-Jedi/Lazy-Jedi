@@ -2,6 +2,13 @@
 
 The Lazy Jedi is a light weight Unity Library of really cool Editor Tools and Runtime scripts that will spice up any project
 really fast. <br>
+
+Some of the features include:
++ A Project Setup Window
++ Multiple Extension Methods that extend .Net and Unity Classes
++ DataIO and SecureDataIO classes that allows you to easily save and load data to and from a file
++ A Unity Terminal that allows you to execute commands within Unity
+
 Please use the Examples in the Project or the Documentation below to get started.
 
 # Editor
