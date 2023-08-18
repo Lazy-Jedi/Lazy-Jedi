@@ -212,8 +212,9 @@ namespace LazyJedi.Utility
         /// <param name="rsaKey">RSA Public or Private Key</param>
         public static void StoreRSAKey_Registry(string key, string value, string rsaKey)
         {
-            using RegistryKey registryKey = Registry.CurrentUser.CreateSubKey(key);
-            registryKey?.SetValue(value, rsaKey.ToBase64());
+            Debug.unityLogger.LogWarning("Registry", "To use the Registry, you must change the API Compatibility Level to .NET 4.x. (.Net Framework) and uncomment the code in the method.");
+            // using RegistryKey registryKey = Registry.CurrentUser.CreateSubKey(key);
+            // registryKey?.SetValue(value, rsaKey.ToBase64());
         }
 
         /// <summary>
@@ -235,12 +236,13 @@ namespace LazyJedi.Utility
         /// <returns>RSA Public or Private Key</returns>
         public static string GetRSAKey_Registry(string key, string value)
         {
-            using RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(key);
-            if (registryKey?.GetValue(value) != null)
-            {
-                return registryKey.GetValue(value).ToString().FromBase64();
-            }
-            Debug.LogError("The RSA Key is not stored in the registry.");
+            Debug.unityLogger.LogWarning("Registry", "To use the Registry, you must change the API Compatibility Level to .NET 4.x. (.Net Framework) and uncomment the code in the method.");
+            // using RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(key);
+            // if (registryKey?.GetValue(value) != null)
+            // {
+            //     return registryKey.GetValue(value).ToString().FromBase64();
+            // }
+            // Debug.LogError("The RSA Key is not stored in the registry.");
             return string.Empty;
         }
 
@@ -265,8 +267,9 @@ namespace LazyJedi.Utility
         /// <param name="keyID">Registry Key ID</param>
         public static void DeleteRSAKey_Registry(string keyID)
         {
-            using RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(keyID);
-            registryKey?.DeleteValue(keyID);
+            Debug.unityLogger.LogWarning("Registry", "To use the Registry, you must change the API Compatibility Level to .NET 4.x. (.Net Framework) and uncomment the code in the method.");
+            // using RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(keyID);
+            // registryKey?.DeleteValue(keyID);
         }
 
         /// <summary>
