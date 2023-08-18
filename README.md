@@ -731,6 +731,11 @@ RSADecryption(byte[] data, RSAParameters privateKey, bool fOAEP = false)
 
 The methods below are used to import and export RSA Keys and store them in the Registry or PlayerPrefs.
 
+**NB**
+The Methods used to save and load RSA Keys from the Registry have been commented out so that the Package can support both .Net Standard and Framework.
+At the current time, the Registry Methods only support .NET Framework.
+It can be reintroduced by removing the comments.
+
 ```csharp
 ImportRSAXMLKeys(string publicKey, string privateKey)
 ExportRSAXMLKeys(RSAParameters publicKey, RSAParameters privateKey)
