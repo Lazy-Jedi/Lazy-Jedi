@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using LazyJedi.Extensions;
@@ -94,6 +95,7 @@ namespace LazyJedi.IO
             {
                 Directory.CreateDirectory(parentPath);
             }
+
             File.WriteAllText(path, data.ToJson(prettyPrint).ToBase64());
         }
 
@@ -103,7 +105,7 @@ namespace LazyJedi.IO
         /// </summary>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
-        /// <returns>Returns the Object created from the loaded data or returns the data object instance</returns>
+        /// <returns>Returns a T Type Instance</returns>
         public static T Load<T>(string filename = "", PathType pathType = PathType.DefaultFolder)
         {
             string path = GetFilePathHelper<T>(pathType, filename: filename);
@@ -111,6 +113,7 @@ namespace LazyJedi.IO
             {
                 return JsonUtility.FromJson<T>(File.ReadAllText(path).FromBase64());
             }
+
             Debug.unityLogger.LogError("Load", "File does not exist, cannot load.");
             return default;
         }
@@ -130,6 +133,7 @@ namespace LazyJedi.IO
                 Debug.unityLogger.LogError("Load And Overwrite", "File does not exist, cannot load and overwrite.");
                 return;
             }
+
             JsonUtility.FromJsonOverwrite(File.ReadAllText(path), data);
         }
 
@@ -153,6 +157,7 @@ namespace LazyJedi.IO
             {
                 Directory.CreateDirectory(parentPath);
             }
+
             string json = data.ToJson(prettyPrint).ToBase64();
             File.WriteAllText(path, json);
         }
@@ -164,7 +169,7 @@ namespace LazyJedi.IO
         /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
-        /// <returns>Returns the Object created from the loaded data or returns the data object instance</returns>
+        /// <returns>Returns a T Type Instance</returns>
         public static T LoadFromSlot<T>(int slotIndex = 1, string filename = "", PathType pathType = PathType.DefaultFolder)
         {
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
@@ -172,6 +177,7 @@ namespace LazyJedi.IO
             {
                 return JsonUtility.FromJson<T>(File.ReadAllText(path).FromBase64());
             }
+
             Debug.unityLogger.LogError("Load", "File does not exist, cannot load from slot.");
             return default;
         }
@@ -192,6 +198,7 @@ namespace LazyJedi.IO
                 Debug.unityLogger.LogError("Load And Overwrite", "File does not exist, cannot load and overwrite.");
                 return;
             }
+
             JsonUtility.FromJsonOverwrite(File.ReadAllText(path).FromBase64(), data);
         }
 
@@ -208,7 +215,6 @@ namespace LazyJedi.IO
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
         /// <param name="prettyPrint">Pretty Print the JSON data</param>
-        /// <typeparam name="T"></typeparam>
         public static void Save<T>(
             T data,
             ref byte[] key,
@@ -229,20 +235,21 @@ namespace LazyJedi.IO
             {
                 Directory.CreateDirectory(parentPath);
             }
+
             byte[] encryptedJson = SecurityUtility.AESEncryption(data.ToJson(prettyPrint), ref key, ref iv, CipherMode, PaddingMode);
             File.WriteAllBytes(path, encryptedJson);
         }
 
         /// <summary>
         /// Use AES Decryption to load the data object from the save file. <br/>
-        /// Use the Overwrite methods if you are loading a ScriptableObject.
+        /// Use LoadAndOverwrite if you are loading a ScriptableObject.
         /// </summary>
         /// <param name="filename">Custom Filename</param>
         /// <param name="key">The AES Key.</param>
         /// <param name="iv">The AES IV</param>
         /// <param name="pathType">Default Location of the Save File.</param>
         /// <typeparam name="T"></typeparam>
-        /// <returns>Returns the Object created from the loaded data or returns the data object instance</returns>
+        /// <returns>Returns a T Type Instance</returns>
         public static T Load<T>(
             byte[] key,
             byte[] iv,
@@ -254,11 +261,13 @@ namespace LazyJedi.IO
                 Debug.unityLogger.LogError("Invalid", LOAD_NO_KEY_OR_IV_MESSAGE);
                 return default;
             }
+
             string path = GetFilePathHelper<T>(pathType, filename: filename);
             if (File.Exists(path))
             {
                 return JsonUtility.FromJson<T>(SecurityUtility.AESDecryption(File.ReadAllBytes(path), key, iv, CipherMode, PaddingMode));
             }
+
             Debug.unityLogger.LogError("Load", "File does not exist, cannot load data.");
             return default;
         }
@@ -272,7 +281,6 @@ namespace LazyJedi.IO
         /// <param name="iv">The AES IV</param>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
-        /// <typeparam name="T"></typeparam>
         public static void LoadAndOverwrite<T>(
             T data,
             byte[] key,
@@ -286,6 +294,7 @@ namespace LazyJedi.IO
                 Debug.unityLogger.LogError("Load", "File does not exist, cannot load and overwrite.");
                 return;
             }
+
             JsonUtility.FromJsonOverwrite(SecurityUtility.AESDecryption(File.ReadAllBytes(path), key, iv), data);
         }
 
@@ -323,20 +332,21 @@ namespace LazyJedi.IO
             {
                 Directory.CreateDirectory(parentPath);
             }
+
             byte[] jsonBytes = SecurityUtility.AESEncryption(data.ToJson(prettyPrint), ref key, ref iv, CipherMode, PaddingMode);
             File.WriteAllBytes(path, jsonBytes);
         }
 
         /// <summary>
         /// Use AES Decryption to load the data object from the save slot. <br/>
-        /// Use the Overwrite method if you are loading a ScriptableObject.
+        /// Use LoadAndOverwriteFromSlot if you are loading a ScriptableObject.
         /// </summary>
         /// <param name="key">The AES Key</param>
         /// <param name="iv">The AES IV</param>
         /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
-        /// <returns>Returns the Object created from the loaded data or returns the data object instance</returns>
+        /// <returns>Returns a T Type Instance</returns>
         public static T LoadFromSlot<T>(
             byte[] key,
             byte[] iv,
@@ -356,6 +366,7 @@ namespace LazyJedi.IO
             {
                 return JsonUtility.FromJson<T>(SecurityUtility.AESDecryption(File.ReadAllBytes(path), key, iv, CipherMode, PaddingMode));
             }
+
             Debug.unityLogger.LogError("Load", "File does not exist, cannot load data.");
             return default;
         }
@@ -383,12 +394,14 @@ namespace LazyJedi.IO
                 Debug.unityLogger.LogError("Invalid", LOAD_NO_KEY_OR_IV_MESSAGE);
                 return;
             }
+
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
             if (!File.Exists(path))
             {
                 Debug.unityLogger.LogError("Load", "File does not exist, cannot load and overwrite.");
                 return;
             }
+
             JsonUtility.FromJsonOverwrite(SecurityUtility.AESDecryption(File.ReadAllBytes(path), key, iv), data);
         }
 
@@ -409,6 +422,7 @@ namespace LazyJedi.IO
                 Debug.unityLogger.LogError("Delete", "File does not exist, cannot delete.");
                 return;
             }
+
             File.Delete(path);
         }
 
@@ -426,6 +440,7 @@ namespace LazyJedi.IO
                 Debug.unityLogger.LogError("Delete", "File does not exist, cannot delete.");
                 return;
             }
+
             File.Delete(path);
         }
 
@@ -433,13 +448,18 @@ namespace LazyJedi.IO
 
         #region HELPER METHODS
 
+        private static string SlotPrefixHelper(int slotIndex)
+        {
+            return slotIndex <= 0 ? string.Empty : $"{SlotPrefix}{slotIndex}";
+        }
+
         private static string GetPathHelper(PathType pathType, int slotIndex = 0)
         {
             return pathType switch
             {
-                PathType.SaveFolder => Path.Combine(SavePath, slotIndex <= 0 ? "" : $"{SlotPrefix}{slotIndex}"),
-                PathType.OptionsFolder => Path.Combine(SettingsPath, slotIndex <= 0 ? "" : $"{SlotPrefix}{slotIndex}"),
-                _ => Path.Combine(DefaultPath, slotIndex <= 0 ? "" : $"{SlotPrefix}{slotIndex}")
+                PathType.SaveFolder => Path.Combine(SavePath, SlotPrefixHelper(slotIndex)),
+                PathType.OptionsFolder => Path.Combine(SettingsPath, SlotPrefixHelper(slotIndex)),
+                _ => Path.Combine(DefaultPath, SlotPrefixHelper(slotIndex))
             };
         }
 
@@ -453,9 +473,9 @@ namespace LazyJedi.IO
             return Path.Combine(GetPathHelper(pathType, slotIndex), $"{(filename.IsNullOrEmpty() ? typeof(T).Name : filename)}.{Extension}");
         }
 
-        private static bool HasKeyAndIV(byte[] key, byte[] iv)
+        private static bool HasKeyAndIV(IReadOnlyCollection<byte> key, IReadOnlyCollection<byte> iv)
         {
-            return key != null && key.Length != 0 && iv != null && iv.Length != 0;
+            return key != null && key.Count != 0 && iv != null && iv.Count != 0;
         }
 
         #endregion

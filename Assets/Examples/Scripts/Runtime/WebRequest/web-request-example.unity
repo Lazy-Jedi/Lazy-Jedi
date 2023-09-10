@@ -207,7 +207,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &1173691514
+--- !u!1 &664888926
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,22 +215,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1173691515}
-  - component: {fileID: 1173691516}
+  - component: {fileID: 664888927}
+  - component: {fileID: 664888928}
   m_Layer: 0
-  m_Name: '[EXAMPLE]'
+  m_Name: '[MANAGERS]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1173691515
+--- !u!4 &664888927
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173691514}
+  m_GameObject: {fileID: 664888926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -239,26 +239,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1173691516
+--- !u!114 &664888928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173691514}
+  m_GameObject: {fileID: 664888926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa7bdfe1d87fbe41bea85422f37229a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ef57577b24e40f469d9c9198563eecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Save: 0
-  Load: 0
-  User:
-    Name: Uee
-    Age: 29
-  UserSO: {fileID: 11400000, guid: 6d917e0c9b64285449ccc104b6d2d8e3, type: 2}
-  Key: c0da5515a096a36499f8f03bc0ea35d677d0ea24079ff0ed1b9cfdc34a20c770
-  IV: 0e8cd2a0d97b09f65ef641726492b4ea
+  AudioType: 20
+  AudioURL: G:\Pictures\Resources\Audio\Music\Alkakrab\Game Piano Music\wav\Piano
+    1.wav
+  TextureType: 1
+  IsTextureReadable: 1
+  ImageURL: https://w.wallhaven.cc/full/m3/wallhaven-m3py8m.jpg
+  FileURL: https://www.kenney.nl/media/pages/assets/tower-defense-kit/983a08988f-1677580495/kenney_tower-defense-kit.zip
+  File2URL: https://cdn.discordapp.com/attachments/875460594935955506/1150141574924210176/spacesniffer_1_3_0_2.zip
+  TextFileURL: https://sample-videos.com/csv/Sample-Spreadsheet-500000-rows.csv
 --- !u!1 &1255843868
 GameObject:
   m_ObjectHideFlags: 0

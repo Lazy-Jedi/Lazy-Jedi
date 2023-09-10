@@ -177,7 +177,8 @@ public static class CustomProcesses
 
 # Runtime
 
-## IO
+## Data Persistence
+LazyJedi comes with a DataIO and SecureDataIO class that allows you to easily save and load data to and from a file.
 
 ### DataIO
 
@@ -746,11 +747,89 @@ GetRSAKey_PlayerPrefs(string keyID)
 DeleteRSAKey_Registry(string keyID)
 DeleteRSAKey_PlayerPrefs(string keyID)
 ```
+### WebRequestUtility
+The WebRequestUtility is a static class that allows you to easily make Web Requests to a Web Server or RestAPI. The WebRequestUtility uses the UnityWebRequest class to make Web Requests which is compatible with coroutines.
+
+The WebRequestUtility has the following HTTP methods:
+
+```csharp
+
+// HTTP GET METHODS
+HttpGet(string url, Action<Response<string>> response, Action<float> progress = null, Dictionary<string, string> headers = null);
+HTTPGet(string url, Action<Response<byte[]>> response, Action<float> progress = null, Dictionary<string, string> headers = null);
+
+// HTTP POST METHOD
+HttpPost(string url, string body, Action<Response<byte[]>> response, Action<float> progress = null, string contentType = "application/json", Dictionary<string, string> headers = null);
+
+// HTTP PUT METHOD
+HttpPut(string url, string body, Action<Response<byte[]>> response, Action<float> progress = null, string contentType = "application/json", Dictionary<string, string> headers = null);
+
+// HTTP DELETE METHOD
+HttpDelete(string url, Action<Response<string>> response, Dictionary<string, string> headers = null);
+
+// HTTP HEAD METHOD
+HttpHead(string url, Action<Response<Dictionary<string, string>>> response);
+
+```
+
+The WebRequestUtility has the following Downloader and Uploader Methods:
+
+
+```csharp
+// DOWNLOAD METHODS
+DownloadAudio(string url, AudioType audioType, Action<AudioResponse> response, Action<float> progress = null, Dictionary<string, string> headers = null);
+DownloadTexture(string url, bool isTextureReadable, TextureType textureType, Action<Texture2DResponse> response, Action<float> progress = null, Dictionary<string, string> headers = null);
+DownloadAssetBundle(string url, uint checksum, Action<Response<AssetBundle>> response, Action<float> progress = null, Dictionary<string, string> headers = null);
+DownloadFileBuffer(string url, Action<Response<byte[]>> response, Action<float> progress = null, Dictionary<string, string> headers = null);
+DownloadFile(string url, string path, Action<Response<byte[]>> response, Action<float> progress = null, Dictionary<string, string> headers = null);
+
+// UPLOAD METHODS
+UploadFile(string url, string path, HttpMethodType httpMethod, Action<Response<byte[]>> response, Action<float> progress = null, Dictionary<string, string> headers = null);
+UploadRawFile(string url, byte[] rawData, HttpMethodType httpMethod, Action<Response<byte[]>> response, Action<float> progress = null, Dictionary<string, string> headers = null);
+```
+<br>
+
+#### Example
+For more examples please look at the Examples->Scripts->Runtime->WebRequest folder.
+
+```csharp
+public void Start()
+{
+    StartCoroutine(WebRequestUtility.DownloadAudio(
+                    AudioURL,
+                    AudioType,
+                    response => { File.WriteAllBytes(Path.Combine("Assets", Path.GetFileName(AudioURL)), response.Data); },
+                    progress => { Debug.unityLogger.Log($"Audio Progress - {progress}"); }
+                )
+            );
+    
+    StartCoroutine(WebRequestUtility.DownloadTexture(
+                ImageURL,
+                IsTextureReadable,
+                TextureType,
+                response =>
+                {
+                    if (IsTextureReadable)
+                    {
+                        File.WriteAllBytes(Path.Combine("Assets", Path.GetFileName(ImageURL)), response.Data);
+                    }
+                },
+                progress => { Debug.unityLogger.Log($"Texture Progress - {progress}"); }
+            ));
+    
+    string filePath = Path.Combine("Assets", Path.GetFileName(ZipURL));
+            StartCoroutine(WebRequestUtility.DownloadFileBuffer(
+                ZipURL,
+                response => { File.WriteAllBytes(filePath, response.Data); },
+                progress => { Debug.unityLogger.Log($"File Progress - {progress}"); }
+            ));
+}
+
+```
 
 # Packages
 
 ## Rotary Heart - Serializable Dictionary Lite
-
 Rotary Heart - Serializable Dictionary Lite is a Unity Package that adds Serializable Dictionaries to Unity.
 The package comes with a Readme that explains how to setup a serializable dictionary in Unity.
 

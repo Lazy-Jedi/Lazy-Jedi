@@ -35,7 +35,7 @@ namespace LazyJedi.Examples
                 // IO Extensions - Short Hand Write to File Methods
                 userPath.WriteText(User.ToJson());
                 userPath.StreamWriter(User.ToJson());
-
+                
                 // Secure Data and Data IO Class - Saving Plain and Encrypted string Data
                 DataIO.Save(User, filename: "userPlain", pathType: PathType.DefaultFolder, prettyPrint: true);
                 SecureDataIO.Save(User, ref Key, ref IV, filename: "userSecure", pathType: PathType.DefaultFolder, prettyPrint: true);

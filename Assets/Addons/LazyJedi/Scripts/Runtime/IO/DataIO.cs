@@ -52,17 +52,18 @@ namespace LazyJedi.IO
             {
                 Directory.CreateDirectory(parentPath);
             }
+
             string json = data.ToJson(prettyPrint);
             File.WriteAllText(path, json);
         }
 
         /// <summary>
         /// Loads the data object from the save file.
-        /// Use SimpleOverwrite if you are loading a ScriptableObject.
+        /// Use LoadAndOverwrite if you are loading a ScriptableObject.
         /// </summary>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
-        /// <returns>Returns the Object created from the loaded data or returns the data object instance</returns>
+        /// <returns>Returns a T Type Instance</returns>
         public static T Load<T>(string filename = "", PathType pathType = PathType.DefaultFolder)
         {
             string path = GetFilePathHelper<T>(pathType, filename: filename);
@@ -70,7 +71,8 @@ namespace LazyJedi.IO
             {
                 return JsonUtility.FromJson<T>(File.ReadAllText(path));
             }
-            Debug.unityLogger.LogError("Load", "File does not exist, cannot load.");
+
+            Debug.unityLogger.LogError("Load", "File does not exist, and cannot be loaded.");
             return default;
         }
 
@@ -86,9 +88,10 @@ namespace LazyJedi.IO
             string path = GetFilePathHelper<T>(pathType, filename: filename);
             if (!File.Exists(path))
             {
-                Debug.unityLogger.LogError("Load And Overwrite", "File does not exist, cannot load and overwrite.");
+                Debug.unityLogger.LogError("Load And Overwrite", "File does not exist, and cannot be loaded and overwritten.");
                 return;
             }
+
             JsonUtility.FromJsonOverwrite(File.ReadAllText(path), data);
         }
 
@@ -104,7 +107,8 @@ namespace LazyJedi.IO
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
         /// <param name="prettyPrint">Pretty Print the JSON data</param>
-        public static void SaveToSlot<T>(T data, int slotIndex = 1, string filename = "", PathType pathType = PathType.DefaultFolder, bool prettyPrint = false)
+        public static void SaveToSlot<T>(T data, int slotIndex = 1, string filename = "",
+            PathType pathType = PathType.DefaultFolder, bool prettyPrint = false)
         {
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
             string parentPath = GetParentFolderHelper(pathType, slotIndex);
@@ -112,26 +116,29 @@ namespace LazyJedi.IO
             {
                 Directory.CreateDirectory(parentPath);
             }
+
             string json = data.ToJson(prettyPrint);
             File.WriteAllText(path, json);
         }
 
         /// <summary>
         /// Load the data from the slot.
-        /// Use LoadSlotOverwrite if you are loading a ScriptableObject.
+        /// Use LoadAndOverwriteFromSlot if you are loading a ScriptableObject.
         /// </summary>
         /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
-        /// <returns>Returns the Object created from the loaded data or returns the data object instance</returns>
-        public static T LoadFromSlot<T>(int slotIndex = 1, string filename = "", PathType pathType = PathType.DefaultFolder)
+        /// <returns>Returns T Type Instance</returns>
+        public static T LoadFromSlot<T>(int slotIndex = 1, string filename = "",
+            PathType pathType = PathType.DefaultFolder)
         {
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
             if (File.Exists(path))
             {
                 return JsonUtility.FromJson<T>(File.ReadAllText(path));
             }
-            Debug.unityLogger.LogError("Load", "File does not exist, cannot load from slot.");
+
+            Debug.unityLogger.LogError("Load", "File does not exist, and cannot be loaded from the slot.");
             return default;
         }
 
@@ -140,7 +147,7 @@ namespace LazyJedi.IO
         /// Works best with ScriptableObjects.
         /// </summary>
         /// <param name="data">Serializable Object</param>
-        /// <param name="slotIndex"> This is the index of the Save Slot, this value needs to be greater than 0. </param>
+        /// <param name="slotIndex"> The Index of the Save Slot, Index must be Greater Than 0. </param>
         /// <param name="filename">Custom Filename</param>
         /// <param name="pathType">Default Location of the Save File.</param>
         public static void LoadAndOverwriteFromSlot<T>(T data, int slotIndex = 1, string filename = "", PathType pathType = PathType.DefaultFolder)
@@ -148,9 +155,10 @@ namespace LazyJedi.IO
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
             if (!File.Exists(path))
             {
-                Debug.unityLogger.LogError("Load And Overwrite", "File does not exist, cannot load from slot.");
+                Debug.unityLogger.LogError("Load And Overwrite", "File does not exist, and cannot be loaded from slot.");
                 return;
             }
+
             JsonUtility.FromJsonOverwrite(File.ReadAllText(path), data);
         }
 
@@ -168,9 +176,10 @@ namespace LazyJedi.IO
             string path = GetFilePathHelper<T>(pathType, filename: filename);
             if (!File.Exists(path))
             {
-                Debug.unityLogger.LogError("Delete", "File does not exist, cannot delete.");
+                Debug.unityLogger.LogError("Delete", "File does not exist, and cannot be deleted.");
                 return;
             }
+
             File.Delete(path);
         }
 
@@ -185,9 +194,10 @@ namespace LazyJedi.IO
             string path = GetFilePathHelper<T>(pathType, slotIndex, filename);
             if (!File.Exists(path))
             {
-                Debug.unityLogger.LogError("Delete From Slot", "File does not exist, cannot delete.");
+                Debug.unityLogger.LogError("Delete", "File does not exist, and cannot be deleted.");
                 return;
             }
+
             File.Delete(path);
         }
 
@@ -195,13 +205,18 @@ namespace LazyJedi.IO
 
         #region HELPER METHODS
 
+        private static string SlotPrefixHelper(int slotIndex)
+        {
+            return slotIndex <= 0 ? string.Empty : $"{SlotPrefix}{slotIndex}";
+        }
+
         private static string GetPathHelper(PathType pathType, int slotIndex = 0)
         {
             return pathType switch
             {
-                PathType.SaveFolder => Path.Combine(SavePath, slotIndex <= 0 ? "" : $"{SlotPrefix}{slotIndex}"),
-                PathType.OptionsFolder => Path.Combine(SettingsPath, slotIndex <= 0 ? "" : $"{SlotPrefix}{slotIndex}"),
-                _ => Path.Combine(DefaultPath, slotIndex <= 0 ? "" : $"{SlotPrefix}{slotIndex}")
+                PathType.SaveFolder => Path.Combine(SavePath, SlotPrefixHelper(slotIndex)),
+                PathType.OptionsFolder => Path.Combine(SettingsPath, SlotPrefixHelper(slotIndex)),
+                _ => Path.Combine(DefaultPath, SlotPrefixHelper(slotIndex))
             };
         }
 
