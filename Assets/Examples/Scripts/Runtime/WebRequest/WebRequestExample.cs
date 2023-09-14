@@ -85,7 +85,7 @@ namespace LazyJedi
             ));
 
             string filePath2 = Path.Combine("Assets", $"{Path.GetFileNameWithoutExtension(ZipURL2)}-2{Path.GetExtension(ZipURL2)}");
-            StartCoroutine(WebRequestUtility.HTTPGet(ZipURL2, response => { File.WriteAllBytes(filePath2, response.Data); },
+            StartCoroutine(WebRequestUtility.HttpGet(ZipURL2, response => { File.WriteAllBytes(filePath2, response.Data); },
                 progress => { Debug.unityLogger.Log($"File Progress 2 - {progress}"); }));
         }
 

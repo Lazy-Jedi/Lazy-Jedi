@@ -57,7 +57,7 @@ namespace LazyJedi.Common
         /// <param name="response">Response Callback</param>
         /// <param name="progress">Progress Callback</param>
         /// <param name="headers">Add custom headers to the request.</param>
-        public static IEnumerator HTTPGet(
+        public static IEnumerator HttpGet(
             string url,
             Action<Response<byte[]>> response,
             Action<float> progress = null,
