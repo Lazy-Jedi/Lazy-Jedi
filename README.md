@@ -4,6 +4,7 @@ The Lazy Jedi is a light weight Unity Library of really cool Editor Tools and Ru
 really fast. <br>
 
 Some of the features include:
+
 + A Project Setup Window
 + Multiple Extension Methods that extend .Net and Unity Classes
 + DataIO and SecureDataIO classes that allows you to easily save and load data to and from a file
@@ -178,6 +179,7 @@ public static class CustomProcesses
 # Runtime
 
 ## Data Persistence
+
 LazyJedi comes with a DataIO and SecureDataIO class that allows you to easily save and load data to and from a file.
 
 ### DataIO
@@ -285,6 +287,7 @@ PaddingMode PaddingMode =SecureDataIO.PaddingMode;
 ```
 
 The following methods can be used to generate a new AES Key and IV and RSA Public and Private Keys:
+
 ```csharp
 GenerateRSAKeyPair(out RSAParameters publicKey, out RSAParameters privateKey);
 GenerateAESKeyAndIV(out byte[] aesKey, out byte[] aesIV);
@@ -292,6 +295,7 @@ EncryptAESKey(RSAParameters publicKey, byte[] aesKey, bool fOAEP = false);
 ```
 
 The following methods are used to save and load data using either Base64 or AES encryption and decryption. <br>
+
 ```csharp
 // Save Data - Base64
 SecureDataIO.Save(data, filename: "filename", pathType: PathType.DefaultFolder, prettyPrint: true);
@@ -457,7 +461,7 @@ print($"Is Layer Mask A, in Layer Mask B - {LayerMaskB.InLayerMask(LayerMaskA)}"
 + FromJson(), FromJsonOverwrite()
 + ToBase64(), FromBase64(),
 + ToBytes(), FromBytes()
-+ ToShort(), ToInt(), ToFloat(), ToDouble(), ToLong(), ToBool() 
++ ToShort(), ToInt(), ToFloat(), ToDouble(), ToLong(), ToBool()
 + IsValidEmail_Regex(), IsValidEmail_StrictRegex(), IsValidEmail_MailAddress()
 + IsValidUrl_Regex(), IsValidUrl_Uri()
 + IsValidPhoneNumber(), IsAlphanumeric(), InnerTrim()
@@ -525,6 +529,7 @@ print($"Is Valid URL {url} - {url.IsValidUrl_Uri()}");
 ```
 
 ### IO Extensions
+
 The IO Extensions provide quick and easy access to the File System using the File.Write, File.Read and Stream Writer and Reader classes.
 
 + WriteText(), WriteBytes(), WriteLines()
@@ -715,6 +720,7 @@ You can use the SecurityUtility to encrypt and decrypt data using AES and RSA En
 AES can be used on large data sets and RSA can be used to encrypt the AES Key and IV.
 
 The methods below are used to generate cryptographically secure random byte array or AES and RSA Keys.
+
 ```csharp
 GenerateUniqueByteArray(int length = 16)
 GenerateAESKeyAndIV(out byte[] key, out byte[] iv)
@@ -734,7 +740,8 @@ The methods below are used to import and export RSA Keys and store them in the R
 
 **NB**
 
-The methods that are used to save and load RSA Keys from the Registry have been commented out so that the Package can support both .NET Standard and Framework. <br>
+The methods that are used to save and load RSA Keys from the Registry have been commented out so that the Package can support both .NET Standard and
+Framework. <br>
 At the current time, the Registry Methods only support .NET Framework. It can be reintroduced by uncommenting the Registry code.
 
 ```csharp
@@ -747,8 +754,11 @@ GetRSAKey_PlayerPrefs(string keyID)
 DeleteRSAKey_Registry(string keyID)
 DeleteRSAKey_PlayerPrefs(string keyID)
 ```
+
 ### WebRequestUtility
-The WebRequestUtility is a static class that allows you to easily make Web Requests to a Web Server or RestAPI. The WebRequestUtility uses the UnityWebRequest class to make Web Requests which is compatible with coroutines.
+
+The WebRequestUtility is a static class that allows you to easily make Web Requests to a Web Server or RestAPI. The WebRequestUtility uses the UnityWebRequest
+class to make Web Requests which is compatible with coroutines.
 
 The WebRequestUtility has the following HTTP methods:
 
@@ -774,7 +784,6 @@ HttpHead(string url, Action<Response<Dictionary<string, string>>> response);
 
 The WebRequestUtility has the following Downloader and Uploader Methods:
 
-
 ```csharp
 // DOWNLOAD METHODS
 DownloadAudio(string url, AudioType audioType, Action<AudioResponse> response, Action<float> progress = null, Dictionary<string, string> headers = null);
@@ -787,9 +796,11 @@ DownloadFile(string url, string path, Action<Response<byte[]>> response, Action<
 UploadFile(string url, string path, HttpMethodType httpMethod, Action<Response<byte[]>> response, Action<float> progress = null, Dictionary<string, string> headers = null);
 UploadRawFile(string url, byte[] rawData, HttpMethodType httpMethod, Action<Response<byte[]>> response, Action<float> progress = null, Dictionary<string, string> headers = null);
 ```
+
 <br>
 
 #### Example
+
 For more examples please look at the Examples->Scripts->Runtime->WebRequest folder.
 
 ```csharp
@@ -827,9 +838,74 @@ public void Start()
 
 ```
 
+### EaseUtility
+
+The EaseUtility is a static class that allows you to easily create Easing Functions that can be used to animate UI Elements or GameObjects.
+You can also use the Easing Functions to change the value of a variable over time.
+
+The EaseUtility has the following EaseType's Functions:
++ Linear
++ InQuad, OutQuad, InOutQuad
++ InCubic, OutCubic, InOutCubic
++ InQuart, OutQuart, InOutQuart
++ InQuint, OutQuint, InOutQuint
++ InSine, OutSine, InOutSine
++ InExpo, OutExpo, InOutExpo
++ InCirc, OutCirc, InOutCirc
++ InElastic, OutElastic, InOutElastic
++ InBack, OutBack, InOutBack
++ InBounce, OutBounce, InOutBounce
+
+```csharp
+
+// Example's using Ease Functions
+EaseUtility.Float(EaseType, from, to, time);
+EaseUtility.Vector2(EaseType, from, to, time);
+EaseUtility.Vector3(EaseType, from, to, time);
+EaseUtility.Color(EaseType, from, to, time);
+
+// Example's using Animation Curves
+EaseUtility.Float(from, to, time, animationCurve);
+EaseUtility.Vector2(from, to, time, animationCurve);
+EaseUtility.Vector3(from, to, time, animationCurve);
+EaseUtility.Color(from, to, time, animationCurve);
+
+// You can also use the EaseUtility to access the Ease Methods
+EaseUtility.Linear(time);
+EaseUtility.InQuad(time);
+EaseUtility.InElastic(time);
+
+// You can also use the Evaluate Method to apply the Ease Function to a value
+
+public EaseType EaseType = EaseType.InOutQuad;
+
+public IEnumerator TestEase()
+{
+    float startValue = 0f;
+    float endValue = 4f;
+    float time = 0f;
+    float duration = 1f;
+    Vector3 position = transform.position;
+    
+    while(time < duration)
+    {
+        position.y = start + (endValue - startValue) * EaseUtility.Evaluate(EaseType, time / duration);
+        // position.y = EaseUtility.Float(EaseType, startValue, endValue, time / duration); This is the Preferred Way.
+        trasform.position = position;
+        yield return null;
+        time += Time.deltaTime;
+    }
+    
+    position.y = endValue;
+    transform.position = position;
+}
+
+```
+
 # Packages
 
 ## Rotary Heart - Serializable Dictionary Lite
+
 Rotary Heart - Serializable Dictionary Lite is a Unity Package that adds Serializable Dictionaries to Unity.
 The package comes with a Readme that explains how to setup a serializable dictionary in Unity.
 
