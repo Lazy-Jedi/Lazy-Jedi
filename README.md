@@ -858,6 +858,11 @@ The EaseUtility has the following EaseType's Functions:
 
 ```csharp
 
+// Notes:
+// from - Starting Value or Current Value
+// to - Ending or Target Value
+// time - Fraction between [0, 1], calculated as time / duration
+
 // Example's using Ease Functions
 EaseUtility.Float(EaseType, from, to, time);
 EaseUtility.Vector2(EaseType, from, to, time);
@@ -1026,6 +1031,7 @@ public class SerializedReferenceExamples : MonoBehaviour
 
 1. Rotary Heart - [Serializable Dictionary Lite](https://assetstore.unity.com/publishers/28547)
 2. MackySoft - [Serializable Reference Extensions](https://github.com/mackysoft/Unity-SerializeReferenceExtensions)
+3. Kryzarel - [Easing Functions](https://gist.github.com/Kryzarel/bba64622057f21a1d6d44879f9cd7bd4)
 
 ## Plugins
 

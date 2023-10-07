@@ -23,7 +23,7 @@ namespace LazyJedi.Utility
         /// Ease a value using the given ease type.<br/>
         /// </summary>
         /// <param name="ease">EaseType</param>
-        /// <param name="time">Time is clamped between 0 and 1.</param>
+        /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
         /// <param name="period">Period limits the number of bounces</param>
         /// <param name="amplitude"> Amplitude limits the height of the bounces.</param>
         public static float Evaluate(EaseType ease, float time, float period = 0.3f, float amplitude = 1f)
@@ -68,7 +68,7 @@ namespace LazyJedi.Utility
         /// <summary>
         /// Ease a value using the given animation curve.<br/>
         /// </summary>
-        /// <param name="time">Time is clamped between 0 and 1.</param>
+        /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
         /// <param name="curve">Given animation curve</param>
         public static float Evaluate(float time, AnimationCurve curve)
         {
@@ -85,7 +85,7 @@ namespace LazyJedi.Utility
         /// <param name="ease">Ease Type - Linear, InQuad, etc</param>
         /// <param name="from">Starting Value</param>
         /// <param name="to">Ending Value</param>
-        /// <param name="time">Time is clamped between 0 and 1.</param>
+        /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
         public static float Float(EaseType ease, float from, float to, float time)
         {
             return from + (to - from) * Evaluate(ease, time);
@@ -97,7 +97,7 @@ namespace LazyJedi.Utility
         /// </summary>
         /// <param name="from">Starting Value</param>
         /// <param name="to">Ending Value</param>
-        /// <param name="time">Time is clamped between 0 and 1.</param>
+        /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
         /// <param name="curve">Given animation curve</param>
         public static float Float(float from, float to, float time, AnimationCurve curve)
         {
@@ -114,7 +114,7 @@ namespace LazyJedi.Utility
         /// <param name="ease">Ease Type - Linear, InQuad, etc</param>
         /// <param name="from">Starting Value</param>
         /// <param name="to">Ending Value</param>
-        /// <param name="time">Time is clamped between 0 and 1.</param>
+        /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
         public static Vector2 Vector2(EaseType ease, Vector2 from, Vector2 to, float time)
         {
             return from + (to - from) * Evaluate(ease, time);
@@ -126,7 +126,7 @@ namespace LazyJedi.Utility
         /// </summary>
         /// <param name="from">Starting Value</param>
         /// <param name="to">Ending Value</param>
-        /// <param name="time">Time is clamped between 0 and 1.</param>
+        /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
         /// <param name="curve">Given animation curve</param>
         public static Vector2 Vector2(Vector2 from, Vector2 to, float time, AnimationCurve curve)
         {
@@ -139,7 +139,7 @@ namespace LazyJedi.Utility
         /// <param name="ease">Ease Type - Linear, InQuad, etc</param>
         /// <param name="from">Starting Value</param>
         /// <param name="to">Ending Value</param>
-        /// <param name="time">Time is clamped between 0 and 1.</param>
+        /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
         public static Vector3 Vector3(EaseType ease, Vector3 from, Vector3 to, float time)
         {
             return from + (to - from) * Evaluate(ease, time);
@@ -151,7 +151,7 @@ namespace LazyJedi.Utility
         /// </summary>
         /// <param name="from">Starting Value</param>
         /// <param name="to">Ending Value</param>
-        /// <param name="time">Time is clamped between 0 and 1.</param>
+        /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
         /// <param name="curve">Given animation curve</param>
         public static Vector3 Vector3(Vector3 from, Vector3 to, float time, AnimationCurve curve)
         {
