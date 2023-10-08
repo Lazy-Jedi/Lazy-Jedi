@@ -337,7 +337,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Square: {fileID: 220356139}
   Target: {fileID: 1451870367}
-  EaseType: 15
+  SpriteRenderer: {fileID: 220356138}
+  StartColor: {r: 1, g: 1, b: 1, a: 1}
+  EndColor: {r: 0, g: 0, b: 0, a: 1}
+  EaseType: 30
   AnimationCurve:
     serializedVersion: 2
     m_Curve:

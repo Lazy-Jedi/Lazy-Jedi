@@ -86,9 +86,11 @@ namespace LazyJedi.Utility
         /// <param name="from">Starting Value</param>
         /// <param name="to">Ending Value</param>
         /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
-        public static float Float(EaseType ease, float from, float to, float time)
+        /// <param name="period">Period limits the number of bounces</param>
+        /// <param name="amplitude"> Amplitude limits the height of the bounces.</param>
+        public static float Float(EaseType ease, float from, float to, float time, float period = 0.3f, float amplitude = 1f)
         {
-            return from + (to - from) * Evaluate(ease, time);
+            return from + (to - from) * Evaluate(ease, time, period, amplitude);
         }
 
         /// <summary>
@@ -115,9 +117,11 @@ namespace LazyJedi.Utility
         /// <param name="from">Starting Value</param>
         /// <param name="to">Ending Value</param>
         /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
-        public static Vector2 Vector2(EaseType ease, Vector2 from, Vector2 to, float time)
+        /// <param name="period">Period limits the number of bounces</param>
+        /// <param name="amplitude"> Amplitude limits the height of the bounces.</param>
+        public static Vector2 Vector2(EaseType ease, Vector2 from, Vector2 to, float time, float period = 0.3f, float amplitude = 1f)
         {
-            return from + (to - from) * Evaluate(ease, time);
+            return from + (to - from) * Evaluate(ease, time, period, amplitude);
         }
 
         /// <summary>
@@ -140,9 +144,11 @@ namespace LazyJedi.Utility
         /// <param name="from">Starting Value</param>
         /// <param name="to">Ending Value</param>
         /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
-        public static Vector3 Vector3(EaseType ease, Vector3 from, Vector3 to, float time)
+        /// <param name="period">Period limits the number of bounces</param>
+        /// <param name="amplitude"> Amplitude limits the height of the bounces.</param>
+        public static Vector3 Vector3(EaseType ease, Vector3 from, Vector3 to, float time, float period = 0.3f, float amplitude = 1f)
         {
-            return from + (to - from) * Evaluate(ease, time);
+            return from + (to - from) * Evaluate(ease, time, period, amplitude);
         }
 
         /// <summary>
@@ -162,11 +168,28 @@ namespace LazyJedi.Utility
 
         #region COLOR EASING
 
-        public static Color Color(EaseType ease, Color from, Color to, float time)
+        /// <summary>
+        /// Ease a Color value from a start value to an end value.<br/>
+        /// </summary>
+        /// <param name="ease">Ease Type - Linear, InQuad, etc</param>
+        /// <param name="from">Starting Value</param>
+        /// <param name="to">Ending Value</param>
+        /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
+        /// <param name="period">Period limits the number of bounces</param>
+        /// <param name="amplitude"> Amplitude limits the height of the bounces.</param>
+        public static Color Color(EaseType ease, Color from, Color to, float time, float period = 0.3f, float amplitude = 1f)
         {
-            return from + (to - from) * Evaluate(ease, time);
+            return from + (to - from) * Evaluate(ease, time, period, amplitude);
         }
 
+        /// <summary>
+        /// Ease a Color value from a start value to an end value.<br/>
+        /// This method uses an AnimationCurve instead of an EaseType.
+        /// </summary>
+        /// <param name="from">Starting Value</param>
+        /// <param name="to">Ending Value</param>
+        /// <param name="time">Time is clamped between 0 and 1, for e.g. Time / Duration</param>
+        /// <param name="curve">Given animation curve</param>
         public static Color Color(Color from, Color to, float time, AnimationCurve curve)
         {
             return from + (to - from) * Evaluate(time, curve);

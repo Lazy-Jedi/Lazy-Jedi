@@ -12,6 +12,11 @@ namespace LazyJedi.Examples.Easing
         public Transform Square;
         public Transform Target;
 
+        [Header("Colour")]
+        public SpriteRenderer SpriteRenderer;
+        public Color StartColor = Color.white;
+        public Color EndColor = Color.black;
+
         [Header("Ease Settings")]
         public EaseType EaseType = EaseType.Linear;
         public AnimationCurve AnimationCurve;
@@ -40,21 +45,31 @@ namespace LazyJedi.Examples.Easing
         {
             float time = 0f;
             Vector3 position = Square.position;
+            Vector3 target = Target.position;
             float startY = position.y;
-            float targetY = Target.position.y;
+            float targetY = target.y;
 
             while (time < Duration)
             {
-                position.y = startY + (targetY - startY) * EaseUtility.Evaluate(EaseType, time / Duration, Period, Amplitude);
-                // position.y = EaseUtility.Float(EaseType, startY, targetY, time / Duration);
+                // Change the position of the square by updating the y value
+                position.y = EaseUtility.Float(EaseType, startY, targetY, time / Duration);
                 // position.y = EaseUtility.Float(startY, targetY, time / Duration, AnimationCurve);
+                // position.y = startY + (targetY - startY) * EaseUtility.Evaluate(EaseType, time / Duration, Period, Amplitude);
                 Square.position = position;
+
+                // Change the colour of the square by updating the colour value
+                // SpriteRenderer.color = EaseUtility.Color(EaseType, StartColor, EndColor, time / Duration);
+                SpriteRenderer.color = EaseUtility.Color(StartColor, EndColor, time / Duration, AnimationCurve);
+
+                // Change the Vector3 position of the square by updating the Vector3 value
+                // Square.position = EaseUtility.Vector3(EaseType, position, target, time / Duration);
+                // Square.position = EaseUtility.Vector3(position, target, time / Duration, AnimationCurve);
+
                 yield return null;
                 time += Time.deltaTime;
             }
 
             Square.position = Target.position;
-
             yield return null;
         }
 
