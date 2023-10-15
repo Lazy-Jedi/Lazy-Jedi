@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:Label tabindex="-1" text="Fader Properties" display-tooltip-when-elided="true" name="lFaderProperties" style="padding-top: 16px; -unity-font-style: bold;" />
+        <ui:Toggle label="Use Canvas Group?" name="tglUseCanvasGroup" value="true" binding-path="UseCanvasGroup" />
+        <ui:Label tabindex="-1" text="Fade Components" display-tooltip-when-elided="true" name="lFadeComponents" style="padding-top: 16px; -unity-font-style: bold;" />
+        <ui:VisualElement name="veFadeComponents" style="flex-direction: column; flex-wrap: wrap; visibility: visible;">
+            <uie:ObjectField label="Canvas Group" allow-scene-objects="true" type="UnityEngine.CanvasGroup, UnityEngine.UIModule" name="objCanvasGroup" binding-path="CanvasGroup" style="visibility: visible; display: flex;" />
+            <uie:PropertyField binding-path="UIElements" name="pfUIElements" style="visibility: visible; display: none;" />
+        </ui:VisualElement>
+        <ui:Label tabindex="-1" text="Fade Properties" display-tooltip-when-elided="true" style="padding-top: 16px; -unity-font-style: bold;" />
+        <ui:Toggle label="Use Ease Type?" binding-path="UseEaseType" value="true" name="tglUseEaseType" />
+        <ui:EnumField label="Ease Type" type="EaseType, LazyJedi" binding-path="EaseType" name="efEaseType" />
+        <uie:PropertyField name="pfAnimationCurve" binding-path="AnimationCurve" style="display: none;" />
+        <ui:FloatField label="Fade Duration" value="1" binding-path="FadeDuration" />
+    </ui:VisualElement>
+</ui:UXML>

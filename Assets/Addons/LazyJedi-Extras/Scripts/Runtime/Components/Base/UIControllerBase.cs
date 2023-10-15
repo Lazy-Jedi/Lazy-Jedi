@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace LazyJedi.Components
+namespace LazyJedi.Components.Base
 {
     public abstract class UIControllerBase : MonoBehaviour
     {

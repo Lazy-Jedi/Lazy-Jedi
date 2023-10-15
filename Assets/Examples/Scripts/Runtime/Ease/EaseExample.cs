@@ -52,17 +52,17 @@ namespace LazyJedi.Examples.Easing
             while (time < Duration)
             {
                 // Change the position of the square by updating the y value
-                position.y = EaseUtility.Float(EaseType, startY, targetY, time / Duration);
+                position.y = EaseUtility.Float(EaseType, startY, targetY, time / Duration, Period, Amplitude);
                 // position.y = EaseUtility.Float(startY, targetY, time / Duration, AnimationCurve);
                 // position.y = startY + (targetY - startY) * EaseUtility.Evaluate(EaseType, time / Duration, Period, Amplitude);
                 Square.position = position;
 
                 // Change the colour of the square by updating the colour value
-                // SpriteRenderer.color = EaseUtility.Color(EaseType, StartColor, EndColor, time / Duration);
+                // SpriteRenderer.color = EaseUtility.Color(EaseType, StartColor, EndColor, time / Duration, Period, Amplitude);
                 SpriteRenderer.color = EaseUtility.Color(StartColor, EndColor, time / Duration, AnimationCurve);
 
                 // Change the Vector3 position of the square by updating the Vector3 value
-                // Square.position = EaseUtility.Vector3(EaseType, position, target, time / Duration);
+                // Square.position = EaseUtility.Vector3(EaseType, position, target, time / Duration, Period, Amplitude);
                 // Square.position = EaseUtility.Vector3(position, target, time / Duration, AnimationCurve);
 
                 yield return null;

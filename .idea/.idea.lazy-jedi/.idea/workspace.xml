@@ -5,23 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dd1a37c-cff4-48fe-8ed3-c82a9a5844e2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Easing.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Easing/EaseUtility.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Easing/EaseUtility.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/EaseExample.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/EaseExample.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/ease-example.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/ease-example.unity.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Cryptography.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Security.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Cryptography/SecurityUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Security/SecurityUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Cryptography/SecurityUtility.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Security/SecurityUtility.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/Entity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/Entity/EntityBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/Entity/EntityBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UIController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UIController/UIControllerBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UIController/UIControllerBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/EaseExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/EaseExample.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/ease-example.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/ease-example.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptTemplates/81-C# Components__C# Entity-NewEntityScript.cs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/81-C# Components__C# Entity-NewEntityScript.cs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptTemplates/81-C# Components__C# UIController-NewUIControllerScript.cs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptTemplates/81-C# Components__C# UIController-NewUIControllerScript.cs.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +39,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fff04f7679d34ef682fafa7e91b8b6546400/8b/6d59d619/AssetBundle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/ScriptableObjects/ScriptableObjectEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/ObjectPool/PooledObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/Base/UIControllerBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singleton/MonoSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Globals/LazyColors.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Hierarchy/GroupHierarchyObjects.cs" root0="FORCE_HIGHLIGHTING" />
@@ -108,7 +106,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2021.3.30f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -116,7 +114,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2021.3.30f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -319,7 +317,16 @@
       <workItem from="1696271827303" duration="3168000" />
       <workItem from="1696350964764" duration="7893000" />
       <workItem from="1696445852902" duration="11042000" />
-      <workItem from="1696487456091" duration="4263000" />
+      <workItem from="1696487456091" duration="4866000" />
+      <workItem from="1696704619409" duration="135000" />
+      <workItem from="1696704776724" duration="189000" />
+      <workItem from="1696755556052" duration="692000" />
+      <workItem from="1696868375777" duration="216000" />
+      <workItem from="1697041037081" duration="60000" />
+      <workItem from="1697047808083" duration="628000" />
+      <workItem from="1697049012840" duration="191000" />
+      <workItem from="1697049267518" duration="1688000" />
+      <workItem from="1697351965293" duration="24000" />
     </task>
     <servers />
   </component>

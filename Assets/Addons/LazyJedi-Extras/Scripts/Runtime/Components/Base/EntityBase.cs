@@ -1,7 +1,7 @@
 using LazyJedi.Extensions;
 using UnityEngine;
 
-namespace LazyJedi.Components
+namespace LazyJedi.Components.Base
 {
     public abstract class EntityBase : MonoBehaviour
     {

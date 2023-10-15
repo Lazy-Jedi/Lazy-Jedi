@@ -340,7 +340,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 220356138}
   StartColor: {r: 1, g: 1, b: 1, a: 1}
   EndColor: {r: 0, g: 0, b: 0, a: 1}
-  EaseType: 30
+  EaseType: 27
   AnimationCurve:
     serializedVersion: 2
     m_Curve:
