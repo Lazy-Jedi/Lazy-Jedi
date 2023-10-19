@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LazyJedi.Components.UI
 {
-    public class OnMouseFade : MonoBehaviour
+    public class OnMouseHoverFade : MonoBehaviour
     {
         #region FIELDS
 

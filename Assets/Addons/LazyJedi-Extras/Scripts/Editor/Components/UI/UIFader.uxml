@@ -9,8 +9,8 @@
         </ui:VisualElement>
         <ui:Label tabindex="-1" text="Fade Properties" display-tooltip-when-elided="true" style="padding-top: 16px; -unity-font-style: bold;" />
         <ui:Toggle label="Use Ease Type?" binding-path="UseEaseType" value="true" name="tglUseEaseType" />
-        <ui:EnumField label="Ease Type" type="EaseType, LazyJedi" binding-path="EaseType" name="efEaseType" />
+        <uie:EnumField label="Ease Type" value="Linear" type="EaseType, LazyJedi" name="efEaseType" binding-path="EaseType" />
         <uie:PropertyField name="pfAnimationCurve" binding-path="AnimationCurve" style="display: none;" />
-        <ui:FloatField label="Fade Duration" value="1" binding-path="FadeDuration" />
+        <uie:FloatField label="Fade Duration" value="1" binding-path="FadeDuration" />
     </ui:VisualElement>
 </ui:UXML>
