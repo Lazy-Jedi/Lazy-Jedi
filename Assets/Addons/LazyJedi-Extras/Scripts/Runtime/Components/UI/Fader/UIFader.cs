@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using LazyJedi.Utility;
@@ -16,11 +17,18 @@ namespace LazyJedi.Components.UI
         public CanvasGroup CanvasGroup;
         public List<CanvasRenderer> UIElements = new List<CanvasRenderer>();
 
+        [Header("Fade On Start")]
+        public bool FadeOnStart = false;
+        public FadeType FadeOnStartType = FadeType.FadeIn;
+
         [Header("Fade Properties")]
         public bool UseEaseType = true;
-        public EaseType EaseType = EaseType.Linear;
-        public AnimationCurve AnimationCurve;
-        public float FadeDuration = 1f;
+        public EaseType FadeInEaseType = EaseType.Linear;
+        public EaseType FadeOutEaseType = EaseType.Linear;
+        public AnimationCurve FadeInAnimationCurve;
+        public AnimationCurve FadeOutAnimationCurve;
+        public float FadeInDuration = 1f;
+        public float FadeOutDuration = 1f;
 
         private float _currentAlpha = 1f;
         private Coroutine _fadeRoutine;
@@ -31,12 +39,22 @@ namespace LazyJedi.Components.UI
 
         private void Start()
         {
-            FadeOut();
+            DoOnStart();
         }
 
         #endregion
 
         #region METHODS
+
+        public void FadeInNow()
+        {
+            FadeNow(1f);
+        }
+
+        public void FadeOutNow()
+        {
+            FadeNow(0f);
+        }
 
         public void FadeIn()
         {
@@ -46,7 +64,9 @@ namespace LazyJedi.Components.UI
             }
 
             print("FadeIn");
-            _fadeRoutine = StartCoroutine(UseCanvasGroup ? FadeCanvasGroup(CanvasGroup.alpha, 1f) : FadeUIElements(_currentAlpha, 1f));
+            _fadeRoutine = StartCoroutine(UseCanvasGroup
+                ? FadeCanvasGroup(FadeInEaseType, CanvasGroup.alpha, 1f, FadeInDuration, FadeInAnimationCurve)
+                : FadeUIElements(FadeInEaseType, _currentAlpha, 1f, FadeInDuration, FadeInAnimationCurve));
         }
 
         public void FadeOut()
@@ -57,19 +77,21 @@ namespace LazyJedi.Components.UI
             }
 
             print("FadeOut");
-            _fadeRoutine = StartCoroutine(UseCanvasGroup ? FadeCanvasGroup(CanvasGroup.alpha, 0f) : FadeUIElements(_currentAlpha, 0f));
+            _fadeRoutine = StartCoroutine(UseCanvasGroup
+                ? FadeCanvasGroup(FadeOutEaseType, CanvasGroup.alpha, 0f, FadeOutDuration, FadeOutAnimationCurve)
+                : FadeUIElements(FadeOutEaseType, _currentAlpha, 0f, FadeOutDuration, FadeOutAnimationCurve));
         }
 
         #endregion
 
         #region FADE METHODS
 
-        private IEnumerator FadeCanvasGroup(float from, float to)
+        private IEnumerator FadeCanvasGroup(EaseType easeType, float from, float to, float duration, AnimationCurve animationCurve)
         {
             float elapsedTime = 0f;
-            while (elapsedTime < FadeDuration)
+            while (elapsedTime < duration)
             {
-                CanvasGroup.alpha = ApplyEasingHelper(from, to, elapsedTime);
+                CanvasGroup.alpha = ApplyEasingHelper(easeType, from, to, elapsedTime / duration, animationCurve);
                 yield return null;
                 elapsedTime += Time.deltaTime;
             }
@@ -77,14 +99,14 @@ namespace LazyJedi.Components.UI
             CanvasGroup.alpha = to;
         }
 
-        private IEnumerator FadeUIElements(float from, float to)
+        private IEnumerator FadeUIElements(EaseType easeType, float from, float to, float duration, AnimationCurve animationCurve)
         {
             float elapsedTime = 0f;
-            while (elapsedTime < FadeDuration)
+            while (elapsedTime < duration)
             {
                 foreach (CanvasRenderer element in UIElements)
                 {
-                    _currentAlpha = ApplyEasingHelper(from, to, elapsedTime / FadeDuration);
+                    _currentAlpha = ApplyEasingHelper(easeType, from, to, elapsedTime / duration, animationCurve);
                     element.SetAlpha(_currentAlpha);
                 }
 
@@ -98,15 +120,53 @@ namespace LazyJedi.Components.UI
             }
         }
 
+        private void FadeNow(float fadeValue)
+        {
+            if (UseCanvasGroup)
+            {
+                CanvasGroup.alpha = fadeValue;
+                return;
+            }
+
+            foreach (CanvasRenderer element in UIElements)
+            {
+                element.SetAlpha(fadeValue);
+            }
+        }
+
         #endregion
 
         #region HELPER METHODS
 
-        private float ApplyEasingHelper(float from, float to, float elapsedTime)
+        private float ApplyEasingHelper(EaseType easeType, float from, float to, float elapsedTime, AnimationCurve animationCurve)
         {
             return UseEaseType
-                ? EaseUtility.Float(EaseType, from, to, elapsedTime / FadeDuration)
-                : EaseUtility.Float(from, to, elapsedTime / FadeDuration, AnimationCurve);
+                ? EaseUtility.Float(easeType, from, to, elapsedTime)
+                : EaseUtility.Float(from, to, elapsedTime, animationCurve);
+        }
+
+        private void DoOnStart()
+        {
+            if (!FadeOnStart)
+            {
+                return;
+            }
+
+            switch (FadeOnStartType)
+            {
+                case FadeType.FadeIn:
+                    FadeIn();
+                    break;
+                case FadeType.FadeOut:
+                    FadeOut();
+                    break;
+                case FadeType.FadeInNow:
+                    FadeInNow();
+                    break;
+                case FadeType.FadeOutNow:
+                    FadeOutNow();
+                    break;
+            }
         }
 
         #endregion

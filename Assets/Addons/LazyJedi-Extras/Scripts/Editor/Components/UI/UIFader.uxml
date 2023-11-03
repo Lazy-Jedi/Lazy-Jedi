@@ -7,10 +7,16 @@
             <uie:ObjectField label="Canvas Group" allow-scene-objects="true" type="UnityEngine.CanvasGroup, UnityEngine.UIModule" name="objCanvasGroup" binding-path="CanvasGroup" style="visibility: visible; display: flex;" />
             <uie:PropertyField binding-path="UIElements" name="pfUIElements" style="visibility: visible; display: none;" />
         </ui:VisualElement>
+        <ui:Label tabindex="-1" text="Fade On Start" display-tooltip-when-elided="true" style="padding-top: 16px; -unity-font-style: bold;" />
+        <ui:Toggle label="Fade On Start?" binding-path="FadeOnStart" />
+        <uie:EnumField label="Fade Type" value="FadeIn" binding-path="FadeOnStartType" />
         <ui:Label tabindex="-1" text="Fade Properties" display-tooltip-when-elided="true" style="padding-top: 16px; -unity-font-style: bold;" />
         <ui:Toggle label="Use Ease Type?" binding-path="UseEaseType" value="true" name="tglUseEaseType" />
-        <uie:EnumField label="Ease Type" value="Linear" type="EaseType, LazyJedi" name="efEaseType" binding-path="EaseType" />
-        <uie:PropertyField name="pfAnimationCurve" binding-path="AnimationCurve" style="display: none;" />
-        <uie:FloatField label="Fade Duration" value="1" binding-path="FadeDuration" />
+        <uie:EnumField label="Ease Type" value="Linear" type="EaseType, LazyJedi" name="efFadeInEaseType" binding-path="FadeInEaseType" />
+        <uie:EnumField label="Ease Type" value="Linear" type="EaseType, LazyJedi" name="efFadeOutEaseType" binding-path="FadeOutEaseType" />
+        <uie:PropertyField name="pfFadeInAnimCurve" binding-path="FadeInAnimationCurve" style="display: none;" />
+        <uie:PropertyField name="pfFadeOutAnimCurve" binding-path="FadeOutAnimationCurve" style="display: none;" />
+        <uie:FloatField label="Fade In Duration" value="1" binding-path="FadeInDuration" />
+        <uie:FloatField label="Fade Out Duration" value="1" binding-path="FadeOutDuration" />
     </ui:VisualElement>
 </ui:UXML>

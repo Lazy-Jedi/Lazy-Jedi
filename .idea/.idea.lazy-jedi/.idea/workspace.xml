@@ -7,11 +7,14 @@
     <list default="true" id="5dd1a37c-cff4-48fe-8ed3-c82a9a5844e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/Components/UI/UIFader.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/Components/UI/UIFader.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/Components/UI/UIFaderEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/Components/UI/UIFaderEditor.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/Triggers/OnMouseFade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/Triggers/OnMouseHoverFade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/Triggers/OnMouseFade.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/Triggers/OnMouseHoverFade.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2d-template.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2d-template.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/Components/UI/UIFaderEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/Components/UI/UIFaderEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/Triggers/FadeEvents.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/Triggers/FadeEvents.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/UIFader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/UIFader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Fade/FadeUI-Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Fade/FadeUI-Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +104,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2021.3.32f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -109,7 +112,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2021.3.32f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -323,6 +326,10 @@
       <workItem from="1697049267518" duration="1688000" />
       <workItem from="1697351965293" duration="24000" />
       <workItem from="1697687519884" duration="4228000" />
+      <workItem from="1698694878232" duration="1935000" />
+      <workItem from="1698869833610" duration="1181000" />
+      <workItem from="1698955371066" duration="399000" />
+      <workItem from="1698984639175" duration="779000" />
     </task>
     <servers />
   </component>

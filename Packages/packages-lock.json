@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.unity.2d.animation": {
-      "version": "7.0.11",
+      "version": "7.0.12",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -86,7 +86,7 @@
       "dependencies": {}
     },
     "com.unity.2d.tilemap.extras": {
-      "version": "2.2.6",
+      "version": "2.2.7",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -118,13 +118,13 @@
       "depth": 0,
       "source": "builtin",
       "dependencies": {
-        "com.unity.2d.animation": "7.0.11",
+        "com.unity.2d.animation": "7.0.12",
         "com.unity.2d.pixel-perfect": "5.0.3",
         "com.unity.2d.psdimporter": "6.0.7",
         "com.unity.2d.sprite": "1.0.0",
         "com.unity.2d.spriteshape": "7.0.7",
         "com.unity.2d.tilemap": "1.0.0",
-        "com.unity.2d.tilemap.extras": "2.2.6",
+        "com.unity.2d.tilemap.extras": "2.2.7",
         "com.unity.2d.aseprite": "1.0.1"
       }
     },
@@ -138,7 +138,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.21",
+      "version": "2.0.22",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -183,7 +183,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.core": {
-      "version": "1.11.0",
+      "version": "1.12.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {

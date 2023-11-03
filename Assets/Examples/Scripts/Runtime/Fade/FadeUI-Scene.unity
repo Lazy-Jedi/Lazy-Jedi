@@ -1064,21 +1064,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 246f2e9532f8df245a11d4c0b9ed726e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseCanvasGroup: 0
+  UseCanvasGroup: 1
   CanvasGroup: {fileID: 1994260500}
   UIElements:
   - {fileID: 327503669}
   - {fileID: 1197196792}
   - {fileID: 382837349}
+  FadeOnStart: 1
+  FadeOnStartType: 1
   UseEaseType: 1
-  EaseType: 30
-  AnimationCurve:
+  FadeInEaseType: 30
+  FadeOutEaseType: 26
+  FadeInAnimationCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  FadeDuration: 1
+  FadeOutAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  FadeInDuration: 1
+  FadeOutDuration: 5
 --- !u!1 &1197196789
 GameObject:
   m_ObjectHideFlags: 0

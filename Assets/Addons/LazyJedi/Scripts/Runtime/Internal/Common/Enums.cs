@@ -51,6 +51,14 @@ public enum EaseType
     InOutBounce,
 }
 
+public enum FadeType
+{
+    FadeIn,
+    FadeOut,
+    FadeInNow,
+    FadeOutNow
+}
+
 public static class Enums
 {
     public static Encoding GetEncoding(EncodingType encodingType)

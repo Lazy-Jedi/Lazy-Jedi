@@ -18,8 +18,10 @@ namespace LazyJedi.Editors.Common.Components
         private ObjectField _canvasGroup;
         private PropertyField _uiElements;
         private Toggle _useEaseType;
-        private EnumField _easeType;
-        private PropertyField _animationCurve;
+        private EnumField _fadeInEaseType;
+        private EnumField _fadeOutEaseType;
+        private PropertyField _FadeInAnimationCurve;
+        private PropertyField _FadeOutAnimationCurve;
 
         #endregion
 
@@ -34,8 +36,10 @@ namespace LazyJedi.Editors.Common.Components
             _canvasGroup = _root.Q<ObjectField>("objCanvasGroup");
             _uiElements = _root.Q<PropertyField>("pfUIElements");
             _useEaseType = _root.Q<Toggle>("tglUseEaseType");
-            _easeType = _root.Q<EnumField>("efEaseType");
-            _animationCurve = _root.Q<PropertyField>("pfAnimationCurve");
+            _fadeInEaseType = _root.Q<EnumField>("efFadeInEaseType");
+            _fadeOutEaseType = _root.Q<EnumField>("efFadeOutEaseType");
+            _FadeInAnimationCurve = _root.Q<PropertyField>("pfFadeInAnimCurve");
+            _FadeOutAnimationCurve = _root.Q<PropertyField>("pfFadeOutAnimCurve");
 
             _useCanvasGroup.RegisterValueChangedCallback(evt =>
             {
@@ -47,10 +51,17 @@ namespace LazyJedi.Editors.Common.Components
 
             _useEaseType.RegisterValueChangedCallback(evt =>
             {
-                _easeType.SetEnabled(evt.newValue);
-                _easeType.style.display = evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
-                _animationCurve.SetEnabled(!evt.newValue);
-                _animationCurve.style.display = !evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
+                _fadeInEaseType.SetEnabled(evt.newValue);
+                _fadeInEaseType.style.display = evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
+                
+                _fadeOutEaseType.SetEnabled(evt.newValue);
+                _fadeOutEaseType.style.display = evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
+                
+                _FadeInAnimationCurve.SetEnabled(!evt.newValue);
+                _FadeInAnimationCurve.style.display = !evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
+                
+                _FadeOutAnimationCurve.SetEnabled(!evt.newValue);
+                _FadeOutAnimationCurve.style.display = !evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
             });
 
 
