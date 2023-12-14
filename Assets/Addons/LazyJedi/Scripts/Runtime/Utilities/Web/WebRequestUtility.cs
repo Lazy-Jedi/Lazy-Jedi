@@ -108,7 +108,7 @@ namespace LazyJedi.Common
             string contentType = "application/json",
             Dictionary<string, string> headers = null)
         {
-            using (UnityWebRequest webRequest = UnityWebRequest.Post(url, body))
+            using (UnityWebRequest webRequest = UnityWebRequest.Post(url, body, contentType))
             {
                 if (headers != null)
                 {
