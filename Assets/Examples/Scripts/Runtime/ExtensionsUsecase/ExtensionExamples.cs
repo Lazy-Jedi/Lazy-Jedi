@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using LazyJedi.Extensions;
+using LazyJedi.Common.Extensions;
 using UnityEngine;
 
 namespace LazyJedi.Examples

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LazyJedi.Utility
+namespace LazyJedi.Utilities
 {
     /// <summary>
     /// Original Author - Kryzarel

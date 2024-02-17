@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
-using LazyJedi.Extensions;
-using LazyJedi.Utility;
+using LazyJedi.Common.Extensions;
+using LazyJedi.Utilities;
 using UnityEngine;
 
 namespace LazyJedi.IO

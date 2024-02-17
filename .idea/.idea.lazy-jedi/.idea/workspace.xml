@@ -6,16 +6,117 @@
   <component name="ChangeListManager">
     <list default="true" id="5dd1a37c-cff4-48fe-8ed3-c82a9a5844e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/Components/UI/UIFader.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/Components/UI/UIFader.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/Components/UI/UIFaderEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/Components/UI/UIFaderEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/Triggers/FadeEvents.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/Triggers/FadeEvents.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/Base/EntityBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/Base/EntityBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/UIFader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/UIFader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Fade/FadeUI-Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Fade/FadeUI-Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singleton.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singleton/MonoSingleton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singleton/MonoSingleton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singleton/SMonoSingleton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singleton/SMonoSingleton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singleton/Singleton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singleton/Singleton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Globals.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Globals/LazyColors.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Globals/LazyColors.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/UnityCloud.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/UnityCloud.zip.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Hierarchy/DragScriptToHierarchy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Hierarchy/DragScriptToHierarchy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Common.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Common/LazyEditorStrings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Common/LazyEditorStrings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Serializables.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Serializables/ProjectSetup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Serializables/ProjectSetup.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Styles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Styles/LazyEditorArt.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Styles/LazyEditorArt.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Styles/LazyEditorStyles.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Styles/LazyEditorStyles.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ProjectSetup/ProjectSetupWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ProjectSetup/ProjectSetupWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO/DataIO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO/DataIO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO/SecureDataIO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO/SecureDataIO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Array.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Array/ArrayExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Array/ArrayExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Bytes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Bytes/ByteExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Bytes/ByteExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Coroutine.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Coroutine/CoroutineExtension.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Coroutine/CoroutineExtension.zip.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Float.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Float/FloatExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Float/FloatExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/GameObject.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/GameObject/GameObjectExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/GameObject/GameObjectExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/IO.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/IO/IOExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/IO/IOExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/LayerMask.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/LayerMask/LayerMaskExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/LayerMask/LayerMaskExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/List.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/List/ListExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/List/ListExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/MonoBehaviour.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/MonoBehaviour/MonoBehaviourExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/MonoBehaviour/MonoBehaviourExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Object.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Object/ObjectExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Object/ObjectExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/String.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/String/StringExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/String/StringExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Texture2D.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Texture2D/Texture2DExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Texture2D/Texture2DExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Transform.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Transform/TransformExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Transform/TransformExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/UI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/UI/UIExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/UI/UIExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Easing/EaseUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Easing/EaseUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Math/MathUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Math/MathUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Security/SecurityUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Security/SecurityUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Editor/AdvancedTypePopup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Editor/AdvancedTypePopup.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Editor/MackySoft.SerializeReferenceExtensions.Editor.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Editor/MackySoft.SerializeReferenceExtensions.Editor.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Editor/ManagedReferenceUtility.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Editor/ManagedReferenceUtility.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Editor/SubclassSelectorDrawer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Editor/SubclassSelectorDrawer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Editor/TypeMenuUtility.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Editor/TypeMenuUtility.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Runtime.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Runtime/AddTypeMenuAttribute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Runtime/AddTypeMenuAttribute.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Runtime/MackySoft.SerializeReferenceExtensions.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Runtime/MackySoft.SerializeReferenceExtensions.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Runtime/SubclassSelectorAttribute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Runtime/SubclassSelectorAttribute.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/package.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/EaseExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/EaseExample.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ExtensionsUsecase/ExtensionExamples.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ExtensionsUsecase/ExtensionExamples.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/FileIO/FileIOExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/FileIO/FileIOExample.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2d-template.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2d-template.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/boot.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,28 +127,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c3648f585ec451b89153f45e2927a3ebe00/13/45aed62e/UnityWebRequest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/120b8d04add741329ccd415c000fb66615ac00/d3/96a53fcf/Color.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/6b/af7757fb/Action`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/97/68e1c8ef/AuthenticationHeaderValue.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/9e/df0eb832/HttpRequestHeaders.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/c5/ff863604/HttpClient.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fff04f7679d34ef682fafa7e91b8b6546400/8b/6d59d619/AssetBundle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/52/98a85119/UnityEventBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/ScriptableObjects/ScriptableObjectEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/Colours/LazyColours.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/ObjectPool/PooledObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/Base/UIControllerBase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/Triggers/FadeEvents.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/UI/Fader/Triggers/OnPointerFade.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singleton/MonoSingleton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Globals/LazyColors.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singletons/PersistentSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singletons/RegulatorSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singletons/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Hierarchy/GroupHierarchyObjects.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Common/LazyEditorStrings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Internal/Serializables/ProjectSetup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/Credits/CreditsWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ProjectFolders/CreateFolders.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Common/Enums.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Bytes/ByteExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Internal/Extensions/Float/FloatExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/EaseExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ExtensionsUsecase/ExtensionExamples.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/FileIO/FileIOExample.cs" root0="FORCE_HIGHLIGHTING" />
@@ -83,13 +173,13 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.build.unityPlugin&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\mruee\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\mruee\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\mruee\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\mruee\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
       &quot;C:\\Users\\mruee\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
@@ -104,7 +194,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2021.3.32f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -112,7 +202,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2021.3.32f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -329,7 +419,17 @@
       <workItem from="1698694878232" duration="1935000" />
       <workItem from="1698869833610" duration="1181000" />
       <workItem from="1698955371066" duration="399000" />
-      <workItem from="1698984639175" duration="779000" />
+      <workItem from="1698984639175" duration="1192000" />
+      <workItem from="1699171408584" duration="9000" />
+      <workItem from="1699587420489" duration="82000" />
+      <workItem from="1702570231025" duration="566000" />
+      <workItem from="1703689831919" duration="2552000" />
+      <workItem from="1703794695405" duration="485000" />
+      <workItem from="1706977698521" duration="3651000" />
+      <workItem from="1707565882759" duration="1283000" />
+      <workItem from="1708177866899" duration="1314000" />
+      <workItem from="1708179851744" duration="592000" />
+      <workItem from="1708180882444" duration="1757000" />
     </task>
     <servers />
   </component>

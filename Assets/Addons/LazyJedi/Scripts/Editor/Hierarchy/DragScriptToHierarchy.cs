@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
-using LazyJedi.Extensions;
+using LazyJedi.Common.Extensions;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;

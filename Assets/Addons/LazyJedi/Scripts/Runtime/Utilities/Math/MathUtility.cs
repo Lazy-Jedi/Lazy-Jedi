@@ -2,7 +2,7 @@
  * Created By: BluMalice
  */
 
-namespace LazyJedi.Utility
+namespace LazyJedi.Utilities
 {
     public static class MathUtility
     {

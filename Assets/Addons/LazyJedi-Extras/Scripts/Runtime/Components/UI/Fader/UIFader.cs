@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using LazyJedi.Utility;
+using LazyJedi.Utilities;
 using UnityEngine;
 
 namespace LazyJedi.Components.UI

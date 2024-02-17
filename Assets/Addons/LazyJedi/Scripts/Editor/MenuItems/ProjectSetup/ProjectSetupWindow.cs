@@ -1,9 +1,8 @@
 #if UNITY_EDITOR
-using System;
 using System.Collections.Generic;
 using System.IO;
+using LazyJedi.Common.Colours;
 using LazyJedi.Editors.Internal;
-using LazyJedi.Globals;
 using UnityEditor;
 using UnityEngine;
 
@@ -314,7 +313,7 @@ namespace LazyJedi.Editors.MenuItems
             {
                 _headerFont = Resources.Load<Font>(LazyEditorArt.MiniSquareFont);
             }
-            _centeredLabel ??= LazyEditorStyles.CustomHelpBoxLabel(LazyColors.UnityFontColorLite, LazyColors.UnityFontColorDark, 16, _headerFont);
+            _centeredLabel ??= LazyEditorStyles.CustomHelpBoxLabel(CommonColours.UnityFontColorLite, CommonColours.UnityFontColorDark, 16, _headerFont);
         }
 
         private void LoadProjectSetupData()

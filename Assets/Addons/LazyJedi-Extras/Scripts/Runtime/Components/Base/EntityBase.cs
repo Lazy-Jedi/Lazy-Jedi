@@ -1,4 +1,4 @@
-using LazyJedi.Extensions;
+using LazyJedi.Common.Extensions;
 using UnityEngine;
 
 namespace LazyJedi.Components.Base

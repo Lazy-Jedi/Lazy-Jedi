@@ -1,5 +1,5 @@
 using System.Collections;
-using LazyJedi.Utility;
+using LazyJedi.Utilities;
 using UnityEngine;
 
 namespace LazyJedi.Examples.Easing

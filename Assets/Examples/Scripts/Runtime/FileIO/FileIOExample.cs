@@ -1,5 +1,5 @@
 using System.IO;
-using LazyJedi.Extensions;
+using LazyJedi.Common.Extensions;
 using LazyJedi.IO;
 using UnityEngine;
 

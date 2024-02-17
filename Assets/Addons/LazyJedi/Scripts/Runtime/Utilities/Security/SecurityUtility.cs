@@ -1,10 +1,10 @@
 using System.IO;
 using System.Security.Cryptography;
-using LazyJedi.Extensions;
+using LazyJedi.Common.Extensions;
 using Microsoft.Win32;
 using UnityEngine;
 
-namespace LazyJedi.Utility
+namespace LazyJedi.Utilities
 {
     public static class SecurityUtility
     {
