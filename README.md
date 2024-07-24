@@ -74,35 +74,6 @@ your Computer to find them.
 
 ![](~Documentation/Images/open-application-paths.png)
 
-## Create
-
-### Serializable Dictionary Creator
-
-Please note that the Serialize Dictionary Package is now a separate addon. However, it will be shipped with
-future Lazy Jedi packages from now on.
-
-My Serializable Dictionary Creator, you can easily create different Serializable Dictionary Implementations for
-MonoBehaviours, Scriptable Objects and Serialized Dictionary Classes easily.
-
-To use the Creator, navigate to Lazy-Jedi/Create/Serializable Dictionary
-
-![](~Documentation/Images/create-serializable-dictionary.png)
-
-With the Creator you can easily Create Serialized Dictionary, MonoBehaviours with S-Dictionary or Scriptable Objects
-with<br>
-S-Dictionary Classes without much effort.
-
-![](~Documentation/Images/create-serializable-dictionary-window.png)
-
-To create any one of the above classes, you need to provide the following information:
-
-+ S-Dictionary Class Name
-+ Class Name
-+ Key Type
-    + Use Custom if your Type is not in the Drop Down
-+ Value Type
-    + Use Custom if your Type is not in the Drop Down
-
 ## Unity Terminal
 
 The Unity Terminal Addon allows you to code process commands that can be executed within Unity via the .Net
@@ -123,26 +94,6 @@ The Process Utilities has static Methods that shorthand executing Processes via 
 Please note that you do not need to run Processes on another thread, the only reason why I am using async is to avoid
 conflicts with the main Unity Thread.
 
-```csharp
-[MenuItem("Window/Python/Python Shell")]
-public static async void OpenPythonShell()
-{
-    await Task.Run(() => ProcessUtilities.StartProcess("python", true));
-}
-
-[MenuItem("Window/Python/IDLE")]
-public static async void OpenPythonIdle()
-{
-    await Task.Run(() => ProcessUtilities.StartAdvProcess("python", @"-m idlelib", true));
-}
-
-[MenuItem("Lazy-Jedi/Open/Resources Folder %#O", priority = 200)]
-public static void OpenPersonalResourcesFolder()
-{
-    ProcessUtilities.StartAdvProcess("explorer.exe", ResourcesFolder);
-}
-```
-
 ### Command Prompt and PowerShell
 
 Opens the Command Prompt or PowerShell in Unity as either an Admin or Non Admin.
@@ -154,33 +105,13 @@ include them.
 
 ![](~Documentation/Images/unity-terminal.png)
 
-### Custom Processes
-
-Custom Processes is a Script where you can create your own custom processes that can be executed within Unity.
-
-One of the Predefined Custom Processes is to Open your Local Resources folder on your Computer. This location is set in
-the Project Setup Window.
-
-```csharp
-public static class CustomProcesses
-{
- #region PERSONAL
-
-    [MenuItem("Lazy-Jedi/Open/Resources Folder %#O", priority = 200)]
-    public static void OpenPersonalResourcesFolder()
-    {
-        ProcessUtilities.StartAdvProcess("explorer.exe", ResourcesFolder);
-    }
-
-  #endregion
-}
-```
-
 # Runtime
 
 ## Data Persistence
 
 LazyJedi comes with a DataIO and SecureDataIO class that allows you to easily save and load data to and from a file.
+
+Note that I have included a Newtonsoft IO Package that uses the Newtonsoft Library to Serialize and Deserialize Data.
 
 ### DataIO
 
@@ -907,106 +838,6 @@ public IEnumerator TestEase()
 
 ```
 
-# Packages
-
-## Rotary Heart - Serializable Dictionary Lite
-
-Rotary Heart - Serializable Dictionary Lite is a Unity Package that adds Serializable Dictionaries to Unity.
-The package comes with a Readme that explains how to setup a serializable dictionary in Unity.
-
-Below I demonstrate the easiest way to use the Serializable Dictionary.
-
-```csharp
-[Serializable]
-public class SimpleDictionary : SerializableDictionaryBase<int, string>
-{
-    // This is your Serialized Dictionary that will show in the Inspector
-}
-
-public class UseSerializedDictionary : MonoBehaviour
-{
-    [Header("Dictionary")]
-    public SimpleDictionary SimpleDictionary = new SimpleDictionary();
-}
-```
-
-## MackySoft - Serializable References
-
-The "SubclassSelector" attribute allows you to easily set subclasses of those abstract classes in the Editor that are
-serialized by SerializeReference
-attribute.
-
-Please look at the Serialized Reference Example in the Examples folder to understand how to use the "[SubclassSelector]"
-attribute correctly.
-
-```csharp
-public interface ICommand
-{
-    void Execute();
-}
-
-[Serializable]
-public class DebugCommand : ICommand
-{
-    public string Message = string.Empty;
-    
-    public void Execute()
-    {
-        Debug.Log(Message);
-    }
-}
-
-
-[Serializable]
-public class CreatorCommand : ICommand
-{
-    public Object Prefab;
-
-    public void Execute()
-    {
-        Object.Instantiate(Prefab, new Vector3(Random.value + 5f, Random.value + 5f, 0f), Quaternion.identity);
-    }
-}
-
-[AddTypeMenu("Examples/Execute Command")]
-[Serializable]
-public class AddTypeMenuCommand : ICommand
-{
-    public string Message;
-
-    public void Execute()
-    {
-        Debug.Log(Message);
-    }
-}
-
-public class SerializedReferenceExamples : MonoBehaviour
-{
-    #region VARIABLES
-
-    [Header("Command")]
-    [SerializeReference, SubclassSelector]
-    public ICommand Command;
-
-    [Header("Commands")]
-    [SerializeReference, SubclassSelector]
-    public List<ICommand> Commands = new List<ICommand>();
-
-    #endregion
-
-    #region UNITY METHODS
-
-    private void Start()
-    {
-        Command?.Execute();
-
-        foreach (ICommand command in Commands)
-        {
-            command?.Execute();
-        }
-    }
-```
-
 # Lazy Jedi Addons
 
 + [Lazy Seven Zip](https://github.com/Lazy-Jedi/lazy-seven-zip)
@@ -1029,9 +860,7 @@ public class SerializedReferenceExamples : MonoBehaviour
 
 ## Packages
 
-1. Rotary Heart - [Serializable Dictionary Lite](https://assetstore.unity.com/publishers/28547)
-2. MackySoft - [Serializable Reference Extensions](https://github.com/mackysoft/Unity-SerializeReferenceExtensions)
-3. Kryzarel - [Easing Functions](https://gist.github.com/Kryzarel/bba64622057f21a1d6d44879f9cd7bd4)
+1. Kryzarel - [Easing Functions](https://gist.github.com/Kryzarel/bba64622057f21a1d6d44879f9cd7bd4)
 
 ## Plugins
 

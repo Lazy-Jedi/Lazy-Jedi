@@ -1,0 +1,38 @@
+.header-label {
+    flex-shrink: 1;
+    flex-grow: 1;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    font-size: 16px;
+    -unity-font-definition: resource('Fonts/Google-Fonts/Quicksand/Quicksand-SemiBold_Editor');
+}
+
+.container-border {
+    flex-grow: 0;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-width: 0.5px;
+    border-right-width: 0.5px;
+    border-bottom-width: 0.5px;
+    border-left-width: 0.5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    flex-shrink: 0;
+}
+
+.folder_path-textfield {
+    flex-grow: 1;
+    flex-shrink: 1;
+}

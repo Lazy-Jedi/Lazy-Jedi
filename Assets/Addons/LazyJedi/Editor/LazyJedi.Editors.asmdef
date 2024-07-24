@@ -1,0 +1,19 @@
+{
+    "name": "LazyJedi.Editors",
+    "rootNamespace": "",
+    "references": [
+        "GUID:53ba08a3abcaad74c849b6fa402c6e23",
+        "GUID:03e11b4e3ef7db44eb8d90e6be283079"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

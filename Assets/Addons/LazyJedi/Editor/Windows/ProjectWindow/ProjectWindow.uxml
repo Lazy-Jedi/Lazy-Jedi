@@ -1,0 +1,53 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Addons/LazyJedi/Editor/Windows/Project/ProjectWindow.uss?fileID=7433441132597879392&amp;guid=e1d21a34648c662409ab50c97b63909f&amp;type=3#ProjectWindow" />
+    <engine:ScrollView horizontal-scroller-visibility="Hidden" name="root">
+        <editor:Toolbar name="mainTlb">
+            <editor:ToolbarMenu text="File" name="fileTlb" />
+            <editor:ToolbarMenu text="Settings" name="settingsTlb" />
+            <editor:ToolbarMenu text="About" name="helpTlb" />
+            <editor:ToolbarToggle label="Auto Save?" name="autoSaveTgl" style="width: 78px;" />
+        </editor:Toolbar>
+        <engine:VisualElement name="logoContainer" style="height: 256px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+            <engine:VisualElement name="logo" style="flex-grow: 1; background-image: resource(&apos;Icons/light-saber-dark&apos;); -unity-background-scale-mode: scale-to-fit;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="productContainer" class="container-border" style="flex-shrink: 0;">
+            <engine:VisualElement name="headerContainer" style="flex-grow: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 0.5px; border-right-width: 0.5px; border-bottom-width: 0.5px; border-left-width: 0.5px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; height: 32px; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px;">
+                <engine:Label text="Product Settings" double-click-selects-word="false" triple-click-selects-line="false" name="headerLabel" class="header-label" />
+            </engine:VisualElement>
+            <editor:ObjectField label="Product Icon:" name="iconOF" data-source-type="UnityEngine.Texture2D, UnityEngine.CoreModule" />
+            <editor:ObjectField label="Cursor Icon:" name="cursorOF" data-source-type="UnityEngine.Texture2D, UnityEngine.CoreModule" />
+            <engine:TextField label="Company Name:" placeholder-text="Company Name" name="companyTF" />
+            <engine:TextField label="Product Name:" placeholder-text="Product Name" name="productTF" />
+        </engine:VisualElement>
+        <engine:VisualElement name="customFolderContainer" class="container-border" style="flex-grow: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 0.5px; border-right-width: 0.5px; border-bottom-width: 0.5px; border-left-width: 0.5px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px; flex-shrink: 0;">
+            <engine:VisualElement name="headerContainer" style="flex-grow: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 0.5px; border-right-width: 0.5px; border-bottom-width: 0.5px; border-left-width: 0.5px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; height: 32px; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px;">
+                <engine:Label text="Custom Settings" double-click-selects-word="false" triple-click-selects-line="false" name="headerLabel" class="header-label" style="font-size: 16px; -unity-font-style: bold; -unity-text-align: middle-center; flex-grow: 1;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="resourcesContainer" style="flex-grow: 1; flex-direction: row;">
+                <engine:TextField label="Resources Folder:" placeholder-text="Resources Folder Location" select-line-by-triple-click="false" select-word-by-double-click="false" select-all-on-focus="false" select-all-on-mouse-up="false" emoji-fallback-support="false" name="resFolderTF" class="folder_path-textfield" />
+                <engine:Button text="Browse" tooltip="Select the folder that has your local stored assets." name="resBrowseBtn" />
+            </engine:VisualElement>
+            <engine:Toggle label="Use Custom Temp Folder?" toggle-on-label-click="false" value="false" name="useCustomTgl" />
+            <engine:VisualElement name="tempContainer" enabled="false" style="flex-grow: 1; flex-direction: row;">
+                <engine:TextField label="Temp Folder:" placeholder-text="Temp Folder Location" select-line-by-triple-click="false" select-word-by-double-click="false" select-all-on-focus="false" select-all-on-mouse-up="false" emoji-fallback-support="false" name="tempFolderTF" class="folder_path-textfield" style="flex-grow: 1;" />
+                <engine:Button text="Browse" tooltip="Select the folder that will act as a temporary storage folder for any serialized information." name="tempBrowseBtn" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="customFolderContainer" class="container-border">
+            <engine:VisualElement name="headerContainer" style="flex-grow: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 0.5px; border-right-width: 0.5px; border-bottom-width: 0.5px; border-left-width: 0.5px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; height: 32px; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px;">
+                <engine:Label text="Project Folders" double-click-selects-word="false" triple-click-selects-line="false" name="headerLabel" class="header-label" style="font-size: 16px; -unity-font-style: bold; -unity-text-align: middle-center; flex-grow: 1;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="headerContainer" style="flex-grow: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 0.5px; border-right-width: 0.5px; border-bottom-width: 0.5px; border-left-width: 0.5px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; height: 32px; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px; flex-direction: row;">
+                <engine:Button text="+" name="addFolderBtn" tooltip="Add new folder" style="width: 24px; height: 24px; align-self: center;" />
+                <engine:Label text="Folders" double-click-selects-word="false" triple-click-selects-line="false" name="foldersLabel" class="header-label" style="font-size: 16px; -unity-font-style: bold; -unity-text-align: middle-center; flex-grow: 1;" />
+                <engine:Button text="-" name="removeFolderBtn" tooltip="Remove last folder" style="width: 24px; height: 24px; align-self: center;" />
+            </engine:VisualElement>
+            <engine:ListView name="foldersLv" header-title="Folders" style="flex-grow: 1; height: auto;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="buttonContainer" style="flex-grow: 1; flex-direction: row; justify-content: space-evenly; align-self: auto;">
+            <engine:Button text="Save Settings" name="saveBtn" style="flex-grow: 1; flex-shrink: 1;" />
+            <engine:Button text="Load Settings" name="loadBtn" style="flex-shrink: 1; flex-grow: 1;" />
+            <engine:Button text="Reset Settings" name="resetBtn" style="flex-grow: 1; flex-shrink: 1;" />
+        </engine:VisualElement>
+    </engine:ScrollView>
+</engine:UXML>

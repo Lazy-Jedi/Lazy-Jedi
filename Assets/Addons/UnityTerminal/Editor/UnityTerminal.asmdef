@@ -1,10 +1,10 @@
 {
     "name": "UnityTerminal",
     "rootNamespace": "",
-    "references": [
-        "GUID:f64e574145b11804db258632168e0044"
+    "references": [],
+    "includePlatforms": [
+        "Editor"
     ],
-    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

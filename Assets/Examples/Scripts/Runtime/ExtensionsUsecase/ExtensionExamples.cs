@@ -128,7 +128,7 @@ namespace LazyJedi.Examples
 
             print($"Is Valid Number {mobileNumber} - {mobileNumber.IsValidPhoneNumber()}");
             print($"Is Valid URL {url} - {url.IsValidUrl_Regex()}");
-            print($"Is Valid URL {url} - {url.IsValidUrl_Uri()}");
+            print($"Is Valid URL {url} - {url.IsValidUri()}");
         }
 
         private void GameObjectExtensions()

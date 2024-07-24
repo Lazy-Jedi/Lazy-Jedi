@@ -1,0 +1,19 @@
+.header-label {
+    font-size: 64px;
+    -unity-font-style: bold;
+    margin-top: 10px;
+    align-self: center;
+}
+
+.container-border {
+    border-width: 1px;
+    border-color: black;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.label {
+    font-size: 16px;
+    align-self: center;
+    margin-top: 10px;
+}

@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement name="root" style="flex-grow: 0; flex-direction: row; height: 32px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+        <ui:TextField name="folderPathTF" style="flex-grow: 1;" />
+        <ui:Button text="X" name="deleteBtn" style="height: 24px; width: 24px; align-self: center;" />
+    </ui:VisualElement>
+</ui:UXML>

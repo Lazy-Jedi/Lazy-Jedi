@@ -24,6 +24,9 @@ EditorUserSettings:
       value: 0655560053560f0b55585d7b48255c4412151c7278297331752d4b67bab1606c
       flags: 0
     RecentlyUsedSceneGuid-6:
+      value: 530057510703595a0f5c5f7044225e4441151e282a7e2560287f4d6bb3e13539
+      flags: 0
+    RecentlyUsedSceneGuid-7:
       value: 5000010706025e025e0a557241260c4446151d7b2d2d27617b7c4f65b5b7633d
       flags: 0
     vcSharedLogLevel:
@@ -43,4 +46,6 @@ EditorUserSettings:
   m_VCHierarchyOverlayIcons: 1
   m_VCOtherOverlayIcons: 1
   m_VCAllowAsyncUpdate: 1
+  m_VCScanLocalPackagesOnConnect: 1
   m_ArtifactGarbageCollection: 1
+  m_CompressAssetsOnImport: 1

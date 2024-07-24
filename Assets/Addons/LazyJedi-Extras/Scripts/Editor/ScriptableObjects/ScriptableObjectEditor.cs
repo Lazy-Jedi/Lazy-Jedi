@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using LazyJedi.Editors.Internal;
+using LazyJedi.Editors.Common;
+using LazyJedi.Editors.Globals;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -33,8 +34,8 @@ namespace LazyJedi.Editors.ScriptableObjects
         {
             get
             {
-                string path = new ProjectSetup().LoadSettings().TemporaryFolder;
-                path = Path.Combine(string.IsNullOrEmpty(path) ? LazyEditorStrings.DEFAULT_TEMPORARY_PATH : path, "Json");
+                string path = new Project().Load().TempFolder;
+                path = Path.Combine(string.IsNullOrEmpty(path) ? StringGlobals.SYS_TEMP_PATH : path, "Json");
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
@@ -80,7 +81,7 @@ namespace LazyJedi.Editors.ScriptableObjects
             Toggle tglOverwrite = _root.Q<Toggle>("tglOverwrite");
             tglOverwrite.RegisterValueChangedCallback(OnOverwriteToggle_Click);
             _showOverwriteWarning = tglOverwrite.value;
-            
+
             return _root;
         }
 
@@ -166,9 +167,9 @@ namespace LazyJedi.Editors.ScriptableObjects
             if (File.Exists(outPath) && _showOverwriteWarning)
             {
                 if (!EditorUtility.DisplayDialog($"Overwrite {_target.name}.json?"
-                                               , $"Are you sure you want to overwrite the save file {_target.name}.json?"
-                                               , "Yes"
-                                               , "No"))
+                        , $"Are you sure you want to overwrite the save file {_target.name}.json?"
+                        , "Yes"
+                        , "No"))
                     return;
             }
 
