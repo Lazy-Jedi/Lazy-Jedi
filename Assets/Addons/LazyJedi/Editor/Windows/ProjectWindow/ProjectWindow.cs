@@ -63,6 +63,7 @@ namespace LazyJedi.Editors.Windows
         private ListView _foldersLv;
         private Button _addFolderBtn;
         private Button _removeFolderBtn;
+        private Button _createFoldersBtn;
 
         private Button _saveBtn;
         private Button _loadBtn;
@@ -211,7 +212,8 @@ namespace LazyJedi.Editors.Windows
 
             _foldersLbl = _root.Q<Label>("foldersLabel");
             _foldersLbl.text = $"Folders - {_project.Folders.Count}";
-
+            _createFoldersBtn = _root.Q<Button>("createBtn");
+            _createFoldersBtn.clickable.clicked += () => CreateFolders(_project.Folders);
 
             _addFolderBtn = _root.Q<Button>("addFolderBtn");
             _addFolderBtn.clickable.clicked += AddFolder;

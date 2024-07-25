@@ -6,233 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5dd1a37c-cff4-48fe-8ed3-c82a9a5844e2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/ScriptableObjects/ScriptableObjectEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/ScriptableObjects/ScriptableObjectEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/Colours.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/Colours/LazyColours.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/Colours/LazyColours.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/Observables/Observer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/Observables/Observer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/LazyJedi.Extras.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/LazyJedi.Extras.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common/Serializables.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common/Serializables/ProjectSetup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common/Serializables/ProjectSetup.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common/Strings.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common/Strings/LazyEditorStrings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common/Strings/LazyEditorStrings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common/Styles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common/Styles/LazyEditorArt.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common/Styles/LazyEditorArt.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common/Styles/LazyEditorStyles.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Common/Styles/LazyEditorStyles.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Hierarchy.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Hierarchy/DragScriptToHierarchy.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Hierarchy/DragScriptToHierarchy.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Hierarchy/GroupHierarchyObjects.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Hierarchy/GroupHierarchyObjects.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/LazyJedi.Editors.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/LazyJedi.Editors.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ApplicationPaths.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ApplicationPaths/ApplicationPaths.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ApplicationPaths/ApplicationPaths.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/Credits.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/Credits/CreditsWindow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/Credits/CreditsWindow.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ProjectFolders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ProjectFolders/CreateFolders.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ProjectFolders/CreateFolders.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ProjectSetup.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ProjectSetup/ProjectSetupWindow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ProjectSetup/ProjectSetupWindow.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/RestartUnity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/RestartUnity/RestartUnity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/RestartUnity/RestartUnity.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Attribution.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Attribution.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/MuseoModerno.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/MuseoModerno/MuseoModerno-ExtraBold_Editor.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/MuseoModerno/MuseoModerno-ExtraBold_Editor.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/MuseoModerno/OFL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/MuseoModerno/OFL.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/MuseoModerno/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/MuseoModerno/README.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Quicksand.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Quicksand/OFL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Quicksand/OFL.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Quicksand/Quicksand-Bold_Editor.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Quicksand/Quicksand-Bold_Editor.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Quicksand/Quicksand-SemiBold_Editor.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Quicksand/Quicksand-SemiBold_Editor.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Quicksand/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Quicksand/README.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Rubik.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Rubik/OFL.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Rubik/OFL.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Rubik/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Rubik/README.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Rubik/Rubik-Medium_Editor.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Rubik/Rubik-Medium_Editor.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Rubik/Rubik-SemiBold_Editor.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Google-Fonts/Rubik/Rubik-SemiBold_Editor.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Kenney-fonts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Kenney-fonts/License.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Kenney-fonts/License.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Kenney-fonts/MiniSquare_Editor.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Fonts/Kenney-fonts/MiniSquare_Editor.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Icons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Icons/Attribution.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Icons/Attribution.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Icons/light-saber-dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Icons/light-saber-dark.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Icons/light-saber-light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Icons/light-saber-light.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Icons/light-saber-original.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Resources/Icons/light-saber-original.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Enums.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Enums/Enums.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Enums/Enums.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Array.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Array/ArrayExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Array/ArrayExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Bytes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Bytes/ByteExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Bytes/ByteExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Coroutine.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Coroutine/CoroutineExtension.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Coroutine/CoroutineExtension.zip.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Float.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Float/FloatExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Float/FloatExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/GameObject.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/GameObject/GameObjectExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/GameObject/GameObjectExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/IO.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/IO/IOExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/IO/IOExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/LayerMask.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/LayerMask/LayerMaskExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/LayerMask/LayerMaskExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/List.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/List/ListExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/List/ListExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/MonoBehaviour.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/MonoBehaviour/MonoBehaviourExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/MonoBehaviour/MonoBehaviourExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Object.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Object/ObjectExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Object/ObjectExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/String.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/String/StringExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/String/StringExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Texture2D.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Texture2D/Texture2DExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Texture2D/Texture2DExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Transform.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Transform/TransformExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/Transform/TransformExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/UI/UIExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Common/Extensions/UI/UIExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO/DataIO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO/DataIO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO/SecureDataIO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/IO/SecureDataIO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/LazyJedi.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/LazyJedi.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Easing.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Easing/EaseUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Easing/EaseUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Math.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Math/MathUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Math/MathUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Security.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Security/SecurityUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Security/SecurityUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Web.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Web/WebRequestUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Runtime/Utilities/Web/WebRequestUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Example.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Example/Example.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Example/Example.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Example/Example.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/Example/Example.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/AdvancedTypePopup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/AdvancedTypePopup.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/CopyAndPasteProperty.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/CopyAndPasteProperty.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/MackySoft.SerializeReferenceExtensions.Editor.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/MackySoft.SerializeReferenceExtensions.Editor.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/ManagedReferenceUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/ManagedReferenceUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/PropertyDrawerCache.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/PropertyDrawerCache.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/SubclassSelectorDrawer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/SubclassSelectorDrawer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/TypeMenuUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Editor/TypeMenuUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Runtime.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Runtime/AddTypeMenuAttribute.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Runtime/AddTypeMenuAttribute.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Runtime/MackySoft.SerializeReferenceExtensions.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Runtime/MackySoft.SerializeReferenceExtensions.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Runtime/SubclassSelectorAttribute.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/Runtime/SubclassSelectorAttribute.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/MackySoft/MackySoft/package.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/UnityTerminal.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal/Editor/CustomProcesses.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal/Editor/CustomProcesses.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal/Editor/UnityTerminal.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/UnityTerminal/Editor/UnityTerminal.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ExtensionsUsecase/ExtensionExamples.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ExtensionsUsecase/ExtensionExamples.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/ChangeColour.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/ChangeColour.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/Cube.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/Cube.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/ICommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/ICommand.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/Random Color Cube.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/Random Color Cube.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/Reference Example.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/Reference Example.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/SerializedReferenceExamples.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/SerializedReferenceExamples.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/serialized-reference-scene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/serialized-reference-scene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2023.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2023.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/~Documentation/Images/archive-usecases.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/~Documentation/Images/create-serializable-dictionary-window.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/~Documentation/Images/create-serializable-dictionary.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/~Documentation/Images/open-application-paths.png" beforeDir="false" afterPath="$PROJECT_DIR$/~Documentation/Images/open-application-paths.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/~Documentation/Images/open-folders.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/~Documentation/Images/open-project-settings.png" beforeDir="false" afterPath="$PROJECT_DIR$/~Documentation/Images/open-project-settings.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/~Documentation/Images/open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/~Documentation/Images/project-setup.png" beforeDir="false" afterPath="$PROJECT_DIR$/~Documentation/Images/project-setup.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/~Documentation/Images/unity-terminal.png" beforeDir="false" afterPath="$PROJECT_DIR$/~Documentation/Images/unity-terminal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Windows/ProjectWindow/ProjectWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Windows/ProjectWindow/ProjectWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Windows/ProjectWindow/ProjectWindow.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Windows/ProjectWindow/ProjectWindow.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,7 +91,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds\LazyJedi.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi\Builds" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -568,7 +345,8 @@
       <workItem from="1721016771360" duration="2248000" />
       <workItem from="1721274145150" duration="235000" />
       <workItem from="1721667413618" duration="1852000" />
-      <workItem from="1721851269446" duration="1566000" />
+      <workItem from="1721851269446" duration="2097000" />
+      <workItem from="1721900679013" duration="741000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,5 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <Style src="project://database/Assets/Addons/LazyJedi/Editor/Windows/Project/ProjectWindow.uss?fileID=7433441132597879392&amp;guid=e1d21a34648c662409ab50c97b63909f&amp;type=3#ProjectWindow" />
+    <Style src="project://database/Assets/Addons/LazyJedi/Editor/Windows/ProjectWindow/ProjectWindow.uss?fileID=7433441132597879392&amp;guid=e1d21a34648c662409ab50c97b63909f&amp;type=3#ProjectWindow" />
     <engine:ScrollView horizontal-scroller-visibility="Hidden" name="root">
         <editor:Toolbar name="mainTlb">
             <editor:ToolbarMenu text="File" name="fileTlb" />
@@ -42,7 +42,8 @@
                 <engine:Label text="Folders" double-click-selects-word="false" triple-click-selects-line="false" name="foldersLabel" class="header-label" style="font-size: 16px; -unity-font-style: bold; -unity-text-align: middle-center; flex-grow: 1;" />
                 <engine:Button text="-" name="removeFolderBtn" tooltip="Remove last folder" style="width: 24px; height: 24px; align-self: center;" />
             </engine:VisualElement>
-            <engine:ListView name="foldersLv" header-title="Folders" style="flex-grow: 1; height: auto;" />
+            <engine:ListView name="foldersLv" header-title="Folders" style="flex-grow: 1; height: 300px;" />
+            <engine:Button text="Create Folders" name="createBtn" />
         </engine:VisualElement>
         <engine:VisualElement name="buttonContainer" style="flex-grow: 1; flex-direction: row; justify-content: space-evenly; align-self: auto;">
             <engine:Button text="Save Settings" name="saveBtn" style="flex-grow: 1; flex-shrink: 1;" />
