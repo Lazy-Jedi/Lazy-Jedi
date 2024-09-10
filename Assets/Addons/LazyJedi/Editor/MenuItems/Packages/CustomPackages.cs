@@ -13,6 +13,8 @@ namespace LazyJedi.Editors.MenuItems
         private static AddRequest _request;
 
         private const string _newtonsoft = "com.unity.nuget.newtonsoft-json";
+        private const string _uniTask = "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask";
+        private const string _nuGet = "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity";
 
         #endregion
 
@@ -23,6 +25,22 @@ namespace LazyJedi.Editors.MenuItems
         {
             _request = Client.Add(_newtonsoft);
             EditorApplication.update += Progress;
+        }
+        
+        [MenuItem("Lazy-Jedi/Import Packages/UniTask", priority = 121)]
+        public static void ImportUniTask()
+        {
+            _request = Client.Add(_uniTask);
+            EditorApplication.update += Progress;
+            Application.OpenURL("https://github.com/Cysharp/UniTask");
+        }
+        
+        [MenuItem("Lazy-Jedi/Import Packages/NugetForUnity", priority = 122)]
+        public static void ImportNuGet()
+        {
+            _request = Client.Add(_nuGet);
+            EditorApplication.update += Progress;
+            Application.OpenURL("https://github.com/GlitchEnzo/NuGetForUnity");
         }
 
         #endregion

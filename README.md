@@ -861,6 +861,8 @@ public IEnumerator TestEase()
 ## Packages
 
 1. Kryzarel - [Easing Functions](https://gist.github.com/Kryzarel/bba64622057f21a1d6d44879f9cd7bd4)
+2. UniTask - [UniTask](https://github.com/Cysharp/UniTask)
+3. NuGetForUnity - [NuGet](https://github.com/GlitchEnzo/NuGetForUnity)
 
 ## Plugins
 
