@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dd1a37c-cff4-48fe-8ed3-c82a9a5844e2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Windows/ProjectWindow/ProjectWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Windows/ProjectWindow/ProjectWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Windows/ProjectWindow/ProjectWindow.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Windows/ProjectWindow/ProjectWindow.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Resources/Fonts/Google-Fonts/Attribution.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Resources/Fonts/Google-Fonts/Attribution.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Windows/ProjectWindow/ProjectWindow.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/Windows/ProjectWindow/ProjectWindow.uss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Runtime/Common/Extensions/Coroutine/DoTween_Coroutine_Addon.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Runtime/IO/IO_Newtonsoft_Update.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,22 +40,16 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Editor/ScriptableObjects/ScriptableObjectEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/Colours/LazyColours.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Common/ObjectPool/PooledObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/Components/Base/UIControllerBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singletons/PersistentSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singletons/RegulatorSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi-Extras/Scripts/Runtime/DesignPatterns/Creational/Singletons/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/Hierarchy/GroupHierarchyObjects.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/Credits/CreditsWindow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Addons/LazyJedi/Scripts/Editor/MenuItems/ProjectFolders/CreateFolders.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/Ease/EaseExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/ExtensionsUsecase/ExtensionExamples.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/FileIO/FileIOExample.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/ChangeColour.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/InterfaceReference/ICommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/WebRequest/WebRequestExample.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../Local/Unity/Test Project/Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eebf6a509b354512a5d405c8a7dd6f889b6600/96/8ad65599/SerializedProperty.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -66,29 +67,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Inspections-C#&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\mruee\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\mruee\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\mruee\\AppData\\Local\\Symbols\\src&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Inspections-C#",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Build\.exe" />
@@ -99,7 +95,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\6000.0.10f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\6000.0.26f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -107,7 +103,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\6000.0.10f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Program Files\Unity\Hub\Editor\6000.0.26f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mruee\Documents\Projects\GitHub\Unity\lazy-jedi" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -127,6 +123,9 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
       <option name="selectedOptions">
         <list />
       </option>
@@ -137,6 +136,9 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
       <option name="selectedOptions">
         <list />
       </option>
@@ -347,6 +349,8 @@
       <workItem from="1721667413618" duration="1852000" />
       <workItem from="1721851269446" duration="2097000" />
       <workItem from="1721900679013" duration="741000" />
+      <workItem from="1734336311302" duration="3452000" />
+      <workItem from="1734339851670" duration="684000" />
     </task>
     <servers />
   </component>
