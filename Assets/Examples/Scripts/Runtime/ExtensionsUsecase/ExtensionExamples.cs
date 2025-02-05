@@ -117,7 +117,6 @@ namespace LazyJedi.Examples
 
             print($"Is Valid Email {emailAddress} : {emailAddress.IsValidEmail_MailAddress()}");
             print($"Is Valid Email {emailAddress} : {emailAddress.IsValidEmail_Regex()}");
-            print($"Is Valid Email {emailAddress} : {emailAddress.IsValidEmail_StrictRegex()}");
 
             print($"Is AlphaNumeric {alphaNumeric} - {alphaNumeric.IsAlphanumeric()}");
 

@@ -8,28 +8,25 @@ namespace LazyJedi.Common.Extensions
     public static class ArrayExtension
     {
         /// <summary>
-        ///     Shuffling Algorithm Based on Knuth Fisher Yates Shuffle.
+        ///  Shuffling Algorithm Based on Knuth Fisher Yates Shuffle.
         /// </summary>
-        /// <param name="array"></param>
-        /// <typeparam name="T"></typeparam>
+        /// <param name="array"> The Array to Shuffle.</param>
         public static void Shuffle<T>(this T[] array)
         {
             Random random = new Random();
-            for (int i = 0; i < array.Length; i++)
+            int n = array.Length;
+            for (int i = n - 1; i > 0; i--)
             {
-                array.Swap(i, i + random.Next(array.Length - i));
+                array.Swap(i, random.Next(i + 1));
             }
         }
 
         /// <summary>
-        ///     Swap 2 Elements at Index i and Index j.
+        /// Swap 2 Elements at Index i and Index j.
         /// </summary>
-        /// <param name="array"></param>
-        /// <param name="i"></param>
-        /// <param name="j"></param>
-        /// <returns>
-        ///     The list with the newly Swapped Elements.
-        /// </returns>
+        /// <param name="array"> The Array to Swap Elements.</param>
+        /// <param name="i"> The Index of the First Element.</param>
+        /// <param name="j"> The Index of the Second Element.</param>
         public static void Swap<T>(this T[] array, int i, int j)
         {
             (array[i], array[j]) = (array[j], array[i]);

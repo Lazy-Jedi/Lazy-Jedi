@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,6 +9,17 @@ namespace LazyJedi.Common.Extensions
 {
     public static class StringExtension
     {
+        #region FIELDS
+
+        private static readonly Regex EmailRegex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled);
+        private static readonly Regex URLRegex = new Regex(@"^(http|https):\/\/([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$", RegexOptions.Compiled);
+        private static readonly Regex PhoneRegex = new Regex(@"^\+?[1-9]\d{0,3}-?\d{1,4}-?\d{1,4}$", RegexOptions.Compiled);
+        private static readonly Regex SpecialCharsRegex = new Regex(@"[^a-zA-Z0-9\s]", RegexOptions.Compiled);
+        private static readonly Regex MultipleSpacesRegex = new Regex(@"(\s){2,}", RegexOptions.Compiled);
+        private static readonly Regex SpecialCharsExcludingPunctuationRegex = new Regex(@"[^\w\s\n!@&()-\',.:\\""\\]", RegexOptions.Compiled);
+
+        #endregion
+
         #region STRING METHODS
 
         /// <summary>
@@ -91,40 +101,6 @@ namespace LazyJedi.Common.Extensions
 
         #endregion
 
-        #region LAZY PARSING
-
-        public static short ToShort(this string value)
-        {
-            return short.Parse(value);
-        }
-
-        public static int ToInt(this string value)
-        {
-            return int.Parse(value);
-        }
-
-        public static float ToFloat(this string value, NumberStyles numberStyles = NumberStyles.Any, IFormatProvider formatProvider = null)
-        {
-            return float.Parse(value, numberStyles, formatProvider ?? CultureInfo.InvariantCulture);
-        }
-
-        public static double ToDouble(this string value, NumberStyles numberStyles = NumberStyles.Any, IFormatProvider formatProvider = null)
-        {
-            return double.Parse(value, numberStyles, formatProvider ?? CultureInfo.InvariantCulture);
-        }
-
-        public static long ToLong(this string value)
-        {
-            return long.Parse(value);
-        }
-
-        public static bool ToBool(this string value)
-        {
-            return bool.Parse(value);
-        }
-
-        #endregion
-
         #region JSON
 
         /// <summary>
@@ -174,7 +150,7 @@ namespace LazyJedi.Common.Extensions
         /// <returns>True or False if the string has or does not match the given pattern</returns>
         public static bool MatchesPattern(this string input, string pattern)
         {
-            return !input.IsNullOrEmpty() && !input.IsNullOrEmpty() && Regex.IsMatch(input, pattern);
+            return !input.IsNullOrEmpty() && !input.IsNullOrWhiteSpace() && Regex.IsMatch(input, pattern);
         }
 
         /// <summary>
@@ -184,7 +160,7 @@ namespace LazyJedi.Common.Extensions
         /// <returns>Returns True or False if the String has or does not have any special characters</returns>
         public static bool HasSpecialChars(this string value)
         {
-            return Regex.IsMatch(value, @"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
+            return SpecialCharsRegex.IsMatch(value);
         }
 
         /// <summary>
@@ -195,7 +171,7 @@ namespace LazyJedi.Common.Extensions
         /// <returns>The new string after removing the special characters.</returns>
         public static string RemoveAllSpecialChars(this string value, string replacement = "")
         {
-            return Regex.Replace(value, @"[^a-zA-Z0-9]", replacement);
+            return SpecialCharsRegex.Replace(value, replacement);
         }
 
         /// <summary>
@@ -206,7 +182,7 @@ namespace LazyJedi.Common.Extensions
         /// <returns>The new string after removing the special characters.</returns>
         public static string RemoveSpecialChars_ExclSpaces(this string value, string replacement = "")
         {
-            return Regex.Replace(value, @"[^a-zA-Z0-9\s]+|(\s){2,}", replacement);
+            return Regex.Replace(value, @"[^a-zA-Z0-9]+|\s{2,}", replacement);
         }
 
         /// <summary>
@@ -217,7 +193,7 @@ namespace LazyJedi.Common.Extensions
         /// <returns>The new string after removing the special characters.</returns>
         public static string RemoveSpecialChars_ExclPunctuation(this string value, string replacement = "")
         {
-            return Regex.Replace(value, @"[^\w\d\s\n!@&()-\',.:\\""\\]", replacement).InnerTrim();
+            return SpecialCharsExcludingPunctuationRegex.Replace(value, replacement).InnerTrim();
         }
 
         /// <summary>
@@ -227,7 +203,7 @@ namespace LazyJedi.Common.Extensions
         /// <returns>The st</returns>
         public static string InnerTrim(this string value)
         {
-            return Regex.Replace(value, @"|(\s){2,}", string.Empty);
+            return MultipleSpacesRegex.Replace(value, string.Empty);
         }
 
         /// <summary>
@@ -237,7 +213,7 @@ namespace LazyJedi.Common.Extensions
         /// <returns>Returns True or False if the Alphanumeric String is Valid</returns>
         public static bool IsAlphanumeric(this string value)
         {
-            return !string.IsNullOrEmpty(value) && Regex.IsMatch(value, "^[a-zA-Z0-9]*$");
+            return !string.IsNullOrEmpty(value) && Regex.IsMatch(value, "^[a-zA-Z0-9]+$");
         }
 
         /// <summary>
@@ -257,7 +233,7 @@ namespace LazyJedi.Common.Extensions
         /// <returns>Returns True or False if the URL is Valid</returns>
         public static bool IsValidUrl_Regex(this string url)
         {
-            return Regex.IsMatch(url, @"^(http|https):\/\/([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$");
+            return URLRegex.IsMatch(url);
         }
 
         /// <summary>
@@ -267,17 +243,7 @@ namespace LazyJedi.Common.Extensions
         /// <returns>Returns True or False if the Phone Number is Valid</returns>
         public static bool IsValidPhoneNumber(this string phoneNumber)
         {
-            return Regex.IsMatch(phoneNumber, @"^\+?[1-9]\d{0,3}-?\d{1,4}-?\d{1,4}$");
-        }
-
-        /// <summary>
-        /// Checks if the email is valid using a Regex.
-        /// </summary>
-        /// <param name="email">The email string</param>
-        /// <returns>Returns True or False if the Email Address is Valid</returns>
-        public static bool IsValidEmail_Regex(this string email)
-        {
-            return Regex.IsMatch(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            return PhoneRegex.IsMatch(phoneNumber);
         }
 
         /// <summary>
@@ -285,9 +251,9 @@ namespace LazyJedi.Common.Extensions
         /// </summary>
         /// <param name="email">The email string</param>
         /// <returns>Returns True or False if the Email Address is Valid</returns>
-        public static bool IsValidEmail_StrictRegex(this string email)
+        public static bool IsValidEmail_Regex(this string email)
         {
-            return Regex.IsMatch(email, @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$");
+            return EmailRegex.IsMatch(email);
         }
 
         /// <summary>
@@ -313,6 +279,7 @@ namespace LazyJedi.Common.Extensions
             {
                 mailAddress = new MailAddress(email);
             }
+
             return mailAddress.Address == email;
         }
 
