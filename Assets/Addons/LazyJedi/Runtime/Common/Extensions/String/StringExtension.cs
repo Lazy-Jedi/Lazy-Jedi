@@ -16,7 +16,7 @@ namespace LazyJedi.Common.Extensions
         private static readonly Regex PhoneRegex = new Regex(@"^\+?[1-9]\d{0,3}-?\d{1,4}-?\d{1,4}$", RegexOptions.Compiled);
         private static readonly Regex SpecialCharsRegex = new Regex(@"[^a-zA-Z0-9\s]", RegexOptions.Compiled);
         private static readonly Regex MultipleSpacesRegex = new Regex(@"(\s){2,}", RegexOptions.Compiled);
-        private static readonly Regex SpecialCharsExcludingPunctuationRegex = new Regex(@"[^\w\s\n!@&()-\',.:\\""\\]", RegexOptions.Compiled);
+        private static readonly Regex SpecialCharsExcludingPunctuationRegex = new Regex(@"[^\w\s\n!@&()'\-\,\.\:\\""]", RegexOptions.Compiled);
 
         #endregion
 
