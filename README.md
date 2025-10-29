@@ -74,16 +74,6 @@ your Computer to find them.
 
 ![](~Documentation/Images/open-application-paths.png)
 
-## Unity Terminal
-
-The Unity Terminal Addon allows you to code process commands that can be executed within Unity via the .Net
-System.Diagnostics library.
-
-This is useful if you want to execute external processes within the Unity Environment.
-
-One good example would be to start an Android Emulator that can be used to Install and Test your Android builds made
-using Unity.
-
 ### Process Utilities
 
 The Process Utilities has static Methods that shorthand executing Processes via .Net Process method.
@@ -93,17 +83,6 @@ The Process Utilities has static Methods that shorthand executing Processes via 
 
 Please note that you do not need to run Processes on another thread, the only reason why I am using async is to avoid
 conflicts with the main Unity Thread.
-
-### Command Prompt and PowerShell
-
-Opens the Command Prompt or PowerShell in Unity as either an Admin or Non Admin.
-
-Please Note<br>
-The predefined Unity Terminal commands for opening the Command Prompt or PowerShell only work on the Windows OS.<br>
-I unfortunately do no have a Linux based OS to include the equivalent commands. However, if I do get the commands I will
-include them.
-
-![](~Documentation/Images/unity-terminal.png)
 
 # Runtime
 
@@ -171,104 +150,6 @@ DataIO.Delete<T>(filename: "filename", pathType: PathType.DefaultFolder); // T i
 
 // Delete Data from Slot
 DataIO.Delete<T>(slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to delete
-```
-
-### SecureDataIO
-
-DataIO is a static class that allows you to easily save and load data to and from a file.
-You can use this class to save and load Serializable Classes, Structs or ScriptableObjects.
-
-Please note that you can encrypt and decrypt data using the SecureDataIO class. However, you will need to set the Key
-and IV before you can encrypt and decrypt data using the AES save and load methods.
-
-**!!! Important !!!*+ <br>
-You are responsible for keeping your AES Key and IV safe. If you lose your AES Key or IV you will not
-be able to decrypt your data.
-
-The following method Parameters are optional:
-
-+ slotIndex - Default Slot is 1
-+ filename - Default filename is "typeof(T).Name"
-+ pathType - Default pathType is PathType.DefaultFolder
-+ prettyPrint - Default prettyPrint is false
-
-The following strings can be changed at runtime to suit your needs.
-
-```csharp
-// Default PathType is PersistentDataPath
-string defaultPath = SecureDataIO.DefaultPath;
-
-// Default Save Path is Application.persistentDataPath + "/Saves/"
-string savePath = SecureDataIO.SavePath;
-
-// Default Settings Path is Application.persistentDataPath + "/Settings/"
-string settingsPath = SecureDataIO.SettingsPath;
-
-// Default Slot Prefix is "Slot_"
-string slotPrefix = SecureDataIO.SlotPrefix;
-
-// Default File Extension is "bin"
-string extension = SecureDataIO.Extension;
-
-// The Default CipherMode is CBC
-CipherMode CipherMode = SecureDataIO.CipherMode;
-
-// The Default PaddingMode is PKCS7
-PaddingMode PaddingMode =SecureDataIO.PaddingMode;
-```
-
-The following methods can be used to generate a new AES Key and IV and RSA Public and Private Keys:
-
-```csharp
-GenerateRSAKeyPair(out RSAParameters publicKey, out RSAParameters privateKey);
-GenerateAESKeyAndIV(out byte[] aesKey, out byte[] aesIV);
-EncryptAESKey(RSAParameters publicKey, byte[] aesKey, bool fOAEP = false);
-```
-
-The following methods are used to save and load data using either Base64 or AES encryption and decryption. <br>
-
-```csharp
-// Save Data - Base64
-SecureDataIO.Save(data, filename: "filename", pathType: PathType.DefaultFolder, prettyPrint: true);
-
-// Save Data to Slot - Base64
-SecureDataIO.SaveToSlot(data, slotIndex: 1, filename:"filename", pathType: PathType.DefaultFolder, prettyPrint: true);
-
-// Load Data - Base64
-SecureDataIO.Load<T>(filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to load
-
-// Load Data from Slot - Base64
-SecureDataIO.LoadFromSlot<T>(slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to load
-
-// Load and Overwrite Data - Base64
-SecureDataIO.LoadAndOverwrite(data, filename: "filename", pathType: PathType.DefaultFolder);
-
-// Load and Overwrite Data from Slot - Base64
-SecureDataIO.LoadAndOverwriteFromSlot(slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder);
-
-// Save Data - AES
-SecureDataIO.Save(data, key, iv, filename: "filename", pathType: PathType.DefaultFolder, prettyPrint: true);
-
-// Save Data to Slot - AES
-SecureDataIO.SaveToSlot(data, key, iv, slotIndex: 1, filename:"filename", pathType: PathType.DefaultFolder, prettyPrint: true);
-
-// Load Data - AES
-SecureDataIO.Load<T>(key, iv, filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to load
-
-// Load Data from Slot - AES
-SecureDataIO.LoadFromSlot<T>(key, iv, slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to load
-
-// Load and Overwrite Data - AES
-SecureDataIO.LoadAndOverwrite(data, key, iv, filename: "filename", pathType: PathType.DefaultFolder);
-
-// Load and Overwrite Data from Slot - AES
-SecureDataIO.LoadAndOverwriteFromSlot(data, key, iv, slotIndex: 1, filename: "filename", pathType: PathType.DefaultFolder);
-
-// Delete Data
-SecureDataIO.Delete<T>(filename: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to delete
-
-// Delete Data from Slot
-SecureDataIO.DeleteFromSlot<T>(slotIndex: 1, filname: "filename", pathType: PathType.DefaultFolder); // T is the Type of the Data you want to delete
 ```
 
 ## Extensions
@@ -643,47 +524,6 @@ public class ProgressBar : MonoBehaviour
         return MathUtility.GetValueFromPercentage(Fill.amount, Min, Max);
     }
 }
-```
-
-### SecurityUtility
-
-You can use the SecurityUtility to encrypt and decrypt data using AES and RSA Encryption. <br>
-AES can be used on large data sets and RSA can be used to encrypt the AES Key and IV.
-
-The methods below are used to generate cryptographically secure random byte array or AES and RSA Keys.
-
-```csharp
-GenerateUniqueByteArray(int length = 16)
-GenerateAESKeyAndIV(out byte[] key, out byte[] iv)
-GenerateRSAKeyPair(out RSAParameters publicKey, out RSAParameters privateKey, int keySize = 2048)
-```
-
-The methods below are used to encrypt and decrypt data using AES and RSA.
-
-```csharp
-AESEncryption(string data, ref byte[] key, ref byte[] iv, CipherMode cipherMode = CipherMode.CBC, PaddingMode paddingMode = PaddingMode.PKCS7)
-AESDecryption(byte[] data, ref byte[] key, ref byte[] iv, CipherMode cipherMode = CipherMode.CBC, PaddingMode paddingMode = PaddingMode.PKCS7)
-RSAEncryption(byte[] data, RSAParameters publicKey, bool fOAEP = false)
-RSADecryption(byte[] data, RSAParameters privateKey, bool fOAEP = false)
-```
-
-The methods below are used to import and export RSA Keys and store them in the Registry or PlayerPrefs.
-
-**NB**
-
-The methods that are used to save and load RSA Keys from the Registry have been commented out so that the Package can support both .NET Standard and
-Framework. <br>
-At the current time, the Registry Methods only support .NET Framework. It can be reintroduced by uncommenting the Registry code.
-
-```csharp
-ImportRSAXMLKeys(string publicKey, string privateKey)
-ExportRSAXMLKeys(RSAParameters publicKey, RSAParameters privateKey)
-StoreRSAKey_Registry(string key, string value, string rsaKey)
-StoreRSAKey_PlayerPrefs(string key, string value)
-GetRSAKey_Registry(string keyID)
-GetRSAKey_PlayerPrefs(string keyID)
-DeleteRSAKey_Registry(string keyID)
-DeleteRSAKey_PlayerPrefs(string keyID)
 ```
 
 ### WebRequestUtility

@@ -5,29 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dd1a37c-cff4-48fe-8ed3-c82a9a5844e2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/AndroidProjectSystem.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lazy-jedi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/MenuItems/BrowsePaths/BrowseCustomPaths.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/MenuItems/BrowsePaths/BrowseCustomPaths.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/PropertyDrawers/Guid/SerializableGuidDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Editor/PropertyDrawers/Guid/SerializableGuidDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Runtime/Guid/SerializableGuid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Runtime/Guid/SerializableGuid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Runtime/IO/SecureDataIO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Runtime/IO/SecureDataIO.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Runtime/Utilities/Security.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Runtime/Utilities/Security/SecurityUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/LazyJedi/Runtime/Utilities/Security/SecurityUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal/Editor/ProcessUtilities.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal/Editor/ProcessUtilities.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal/Editor/UnityTerminal.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal/Editor/UnityTerminal.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal/Editor/WindowsCommandPrompt.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Addons/UnityTerminal/Editor/WindowsCommandPrompt.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/FileIO/FileIOExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/Runtime/FileIO/FileIOExample.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -390,7 +369,7 @@
       <workItem from="1743941310598" duration="25000" />
       <workItem from="1753328676759" duration="888000" />
       <workItem from="1761711637860" duration="309000" />
-      <workItem from="1761711976735" duration="155000" />
+      <workItem from="1761711976735" duration="510000" />
     </task>
     <servers />
   </component>
