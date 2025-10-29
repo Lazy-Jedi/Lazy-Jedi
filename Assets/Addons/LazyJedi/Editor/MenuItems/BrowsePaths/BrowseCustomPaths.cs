@@ -4,7 +4,7 @@ using LazyJedi.Editors.Common;
 using LazyJedi.Editors.Globals;
 using UnityEditor;
 using UnityEngine;
-using UnityTerminal;
+using LazyJedi.Utilities;
 
 namespace LazyJedi.Editors.MenuItems
 {
@@ -27,14 +27,14 @@ namespace LazyJedi.Editors.MenuItems
         [MenuItem("Lazy-Jedi/Open/Resources Folder %#O", priority = 200)]
         public static void OpenPersonalResourcesFolder()
         {
-            ProcessUtilities.StartAdvProcess("explorer.exe", new Project().Load().ResourcesFolder.Replace("/", "\\"));
+            SystemProcessUtility.AdvancedProcess("explorer.exe", new Project().Load().ResourcesFolder.Replace("/", "\\"));
         }
 
         [MenuItem("Lazy-Jedi/Open/Temporary Folder %#T", priority = 200)]
         public static void OpenTemporaryFolder()
         {
             string path = new Project().Load().TempFolder.Replace("/", "\\");
-            ProcessUtilities.StartAdvProcess("explorer.exe", Path.Combine(string.IsNullOrEmpty(path) ? StringGlobals.SYS_TEMP_PATH : path));
+            SystemProcessUtility.AdvancedProcess("explorer.exe", Path.Combine(string.IsNullOrEmpty(path) ? StringGlobals.SYS_TEMP_PATH : path));
         }
 
         #endregion

@@ -1,15 +1,15 @@
 using System.Diagnostics;
 
-namespace UnityTerminal
+namespace LazyJedi.Utilities
 {
-    public static class ProcessUtilities
+    public static class SystemProcessUtility
     {
         /// <summary>
         /// Start a standard Process without Arguments
         /// </summary>
         /// <param name="filename"></param>
         /// <param name="runAsAdmin"></param>
-        public static void StartProcess(string filename, bool runAsAdmin = false)
+        public static void BasicProcess(string filename, bool runAsAdmin = false)
         {
             using Process process = new Process();
             process.StartInfo.FileName = filename;
@@ -18,13 +18,13 @@ namespace UnityTerminal
         }
 
         /// <summary>
-        /// Start and Advanced Process with Arguments
+        /// Start an Advanced Process with Arguments
         /// </summary>
         /// <param name="filename"></param>
         /// <param name="argument"></param>
         /// <param name="hideWindow"></param>
         /// <param name="runAsAdmin"></param>
-        public static void StartAdvProcess(string filename, string argument, bool hideWindow = false, bool runAsAdmin = false)
+        public static void AdvancedProcess(string filename, string argument, bool hideWindow = false, bool runAsAdmin = false)
         {
             using Process process = new Process();
             process.StartInfo.FileName = filename;

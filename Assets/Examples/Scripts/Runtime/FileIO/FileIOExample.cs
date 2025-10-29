@@ -16,10 +16,6 @@ namespace LazyJedi.Examples
         public User User;
         public UserSO UserSO;
 
-        [Header("AES Key and IV")]
-        public byte[] Key;
-        public byte[] IV;
-
         string userPath => Path.Combine(Application.persistentDataPath, "User.json");
 
         #endregion
@@ -38,15 +34,12 @@ namespace LazyJedi.Examples
                 
                 // Secure Data and Data IO Class - Saving Plain and Encrypted string Data
                 DataIO.Save(User, filename: "userPlain", pathType: PathType.DefaultFolder, prettyPrint: true);
-                SecureDataIO.Save(User, ref Key, ref IV, filename: "userSecure", pathType: PathType.DefaultFolder, prettyPrint: true);
 
                 // Secure Data and Data IO Class - Save ScriptableObject as Plain and Encrypted string Data
                 DataIO.Save(UserSO, filename: "userSOPlain", pathType: PathType.DefaultFolder, prettyPrint: true);
-                SecureDataIO.Save(UserSO, ref Key, ref IV, filename: "userSOSecure", pathType: PathType.DefaultFolder, prettyPrint: true);
 
                 // Secure Data and Data IO Class - Save to Slot Plain and Encrypted string Data
                 DataIO.SaveToSlot(User, filename: "userPlain_1", slotIndex: 1, pathType: PathType.DefaultFolder, prettyPrint: true);
-                SecureDataIO.SaveToSlot(User, ref Key, ref IV, filename: "userSecure_1", slotIndex: 1, pathType: PathType.DefaultFolder, prettyPrint: true);
             }
 
             if (Load)
@@ -60,15 +53,12 @@ namespace LazyJedi.Examples
 
                 // Secure Data and Data IO Class - Loading Plain and Encrypted Data
                 DataIO.Load<User>(filename: "userPlain", pathType: PathType.DefaultFolder);
-                SecureDataIO.Load<User>(Key, IV, filename: "userSecure", pathType: PathType.DefaultFolder);
 
                 // Secure Data and Data IO Class - Load and Overwrite ScriptableObject with Plain and Encrypted Data
                 DataIO.LoadAndOverwrite(UserSO, filename: "userSOPlain", pathType: PathType.DefaultFolder);
-                SecureDataIO.LoadAndOverwrite(UserSO, Key, IV, filename: "userSOSecure", pathType: PathType.DefaultFolder);
 
                 // Secure Data and Data IO Class - Load From Slot Plain and Encrypted Data
                 DataIO.LoadFromSlot<User>(filename: "userPlain_1", slotIndex: 1, pathType: PathType.DefaultFolder);
-                SecureDataIO.LoadFromSlot<User>(Key, IV, filename: "userSecure_1", slotIndex: 1, pathType: PathType.DefaultFolder);
             }
         }
 
