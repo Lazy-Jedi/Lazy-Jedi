@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SerializableGuid:
-    _guid: dc196a9f-5604-43d4-a02d-c261c4cb3683
+    _guidString: 1dbbdc41-a7e1-41ad-a960-79e3cf0cf2c2
 --- !u!4 &187830493
 Transform:
   m_ObjectHideFlags: 0
